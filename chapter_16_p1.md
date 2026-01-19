@@ -77,9 +77,9 @@ $$ \text{Im}(Y) = \omega C - \frac{1}{\omega L} = 0 $$
 $$ \omega C = \frac{1}{\omega L} $$
 $$ \omega^2 = \frac{1}{LC} $$
 Hence, the resonant frequency is given by:
-$$ \omega_0 = \frac{1}{\sqrt{LC}} \space\text{rad/s} $$
+$$ \omega_0 = \frac{1}{\sqrt{LC}} \space\text{rad/s} \qquad [2]$$
 or
-$$ f_0 = \frac{1}{2\pi\sqrt{LC}} \space\text{Hz} $$
+$$ f_0 = \frac{1}{2\pi\sqrt{LC}} \space\text{Hz} \qquad [3]$$
 
 </div>
 
@@ -103,8 +103,10 @@ $$ Y(s) = C \frac{(s + \alpha - j\omega_d)(s + \alpha + j\omega_d)}{s} $$
 
 where $\alpha$ is the exponential damping coefficient and $\omega_d$ is the natural resonant frequency.
 
+$$ \alpha = \frac{1}{2RC}, \qquad \omega_d = \sqrt{\omega_0^2 - \alpha^2} $$
+
 <div class="flex justify-center my-4">
-  <img src="/fig_16_2_pole_zero.svg" class="w-100" />
+  <img src="/fig_16_2_pole_zero.svg" class="h-80" />
 </div>
 
 <div class="text-center text-sm">
@@ -162,12 +164,13 @@ where $\alpha$ is the exponential damping coefficient and $\omega_d$ is the natu
 - Let us examine the magnitude of the response, the voltage $V(s)$, as the frequency $\omega$ is varied.
 - If we assume a **constant-amplitude sinusoidal current source**, the voltage response is proportional to the **input impedance**.
 - At the resonant frequency, the voltage across the parallel resonant circuit is simply $IR$.
-- The entire source current $I$ flows through the resistor.
-- The current is also present in $L$ and $C$, but they sum to zero phase-wise (cancel each other).
 
-</div>
 <div class="justify-center items-center">
-  <img src="/parallel_resonant_circuit_1A.svg" class="h-45" />
+  <img src="/parallel_resonant_circuit_1A.svg" class="h-55 mx-auto" />
+</div>
+</div>
+
+<div>
 
 Derivation at $\omega = \omega_0$:
 
@@ -186,12 +189,35 @@ $$ V(j\omega_0) = \frac{I}{Y(j\omega_0)} = IR $$
   <img src="/voltage_response.png" class="w-150" />
 </div>
 
+<div class="text-center text-sm">
+  Magnitude of the voltage response as a function of frequency.
+</div>
+
 
 
 ---
 
+- The entire source current $I$ flows through the resistor.
+- The current is also present in $L$ and $C$, but they sum to zero phase-wise (cancel each other).
+
+<div class="justify-center items-center">
+  <img src="/parallel_resonance_currents.svg" class="h-50 mx-auto p-2" />
+</div>
+
+The current in the inductor and capacitor at resonance can be found by:
+
+$$ I_{L,0} = \frac{V}{j\omega_0 L} = \frac{IR}{j\omega_0 L} = -j \frac{R}{\omega_0 L} I = -j Q_0 I $$
+
+$$ I_{C,0} = \frac{V}{1/j\omega_0 C} = j\omega_0 C V = j\omega_0 C R I = j Q_0 I $$
+
+Thus, the currents in the inductor and capacitor are $Q_0$ times the source current magnitude and are $180^\circ$ out of phase.
 
 
+
+
+
+
+---
 
 $$ Y(s) = \frac{1}{R} + sC + \frac{1}{sL} = \frac{s^2 + s/RC + 1/LC}{s} = C \frac{(s + \alpha - j\omega_d)(s + \alpha + j\omega_d)}{s} $$
 
@@ -211,6 +237,22 @@ $$ Z(s) = \frac{s/C}{(s + \alpha - j\omega_d)(s + \alpha + j\omega_d)} $$
 - The height of the response curve depends only on $R$.
 - The **width** of the curve or the steepness of the sides depends on the other two element values ($L$ and $C$).
 - **Definition**: The response curve of any resonant circuit is determined by the maximum amount of energy that can be **stored** in the circuit, compared with the energy that is **lost** during one complete period of the response.
+
+  $$ Q_0 = 2\pi \frac{\text{Maximum Energy Stored}}{\text{Total Energy Lost per Period}} $$
+
+  For the parallel RLC circuit:
+  $$ Q_0 = \omega_0 R C = \frac{R}{\omega_0 L} $$
+
+---
+
+  **Derivation**:
+  1. Max Energy Stored ($W_{max}$):
+     $$ W(t) = \int_0^t p(x) dx = \int_0^t v i dx = \int_0^v C v dv = \frac{1}{2} C v^2 $$
+     $$ W_{max} = \frac{1}{2} C V_{max}^2 $$
+  2. Energy Lost per Period ($W_{lost}$):
+     $$ W_{lost} = P_R \cdot T = \frac{V_{max}^2}{2R} \cdot \frac{2\pi}{\omega_0} = \frac{\pi V_{max}^2}{\omega_0 R} $$
+  3. Calculate $Q_0$:
+     $$ Q_0 = 2\pi \frac{\frac{1}{2} C V_{max}^2}{\frac{\pi V_{max}^2}{\omega_0 R}} = 2\pi \frac{C V_{max}^2}{2} \cdot \frac{\omega_0 R}{\pi V_{max}^2} = \omega_0 R C $$
 
 ---
 
