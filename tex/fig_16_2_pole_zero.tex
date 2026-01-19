@@ -1,0 +1,75 @@
+\documentclass[border=10pt]{standalone}
+\usepackage{tikz}
+\usepackage{amsmath}
+
+\begin{document}
+\begin{tikzpicture}
+    % Part (a) Admittance Y(s)
+    \begin{scope}[xshift=0cm, scale=0.8]
+        \draw[->] (-5,0) -- (1,0) node[right] {$\sigma$};
+        \draw[->] (0,-6) -- (0,6) node[above] {$j\omega$};
+        
+        % Locations: alpha=3, wd=4 -> w0=5
+        \coordinate (origin) at (0,0);
+        \coordinate (p1) at (-3, 4);
+        \coordinate (p2) at (-3, -4);
+        \coordinate (alpha) at (-3,0);
+        \coordinate (jw0) at (0, 5);
+        
+        % Pole at origin
+        \node[red, scale=1.5] at (origin) {$\times$};
+        
+        % Zeros at -alpha +/- jwd
+        \draw[blue, thick, fill=white] (p1) circle (3pt);
+        \draw[blue, thick, fill=white] (p2) circle (3pt);
+        
+        % Labels
+        \draw[dashed, gray] (p1) -- (alpha) node[below, black] {$-\alpha$};
+        \draw[dashed, gray] (p1) -- (0,4) node[right, black] {$j\omega_d$};
+        \draw[dashed, gray] (p2) -- (0,-4) node[right, black] {$-j\omega_d$};
+        
+        % w0 vector and arc
+        \draw[dashed] (origin) -- (p1) node[midway, left=2pt] {$\omega_0$};
+        \draw[<->, shorten >=2pt, shorten <=2pt] (0,0) -- (p1);
+        
+        % Arc
+        \draw[dashed, red, thick] (0,0) circle (5); 
+        \node[right, red] at (0, 5) {$j\omega_0$};
+        \fill[red] (0,5) circle (1.5pt);
+
+        % Label (a)
+        \node at (-2, -7) {(a) $Y(s)$};
+    \end{scope}
+
+    % Part (b) Impedance Z(s)
+    \begin{scope}[xshift=8cm, scale=0.8]
+        \draw[->] (-5,0) -- (1,0) node[right] {$\sigma$};
+        \draw[->] (0,-6) -- (0,6) node[above] {$j\omega$};
+        
+        % Locations
+        \coordinate (origin) at (0,0);
+        \coordinate (p1) at (-3, 4);
+        \coordinate (p2) at (-3, -4);
+        \coordinate (alpha) at (-3,0);
+        
+        % Zero at origin
+        \draw[blue, thick, fill=white] (origin) circle (3pt);
+        
+        % Poles at -alpha +/- jwd
+        \node[red, scale=1.5] at (p1) {$\times$};
+        \node[red, scale=1.5] at (p2) {$\times$};
+        
+        % Labels
+        \draw[dashed, gray] (p1) -- (alpha) node[below, black] {$-\alpha$};
+        \draw[dashed, gray] (p1) -- (0,4) node[right, black] {$j\omega_d$};
+        \draw[dashed, gray] (p2) -- (0,-4) node[right, black] {$-j\omega_d$};
+        
+        % w0 vector logic (optional here, but keeping consistent geometry)
+        % User said "just two poles and one zero", so maybe minimalist.
+        \draw[dashed, thin] (origin) -- (p1) node[midway, left] {$\omega_0$};
+
+        % Label (b)
+        \node at (-2, -7) {(b) $Z(s)$};
+    \end{scope}
+\end{tikzpicture}
+\end{document}

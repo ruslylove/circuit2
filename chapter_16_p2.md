@@ -3,11 +3,11 @@ theme: seriph
 background: https://cover.sli.dev
 title: Chapter 16 Part 2
 info: |
-    ## Chapter 16 Part 2
-    Frequency Response: Scaling and Bode Diagrams
+  ## Chapter 16 Part 2
+  Frequency Response: Scaling and Bode Diagrams
 class: text-center
 drawings:
-    persist: false
+  persist: false
 transition: slide-left
 mdc: true
 ---
@@ -191,7 +191,7 @@ Calculate $|H(j\omega)|$ if $H_{dB}$ equals:
 4.  **Plot Construction**:
     - Start at 26 dB for $\omega < 100$.
     - At $\omega = 100$, slope changes to $+20$ dB/decade.
-![Example 16.7 Bode Plot](/public/example_16_7_bode.svg)
+![Example 16.7 Bode Plot](/example_16_7_bode.svg)
 <div class="text-xs text-center opacity-70">Fig 16.22: Bode Plot of Input Impedance</div>
 ---
 
@@ -262,7 +262,7 @@ Draw the Bode phase plot for the transfer function of Example 16.7.
   - Gain at $\omega=10$: calculated approx peak.
   - At $\omega=20,000$, slope becomes $0 - 20 = -20$ dB/dec.
 
-![Example 16.8 Bode Plot](/public/example_16_8_bode.svg)
+![Example 16.8 Bode Plot](/example_16_8_bode.svg)
 <div class="text-xs text-center opacity-70">Fig 16.27: Bode Amplitude Plot</div>
 
 ---
@@ -295,7 +295,7 @@ Construct a Bode magnitude plot for $H(s)$ equal to:
   - $\omega \ll 10$: $-90^\circ$.
   - $\omega = 10$: $-90 - 45 = -135^\circ$.
   - $10 < \omega < 20k$: Flat region? No, pole effects accumulate.
-![Example 16.9 Bode Plot](/public/example_16_9_bode.svg)
+![Example 16.9 Bode Plot](/example_16_9_bode.svg)
 <div class="text-xs text-center opacity-70">Fig 16.28: Bode Phase Response</div>
 
 ---

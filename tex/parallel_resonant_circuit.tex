@@ -1,0 +1,43 @@
+\documentclass[border=10pt]{standalone}
+\usepackage{tikz}
+\usepackage[american]{circuitikz}
+
+\begin{document}
+\begin{circuitikz}[thick]
+    % Current Source I
+    \draw (0,0) to[isource, l=$I$] (0,4);
+    
+    % Top wire with node for I_LC
+    \draw (0,4) -- (2,4); 
+    
+    % Resistor Branch
+    \draw (2,4) to[R, l=$R$, v=$V$] (2,0);
+    
+    % Wire to LC tank
+    \draw (2,4) -- (4,4) node[midway, above] {$I_{LC}$};
+    \draw (2,4) -- (4,4); % Redraw for connectivity if needed, but simple line is fine
+    
+    % Inductor Branch
+    \draw (4,4) to[L, l=$L$, i=$I_L$] (4,0);
+    
+    % Capacitor Branch
+    \draw (4,4) -- (6,4);
+    \draw (6,4) to[C, l=$C$, i=$I_C$] (6,0);
+    
+    % Bottom wire
+    \draw (0,0) -- (6,0);
+    
+    % Ground (optional, but good practice)
+    \draw (3,0) node[ground]{};
+    
+    % Arrow for I_LC
+    \draw[->] (2.5, 4) -- (3.5, 4);
+
+    % Junction dots (bubbles)
+    \node[circ] at (2,4) {};
+    \node[circ] at (4,4) {};
+    \node[circ] at (2,0) {};
+    \node[circ] at (4,0) {};
+    
+\end{circuitikz}
+\end{document}

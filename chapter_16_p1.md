@@ -10,6 +10,7 @@ drawings:
   persist: false
 transition: slide-left
 mdc: true
+layout: cover
 ---
 
 # Chapter 16: Frequency Response
@@ -50,24 +51,158 @@ transition: fade-out
 - In a two-terminal electrical network containing at least one inductor and one capacitor, we define **resonance** as the condition which exists when the input impedance of the network is **purely resistive**.
 - A network is in **resonance** (or resonant) when the voltage and current at the network input terminals are in phase.
 
+
+
+<div class="grid grid-cols-2 gap-4 items-center">
+  <div class="flex justify-center">
+    <img src="/parallel_resonant_circuit.svg" class="h-60" />
+  </div>
+  <div class="text-center">
+
+  $Y = \frac{1}{R} + j\left( \omega C - \frac{1}{\omega L} \right) \qquad [1]$
+
+  </div>
+</div>
+
+---
+
+# Resonant Frequency
+
+<div class="text-base">
+
+- Resonance occurs when the input impedance is purely resistive (unity power factor). 
+- This implies the imaginary part of the admittance $Y$ must be zero:
+
+$$ \text{Im}(Y) = \omega C - \frac{1}{\omega L} = 0 $$
+$$ \omega C = \frac{1}{\omega L} $$
+$$ \omega^2 = \frac{1}{LC} $$
+Hence, the resonant frequency is given by:
+$$ \omega_0 = \frac{1}{\sqrt{LC}} \space\text{rad/s} $$
+or
+$$ f_0 = \frac{1}{2\pi\sqrt{LC}} \space\text{Hz} $$
+
+</div>
+
+---
+
+# Pole-Zero Configuration
+
+The pole-zero configuration of the admittance function can also be used to considerable advantage here. Given $Y(s)$,
+
+$$ Y(s) = \frac{1}{R} + \frac{1}{sL} + sC $$
+
+or
+
+$$ Y(s) = C \frac{s^2 + s/RC + 1/LC}{s} \qquad [4] $$
+
+We may display the zeros of $Y(s)$ by factoring the numerator:
+
+$$ Y(s) = C \frac{(s + \alpha - j\omega_d)(s + \alpha + j\omega_d)}{s} $$
+
+---
+
+where $\alpha$ is the exponential damping coefficient and $\omega_d$ is the natural resonant frequency.
+
+<div class="flex justify-center my-4">
+  <img src="/fig_16_2_pole_zero.svg" class="w-100" />
+</div>
+
+<div class="text-center text-sm">
+
+  (a) Pole-zero constellation of admittance $Y(s)$. (b) Pole-zero constellation of impedance $Z(s)$.
+</div>
+
+
+---
+
+<div class="flex justify-center my-4">
+  <img src="/s_plane_surface.png" class="w-160" />
+</div>
+
+<div class="text-center text-sm">
+
+  Magnitude of input impedance $|Z(s)|$ on s-plane. Inset: Frequency response $|Z(j\omega)|$ (cross-section along $j\omega$ axis).<br>
+  Example: $Z(s) = \frac{s}{s^2 + 6s + 25}$ with $\alpha=3, \omega_d=4, \omega_0=5$.
+</div>
+
+
 ---
 
 # Resonance and the Voltage Response
 
-- Let us examine the magnitude of the response, the voltage $V(s)$, as the frequency $\omega$ is varied.
-- If we assume a **constant-amplitude sinusoidal current source**, the voltage response is proportional to the **input impedance**.
+<div class="">
+
 - The response maximum occurs exactly at the resonant frequency $\omega_0$.
 - The **admittance** possesses a constant conductance and a susceptance which has a minimum magnitude (zero) at resonance.
 - The **minimum admittance magnitude** occurs at resonance, and is $1/R$.
 - Hence, the **maximum impedance magnitude** is $R$, and it occurs at resonance.
 
+
+<div class="grid grid-cols-2 gap-4 items-center">
+  <div class="flex justify-center">
+
+  $$ Y(j\omega) = \frac{1}{R} + j\left(\omega C - \frac{1}{\omega L}\right), Z(j\omega) = \frac{1}{Y(j\omega)} $$
+
+    
+  </div>
+  <div class="flex justify-center">
+    <img src="/z_y_plot.png" class="h-60" />
+  </div>
+
+</div>
+
+</div>
 ---
 
 # Resonance and the Voltage Response (cont.)
 
+<div class="grid grid-cols-[3fr_2fr] gap-4">
+<div>
+
+- Let us examine the magnitude of the response, the voltage $V(s)$, as the frequency $\omega$ is varied.
+- If we assume a **constant-amplitude sinusoidal current source**, the voltage response is proportional to the **input impedance**.
 - At the resonant frequency, the voltage across the parallel resonant circuit is simply $IR$.
 - The entire source current $I$ flows through the resistor.
 - The current is also present in $L$ and $C$, but they sum to zero phase-wise (cancel each other).
+
+</div>
+<div class="justify-center items-center">
+  <img src="/parallel_resonant_circuit_1A.svg" class="h-45" />
+
+Derivation at $\omega = \omega_0$:
+
+$$ Y(j\omega_0) = \frac{1}{R} + j\left(\omega_0 C - \frac{1}{\omega_0 L}\right) = \frac{1}{R} $$
+
+Since $\omega_0 C = 1/(\omega_0 L)$, the imaginary part is zero. Thus,
+
+$$ V(j\omega_0) = \frac{I}{Y(j\omega_0)} = IR $$
+
+</div>
+</div>
+
+---
+
+<div class="flex justify-center my-4">
+  <img src="/voltage_response.png" class="w-150" />
+</div>
+
+
+
+---
+
+
+
+
+$$ Y(s) = \frac{1}{R} + sC + \frac{1}{sL} = \frac{s^2 + s/RC + 1/LC}{s} = C \frac{(s + \alpha - j\omega_d)(s + \alpha + j\omega_d)}{s} $$
+
+$$ Z(s) = \frac{s/C}{(s + \alpha - j\omega_d)(s + \alpha + j\omega_d)} $$
+
+
+---
+
+
+
+
 
 ---
 
