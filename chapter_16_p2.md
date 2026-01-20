@@ -10,6 +10,7 @@ drawings:
   persist: false
 transition: slide-left
 mdc: true
+layout: cover
 ---
 
 # Chapter 16: Frequency Response

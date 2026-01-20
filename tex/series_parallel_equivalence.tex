@@ -1,0 +1,20 @@
+\documentclass[border=2mm]{standalone}
+\usepackage[american]{circuitikz}
+
+\begin{document}
+\begin{circuitikz}[thick, font=\sffamily\small]
+
+    % (a) Series Network
+    \draw (0,0) to[R, l=$R_s$, o-] (3,0)
+    to[L, l=$jX_s$, -o] (6,0);
+    \node at (3, -1) {(a) Series Network};
+
+    % (b) Parallel Network
+    \begin{scope}[xshift=8cm]
+        \draw (0,0) to[short, o-] (1,0) -- (1,1) to[R, l=$R_p$] (4,1) -- (4,0) to[short, -o] (5,0);
+        \draw (1,0) -- (1,-1) to[L, l=$jX_p$] (4,-1) -- (4,0);
+        \node at (2.5, -2) {(b) Parallel Network};
+    \end{scope}
+
+\end{circuitikz}
+\end{document}
