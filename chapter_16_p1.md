@@ -608,17 +608,36 @@ Determine the approximate value of the admittance of a parallel RLC network for 
 - $C = 1/64 \mu\text{F}$
 - Operatiing frequency $\omega = 8.2 \text{ krad/s}$
 
+---
+
 **Solution**:
 1.  **Calculate Parameters**:
     - $\omega_0 = \frac{1}{\sqrt{LC}} = \frac{1}{\sqrt{1 \cdot (1/64) \times 10^{-6}}} = \frac{1}{\sqrt{1.5625 \times 10^{-8}}} = 8000 \text{ rad/s}$
     - $Q_0 = \omega_0 R C = 8000 \cdot 40000 \cdot (1.5625 \times 10^{-8}) = 5$
 2.  **Analyze Q**:
     - Since $Q_0 = 5$, this is a high-Q circuit ($Q_0 \ge 5$).
-3.  **Calculate Approximate Admittance**:
-    - $\omega = 8.2 \text{ krad/s} = 8200 \text{ rad/s}$.
-    - Deviation $\delta = \frac{\omega - \omega_0}{\omega_0} = \frac{200}{8000} = 0.025$.
-    - $Y \approx \frac{1}{R}(1 + j2Q_0\delta) = \frac{1}{40000}(1 + j2(5)(0.025)) = 25\mu S (1 + j0.25)$
-    - $Y \approx 25 + j6.25 \mu S$.
+3.  **Calculate Admittance**:
+    - $\omega = 8.2 \text{ krad/s}$. $G = 1/R = 25 \mu S$.
+
+<div class="grid grid-cols-2 gap-4 mt-2 text-base">
+<div>
+
+**Approximate Method**:
+- $N = 2Q_0\frac{\omega - \omega_0}{\omega_0} = 10(0.025) = 0.25$
+- $Y \approx G(1 + jN) = 25(1 + j0.25) \mu S$
+- $Y \approx 25 + j6.25 \mu S$
+- $Y \approx 25.77 \angle 14.04^\circ \mu S$
+</div>
+<div>
+
+**Exact Method**:
+- $Y = 1/R + j(\omega C - \frac{1}{\omega L})$
+- $\omega C = 8200(15.625 \text{ nF}) = 128.125 \mu S$
+- $\frac{1}{\omega L} = \frac{1}{8200 \text{ H}} \approx 121.95 \mu S$
+- $\text{Im}(Y) = 128.125 - 121.95 = 6.175 \mu S$
+- $Y = 25 + j6.175 \mu S = 25.75 \angle 13.87^\circ \mu S$
+</div>
+</div>
 
 
 
@@ -630,103 +649,681 @@ A marginally high-Q parallel resonant circuit has $f_0 = 440 \text{ Hz}$ with $Q
 (a) $f_1$
 (b) $f_2$
 And approximate values for:
-(c) $f_1$
+\(c) $f_1$
 (d) $f_2$
 
 **Answers**:
-- Accurate: 404.9 Hz, 478.2 Hz
-- Approximate: 403.3 Hz, 476.7 Hz
+- Accurate: $404.9 \text{ Hz}, 478.2 \text{ Hz}$
+- Approximate: $403.3 \text{ Hz}, 476.7 \text{ Hz}$
 
+
+
+---
+
+**Solution**:
+
+**Bandwidth**: $B = \frac{f_0}{Q_0} = \frac{440}{6} = 73.33 \text{ Hz}$.
+
+**(a) & (b) Accurate Values**:
+Using exact formulas: $f_{1,2} = f_0 \left[ \sqrt{1 + \left(\frac{1}{2Q_0}\right)^2} \mp \frac{1}{2Q_0} \right]$.
+- Term $\frac{1}{2Q_0} = \frac{1}{12} \approx 0.0833$.
+- Term $\sqrt{1 + (0.0833)^2} \approx 1.0035$.
+- $f_1 = 440 [1.0035 - 0.0833] = 404.9 \text{ Hz}$.
+- $f_2 = 440 [1.0035 + 0.0833] = 478.2 \text{ Hz}$.
+
+**\(c) & (d) Approximate Values**:
+- $f_1 \approx f_0 - \frac{B}{2} = 440 - 36.67 = 403.3 \text{ Hz}$.
+- $f_2 \approx f_0 + \frac{B}{2} = 440 + 36.67 = 476.7 \text{ Hz}$.
+
+
+
+---
+layout: two-cols
 ---
 
 # 16.3 Series Resonance
+<img src="/series_rlc.svg" class="h-50 rounded bg-white p-2 mb-4" />
+<div class="text-center">
 
-- **Resonant Frequency**: $\omega_0 = \frac{1}{\sqrt{LC}}$
-- **Quality Factor**: $Q_0 = \frac{\omega_0 L}{R} = \frac{1}{\omega_0 C R}$
-- **Definition**: $Q_0$ is $2\pi$ times (Max Energy Stored / Energy Lost per period).
-- **Half-Power Frequencies**: Impedance magnitude is $\sqrt{2}$ times the minimum ($R$).
+$Z = R + j\left( \omega L - \frac{1}{\omega C} \right)$
+</div>
+
+:: right ::
+- Resonance exists when the input impedance is purely resistive ($\text{Im}(Z) = 0$).
+- This implies:
+  $$ \omega L - \frac{1}{\omega C} = 0 \implies \omega^2 = \frac{1}{LC} $$
+- **Resonant Frequency**:
+  $$ \omega_0 = \frac{1}{\sqrt{LC}} \space\text{rad/s} $$
+- **Quality Factor**: 
+  $$ Q_0 = \frac{\omega_0 L}{R} = \frac{1}{\omega_0 CR} $$
+- **At Resonance**: $|Z|_{min} = R$. 
+- **Half-Power Points**: $|Z| = \sqrt{2}R$.
 
 ---
 
+# Series Resonance Parameters
+
+Similarly to the parallel case, the input impedance $Z(s)$ describes the circuit response.
+
+<div class="grid grid-cols-2 gap-4">
+<div>
+
+- **Input Impedance**:
+  $$ Z(s) = R + sL + \frac{1}{sC} = L \frac{s^2 + \frac{R}{L}s + \frac{1}{LC}}{s} $$
+- **Pole-Zero Configuration**:
+  $$ Z(s) = L \frac{(s + \alpha - j\omega_d)(s + \alpha + j\omega_d)}{s} $$
+- **Key Definitions**:
+  - $\omega_0 = \frac{1}{\sqrt{LC}}$ (Resonant frequency)
+  - $\alpha = \frac{R}{2L}$ (Damping coefficient)
+  - $\omega_d = \sqrt{\omega_0^2 - \alpha^2}$ (Natural frequency)
+
+</div>
+<div>
+
+- **Quality Factor**:
+  $$ Q_0 = \frac{\omega_0 L}{R} = \frac{1}{\omega_0 CR} $$
+- **Bandwidth**:
+  $$ B = \frac{\omega_0}{Q_0} = \frac{R}{L} = 2\alpha $$
+- **High-Q Relations**: 
+  - $\omega_0 \approx \frac{\omega_1 + \omega_2}{2}$
+  - $B \approx \omega_2 - \omega_1$
+  - Symmetry holds for $Q_0 \ge 5$.
+
+</div>
+</div>
+
+---
+
+
 # Series Resonance Conclusions
 
-- Bandwidth: $B = \frac{R}{L} = \frac{\omega_0}{Q_0}$
-- High-Q Approximations ($Q_0 \ge 5$):
-  - Similar band-splitting around $\omega_0$.
-  - Validity range: $0.9 \omega_0 \le \omega \le 1.1 \omega_0$.
+For the series RLC circuit:
+- $Q_0 = \frac{\omega_0 L}{R}, \quad B = \frac{\omega_0}{Q_0} = \frac{R}{L}$
+
+<div class="grid grid-cols-2 gap-4 mt-4">
+<div>
+
+### General Case (Low Q)
+- Exact Frequencies:
+  $$ \omega_{1,2} = \omega_0 \left[ \sqrt{1 + \left(\frac{1}{2Q_0}\right)^2} \mp \frac{1}{2Q_0} \right] $$
+- Impedance:
+  $$ Z = R + j\left(\omega L - \frac{1}{\omega C}\right) $$
+</div>
+<div>
+
+### High-Q ($Q_0 \ge 5$)
+- Approximate Frequencies:
+  $$ \omega_{1,2} \approx \omega_0 \mp \frac{B}{2} $$
+- Impedance:
+  $$ Z \approx R(1 + jN) \approx \sqrt{1+N^2}R \angle \tan^{-1}(N) $$
+  $$ N = \frac{2Q_0(\omega - \omega_0)}{\omega_0} $$
+  *(Valid for $0.9\omega_0 \le \omega \le 1.1\omega_0$)*
+</div>
+</div>
+
+
+---
+
+# Example 16.3
+
+The voltage $v_s = 100 \cos \omega t$ mV is applied to a series resonant circuit composed of a $10 \Omega$ resistance, a $200$ nF capacitance, and a $2$ mH inductance. 
+
+Calculate the current amplitude if $\omega = 48$ krad/s using both **exact** and **approximate** methods.
+
+---
+
+# Example 16.3 Solution
+
+$\omega_0 = 1/\sqrt{LC} = 50$ krad/s, $Q_0 = \omega_0 L / R = 10$ (**High-Q**), $B = \omega_0 / Q_0 = 5$ krad/s.
+
+<div class="grid grid-cols-2 gap-4 text-base">
+<div>
+
+### Approximate Method
+- Dev. from resonance:
+  $$ N = \frac{\omega - \omega_0}{B/2} = \frac{48 - 50}{2.5} = -0.8 $$
+- Impedance:
+  $$ Z \approx R(1 + jN) = 10(1 - j0.8) \Omega $$
+  $$ Z \approx \mathbf{12.81 \angle -38.66^\circ \Omega} $$
+- Current Amplitude:
+  $$ |I| \approx \frac{100 \text{ mV}}{12.81 \Omega} = \mathbf{7.806 \text{ mA}} $$
+
+</div>
+<div>
+
+### Exact Method
+- Component Reactances:
+  $$ X_L = \omega L = 96 \Omega $$
+  $$ X_C = 1/(\omega C) = 104.17 \Omega $$
+- Impedance:
+  $$ Z = 10 + j(96 - 104.17) \Omega $$
+  $$ Z = 10 - j8.17 \Omega = \mathbf{12.91 \angle -39.24^\circ \Omega} $$
+- Current Amplitude:
+  $$ |I| = \frac{100 \text{ mV}}{12.91 \Omega} = \mathbf{7.746 \text{ mA}} $$
+
+</div>
+</div>
+
+<div class="mt-4 text-center text-sm font-bold text-green-600">
+  Error is less than 1% for this high-Q circuit at 4% frequency deviation.
+</div>
 
 ---
 
 # Practice 16.4
 
+
 A series resonant circuit has a bandwidth of 100 Hz, $L = 20 \text{ mH}$, $C = 2 \mu\text{F}$. Determine:
 (a) $f_0$
 (b) $Q_0$
-(c) $Z_{in}$ at resonance
+\(c) $Z_{in}$ at resonance
 (d) $f_2$
 
-**Answers**:
-- 796 Hz
-- 7.96
-- $12.57 \Omega$ (purely resistive)
-- 846 Hz (approx)
+<v-click>
 
+**Answers**: (a) 796 Hz; (b) 7.96; \(c) $12.57 \Omega$; (d) 846 Hz.
+
+</v-click>
+
+---
+
+# Practice 16.4 Solution
+
+$B = 100 \text{ Hz}, \quad L = 20 \text{ mH}, \quad C = 2 \mu\text{F}$
+
+<div class="text-base">
+
+- **(a) Resonant Frequency**:
+  <v-click>
+
+  $$ f_0 = \frac{1}{2\pi \sqrt{LC}} = \frac{1}{2\pi \sqrt{(20 \times 10^{-3})(2 \times 10^{-6})}} \approx \mathbf{795.78 \text{ Hz}} $$
+  </v-click>
+
+- **(b) Quality Factor**:
+  <v-click>
+  
+  $$ Q_0 = \frac{f_0}{B} = \frac{795.78}{100} \approx \mathbf{7.96} $$
+  </v-click>
+
+- **\(c) Input Impedance at Resonance ($Z_{in} = R$)**:
+  <v-click>
+  
+  $$ B = \frac{R}{2\pi L} \implies R = 2\pi B L = 2\pi(100)(20 \times 10^{-3}) = 4\pi \approx \mathbf{12.57 \Omega} $$
+  </v-click>
+
+- **(d) Upper Half-Power Frequency (Approx since $Q_0 \ge 5$)**:
+  <v-click>
+  
+  $$ f_2 \approx f_0 + \frac{B}{2} = 795.78 + 50 = \mathbf{845.78 \text{ Hz}} $$
+  </v-click>
+
+</div>
+
+---
+layout: two-cols-header
 ---
 
 # 16.4 Other Resonant Forms
 
-- The idealized model depends on operating frequency range, Q, element materials, etc.
-- Practical inductors have losses (modeled by series $R$).
-- Practical capacitors have losses (modeled by parallel $R$).
+:: left ::
 
-**Example 16.4**:
-- Values: $R_1=2\Omega$, $L=1\text{H}$, $C=0.125\text{F}$, $R_2=3\Omega$.
-- Network: Series combination of $(R_1, L)$ in parallel with $(R_2, C)$.
-- **Resonant Frequency**: Im[Y] = 0.
-  - $Y = \frac{1}{R_1 + j\omega L} + \frac{1}{R_2 - j/\omega C}$
-  - After algebraic manipulation and setting Im[Y] = 0:
-  - $\omega_0 \approx 2 \text{ rad/s}$ (Exact calculation required).
-- **Impedance**: At resonance $Z_{in}$ is purely resistive.
+- The idealized model depends on operating frequency range, Q, element materials, etc.
+- Practical inductors (modeled by series $R$).
+- Practical capacitors (modeled by parallel $R$).
+
+<img src="/practical_parallel_rlc.svg" class="h-40 my-4 rounded bg-white mx-auto" />
+
+<div class="mt-6 px-2 bg-purple-50 border-l-4 border-purple-500 text-xs">
+
+  <span class="font-bold text-purple-700">Theoretical Insight:</span> Note that <b>$R_2$</b> does <u>not</u> appear in the $\omega_0$ formula. Because $R_2$ is purely real, it contributes only to the real part of $Y$. It scales the response magnitude but has <b>zero effect</b> on the resonant frequency.
+</div>
+
+
+:: right ::
+
+<div class="text-base">
+
+**Admittance Equation:**
+$$ Y = \frac{1}{R_2} + j\omega C + \frac{1}{R_1 + j\omega L} $$
+$$ Y = \frac{1}{R_2} + j\omega C + \frac{R_1 - j\omega L}{R_1^2 + \omega^2 L^2} $$
+
+**Resonance Condition ($\text{Im}(Y) = 0$):**
+$$ \omega_0 C - \frac{\omega_0 L}{R_1^2 + \omega_0^2 L^2} = 0 \implies C = \frac{L}{R_1^2 + \omega_0^2 L^2} $$
+$$ R_1^2 + \omega_0^2 L^2 = \frac{L}{C} \implies \omega_0^2 L^2 = \frac{L}{C} - R_1^2 $$
+
+**Resonant Frequency:**
+$$ \omega_0 = \sqrt{\frac{1}{LC} - \left(\frac{R_1}{L}\right)^2} $$
+
+
+
+</div>
+
+---
+
+# Example 16.4: Practical Resonant Circuit
+
+Using the values $R_1 = 2 \Omega$, $L = 1 \text{H}$, $C = 0.125 \text{F}$, and $R_2 = 3 \Omega$ for the circuit shown previously, determine the **resonant frequency** and the **impedance at resonance**.
+
+
+
+---
+
+# Example 16.4 Solution
+
+<div class="grid grid-cols-2 gap-4 items-center mt-2">
+  <div class="text-base">
+
+Using the derived formula for $\omega_0$:
+$$ \omega_0 = \sqrt{\frac{1}{(1)(0.125)} - \left(\frac{2}{1}\right)^2} = \sqrt{8 - 4} = \mathbf{2 \text{ rad/s}} $$
+
+- **At resonance ($\omega = 2$):**
+  $$ Y(j2) = \frac{1}{3} + j(2)(0.125) + \frac{1}{2 + j2} \\= \frac{1}{3} + j0.25 + \frac{2-j2}{8} = \mathbf{0.583 \text{ S}} $$
+
+- **Impedance at resonance:**
+  $$ Z(j2) = \frac{1}{0.583} \approx \mathbf{1.714 \Omega} $$
+
+*(Note: Maximum impedance magnitude occurs at $\omega_m = 3.26$ rad/s, not at $\omega_0$.)*
+
+  </div>
+  <div class="flex flex-col items-center">
+    <img src="/example_16_4_plot.png" class="h-60 rounded" />
+    <div class="mt-4 p-2 bg-blue-50 border-l-4 border-blue-500 text-xs w-full">
+
+  <span class="font-bold text-blue-700">Key Takeaway:</span> In non-ideal or Low-Q circuits, <b>Resonance</b> ($\text{Im}(Y)=0$) and <b>Maximum Response</b> ($|Z|_{max}$) occur at <u>different</u> frequencies. They only converge as $Q$ increases.
+  </div>
+  </div>
+</div>
 
 ---
 
 # Practice 16.5
 
-Referring to the circuit of Fig. 16.9a (Practical inductor/capacitor model):
-- $R_{coil} = 1 \text{ k}\Omega$ (Parallel/Series model conversion needed?)
+Referring to the circuit of Fig. 16.9a (Practical inductor in RLC Parallel circuit  ):
+- $R_{1} = 1 \text{ k}\Omega$ 
 - $C = 2.533 \text{ pF}$
 - Target Resonant Frequency: 1 MHz
 
 Determine inductance necessary.
 
+<v-click>
+
 **Answer**: 10 mH.
+
+</v-click>
 
 ---
 
-# Example 16.5 & Practice 16.6
+# Practice 16.5 Solution
 
-**Example 16.5 & Practice 16.6**
+$f_0 = 1 \text{ MHz} \implies \omega_0 = 2\pi \times 10^6 \text{ rad/s}, \quad R_1 = 1 \text{ k}\Omega, \quad C = 2.533 \text{ pF}$
 
-Find the parallel equivalent of the series combination of a **100 mH** inductor and a **5 $\Omega$** resistor at a frequency of **1000 rad/s**.
+<div class="text-base">
 
-**Solution**:
-- Series Impedance: $Z_s = R_s + j\omega L_s = 5 + j(1000)(0.1) = 5 + j100 \Omega$.
-- Admittance: $Y_p = \frac{1}{Z_s} = \frac{1}{5 + j100} = \frac{5 - j100}{5^2 + 100^2} = \frac{5 - j100}{10025}$
-- $Y_p \approx \frac{5}{10000} - j\frac{100}{10000} = 0.5 \text{ mS} - j10 \text{ mS}$.
-- Parallel Resistance: $R_p = 1/G = 1/0.5\text{mS} = 2 \text{ k}\Omega$. (Wait, check math: $5^2+100^2 = 10025$. Real part $5/10025 = 0.000498$ S. $R_p \approx 2003 \Omega$).
-- *Note*: High-Q Approximation $Q = 100/5 = 20$.
-- $R_p \approx Q^2 R_s = 400(5) = 2000 \Omega$.
-- $L_p \approx L_s = 100 \text{ mH}$.
+Using the exact resonant frequency formula for a practical parallel circuit:
+<v-click>
 
-**Re-evaluating Practice Answer**:
-- The provided answer says $640 k\Omega$. Let's dry run $Q=20$. $R_p \approx Q^2 R$? No.
-- Let's check the Practice 16.6 Answer provided in text: $L_p = 8H, R_p = 640 k\Omega$.
-- This implies a different frequency or component values? Or maybe $L=8H$?
-- If answer is fixed, I will just format the question better.
+$$ \omega_0^2 = \frac{1}{LC} - \frac{R_1^2}{L^2} \implies L^2 \omega_0^2 C - L + R_1^2 C = 0 $$
+</v-click>
 
-**Practice 16.6 Answer**:
-- Parallel Equiv: $L_p = 8 \text{ H}$, $R_p = 640 \text{ k}\Omega$.
+Substitute values ($4\pi^2 C \approx 100 \times 10^{-12}$):
+<v-click>
 
-**Practice 16.7**:
-Find a series equivalent for a parallel network.
-- Answer: $5 \text{ H}$, $250 \text{ k}\Omega$.
+$$ L^2 (100) - L + (10^6)(2.533 \times 10^{-12}) = 0 $$
+$$ 100 L^2 - L + 2.533 \times 10^{-6} = 0 $$
+</v-click>
+
+Solve using quadratic formula $L = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}$:
+<v-click>
+
+$$ L = \frac{1 \pm \sqrt{1 - 1.0132 \times 10^{-3}}}{200} \approx \frac{1 \pm 0.9995}{200} $$
+</v-click>
+
+<v-click>
+
+- $L_1 = \frac{1.9995}{200} \approx \mathbf{10 \text{ mH}}$ (Matching textbook solution)
+- $L_2 = \frac{0.0005}{200} \approx 2.5 \mu\text{H}$
+</v-click>
+
+</div>
+
+
+---
+
+# Practice 16.5 Solution (Cont.)
+
+<div class="grid grid-cols-2 gap-4 items-center mt-2">
+  <div class="text-base">
+
+Using $L = 10 \text{ mH}$, we can calculate the **actual** peak shift:
+- **Resonant frequency** ($f_0$):
+  $f_0 = \frac{1}{2\pi}\sqrt{\frac{1}{LC} - \left(\frac{R_1}{L}\right)^2} \approx \mathbf{0.9999 \text{ MHz}}$
+- **Max Response frequency** ($f_m$):
+  $f_m \approx 1.0000 \text{ MHz}$
+- **Quality Factor** ($Q_0$):
+  $Q_0 = \omega_0 L / R_1 \approx \mathbf{62.8}$
+
+<div class="mt-4 p-2 bg-green-50 border-l-4 border-green-500 text-[10px]">
+
+<span class="font-bold text-green-700">Visual Verification:</span> Because $Q_0$ is high ($\ge 10$), the discrepancy between resonance and peak magnitude is negligible ($< 0.1\%$). This justifies the assumption $f_0 \approx 1/\sqrt{LC}$ in many high-Q designs.
+</div>
+
+  </div>
+  <div class="flex flex-col items-center">
+    <img src="/practice_16_5_plot.png" class="h-60 rounded" />
+  </div>
+</div>
+
+
+
+---
+
+# Equivalent Series and Parallel Combinations
+
+To transform a practical circuit (series $R_s, L_s$) into an ideal parallel form ($R_p \parallel L_p$), we equate their admittances at a specific frequency $\omega$.
+
+<div class="grid grid-cols-2 gap-8">
+<div>
+
+**Series Network ($R_s, X_s$)**
+$$ Y_s = \frac{1}{R_s + jX_s} = \frac{R_s - jX_s}{R_s^2 + X_s^2} $$
+
+**Quality Factor ($Q$):**
+$$ Q_s = \frac{|X_s|}{R_s} $$
+
+</div>
+<div>
+
+**Parallel Network ($R_p, X_p$)**
+$$ Y_p = \frac{1}{R_p} + \frac{1}{jX_p} = \frac{1}{R_p} - j\frac{1}{X_p} $$
+
+**Quality Factor ($Q$):**
+$$ Q_p = \frac{R_p}{|X_p|} $$
+
+</div>
+</div>
+
+<v-click>
+
+At equivalence: **$Q_s = Q_p = Q$**
+
+</v-click>
+
+---
+
+# Transformation Formulas
+
+Equating the real and imaginary parts of $Y_s = Y_p$:
+
+<div class="grid grid-cols-2 gap-4">
+<div class="bg-blue-50 p-4 rounded border border-blue-200">
+
+**Exact Formulas**
+$$ R_p = R_s(1 + Q^2) $$
+$$ X_p = X_s\left(1 + \frac{1}{Q^2}\right) $$
+
+</div>
+<div class="bg-green-50 p-4 rounded border border-green-200">
+
+**High-Q Approximation ($Q \ge 5$)**
+$$ R_p \approx Q^2 R_s $$
+$$ X_p \approx X_s $$
+($L_p \approx L_s$ or $C_p \approx C_s$)
+
+</div>
+</div>
+
+<v-click>
+
+**Note**: The transformation is frequency-dependent! The networks are equivalent **only** at the specific frequency $\omega$ used to calculate $Q$.
+
+</v-click>
+
+---
+
+# Decoding the "Q" Notation
+
+The symbol $Q$ is used in different contexts. Understanding the nuance is key to analysis.
+
+| Symbol | Name | Formula | Application Context |
+| :--- | :--- | :---: | :--- |
+| **$Q$** | General Quality Factor | $2\pi \frac{\text{Energy Stored}}{\text{Energy Dissipated}}$ | The fundamental definition for **any** resonant system. |
+| **$Q_s$** | Series Branch $Q$ | $\frac{\omega L_s}{R_s}$ or $\frac{1}{\omega C_s R_s}$ | Used for a **single branch** of series components. |
+| **$Q_p$** | Parallel Branch $Q$ | $\frac{R_p}{\omega L_p}$ or $\omega C_p R_p$ | Used for a **single branch** of parallel components. |
+| **$Q_0$** | Resonant $Q$ | $Q(\omega)\vert_{\omega = \omega_0}$ | The $Q$ value **at resonance**. Determines $B$ and selectivity. |
+
+<div class="mt-6 flex justify-center">
+<div class="bg-blue-50 p-4 rounded border-l-4 border-blue-500 text-sm">
+
+**The Connection**: When we perform a series-parallel transformation at frequency $\omega$, the network is equivalent **only if** they have the same Quality Factor:
+<p class="text-center font-bold mt-2">$Q_s = Q_p = Q$</p>
+
+</div>
+</div>
+
+---
+
+# The Motivation for Transformation
+
+Why do we transform series branches into parallel? **To simplify the circuit analysis.**
+
+<div class="grid grid-cols-2 gap-4 mt-4 text-sm">
+<div class="bg-red-50 p-4 rounded border border-red-200">
+
+### 1. The Practical (Messy) Model
+A real inductor has series resistance ($R_s$).
+
+<img src="/practical_parallel_rlc.svg" class="h-30 mx-auto my-2 rounded" />
+
+**The Math Headache:**
+- Resonant frequency is complex:
+  $\omega_0 = \sqrt{\frac{1}{LC} - \left(\frac{R_s}{L}\right)^2}$
+- Simple $1/\sqrt{LC}$ formula **fails**.
+- Finding bandwidth ($B$) is difficult.
+
+</div>
+<div class="bg-green-50 p-4 rounded border border-green-200">
+
+### 2. The Ideal (Simple) Model
+We transform $R_s, L_s$ into parallel $R_p, L_p$.
+
+<img src="/ideal_parallel_rlc.svg" class="h-30 mx-auto my-2 rounded" />
+
+**The Math Shortcut:**
+- Resonant frequency is simple:
+  $\omega_0 = \mathbf{1/\sqrt{L_p C}}$
+- Bandwidth is simple:
+  $B = \mathbf{1/R_p C}$
+- **Total Resistance** ($R_p$):
+  $R_p = R_2 \parallel R_{transformed}$
+
+</div>
+</div>
+
+
+---
+
+# Example 16.5: Parallel Equivalence
+
+Find the parallel equivalent of the series combination of a **100 mH** inductor and a **5 $\Omega$** resistor at **$\omega = 1000$ rad/s**.
+
+<div class="grid grid-cols-2 gap-4 items-center">
+<div>
+
+**1. Calculate $X_s$ and $Q$:**
+- $X_s = \omega L_s = (1000)(0.1) = \mathbf{100 \Omega}$
+- $Q = X_s / R_s = 100 / 5 = \mathbf{20}$
+
+**2. Check Approximation ($Q=20 \ge 5$):**
+- $L_p \approx L_s = \mathbf{100 \text{ mH}}$
+- $R_p \approx Q^2 R_s = (20^2)(5) = \mathbf{2000 \Omega}$
+
+</div>
+<v-click>
+
+**3. Accuracy Check:**
+$Z_s = 5 + j100 = \mathbf{100.1 \angle 87.1^\circ \Omega}$
+
+$Z_p = 2000 \parallel j100 = \frac{2000(j100)}{2000 + j100}$
+$Z_p = \mathbf{99.9 \angle 87.1^\circ \Omega}$
+
+<span class="text-green-600 font-bold">The accuracy is impressive $(< 0.2\% \text{ error})$.</span>
+
+</v-click>
+</div>
+
+---
+
+# Caution: Frequency Sensitivity
+
+The series-to-parallel transformation is **narrowband**. The equivalence is exact **only** at the target frequency $\omega$.
+
+<div class="grid grid-cols-2 gap-4 items-center mt-4">
+  <div class="text-sm">
+
+**Key Limitations:**
+- **Calculated values** ($R_p, L_p$) change as $\omega$ changes.
+- **Physical implementation** usually uses constant components.
+- **Error grows** as you move away from the "design" frequency.
+
+</div>
+</div>
+
+
+---
+
+# Detailed Shortcut Calculations
+
+How do we get the **Ideal Model** values for the comparison?
+
+<div class="grid grid-cols-2 gap-4 mt-2">
+<div class="bg-blue-50 p-4 rounded border border-blue-200 text-xs">
+
+### 1. Low-Q Case (Ex 16.4)
+$\omega_0 = 2, R_1 = 2, L = 1, R_2 = 3$
+
+- $X_s = \omega_0 L = (2)(1) = \mathbf{2 \Omega}$
+- $Q = X_s/R_1 = 2/2 = \mathbf{1}$
+- $R_{transformed} = R_1(1+Q^2) = 2(2) = \mathbf{4 \Omega}$
+- $L_p = L(1+1/Q^2) = 1(2) = \mathbf{2 \text{ H}}$
+- **Total $R_p$**: $R_2 \parallel R_{transformed} = 3 \parallel 4 = \mathbf{1.714 \Omega}$
+
+**Ideal Shortcut Model**:
+$1.714 \Omega \parallel 2 \text{ H} \parallel 0.125 \text{ F}$
+
+</div>
+<div class="bg-green-50 p-4 rounded border border-green-200 text-xs">
+
+### 2. High-Q Case (Prac 16.5)
+$f_0 = 1\text{MHz}, R_1 = 1\text{k}, L = 10\text{m}, C = 2.533\text{p}$
+
+- $X_s = \omega_0 L = (2\pi \cdot 10^6)(10\text{m}) \approx \mathbf{62.8 \text{ k}\Omega}$
+- $Q = X_s/R_1 \approx \mathbf{62.8}$
+- $R_p = R_1(1+Q^2) \approx (1k)(1+62.8^2) \approx \mathbf{3.94 \text{ M}\Omega}$
+- $L_p = L(1+1/Q^2) \approx 10\text{m}(1.0002) \approx \mathbf{10 \text{ mH}}$
+
+**Ideal Shortcut Model**:
+$3.94 \text{ M}\Omega \parallel 10 \text{ mH} \parallel 2.533 \text{ pF}$
+
+</div>
+</div>
+
+<div class="mt-4 p-2 bg-purple-50 text-center rounded text-xs">
+  Both models stay resonant at the <b>same</b> design frequency, but the <b>Low-Q</b> model is a poor approximation elsewhere.
+</div>
+
+---
+
+# Transformation Check: Ex 16.4 vs. Prac 16.5
+
+How accurate is the **Simple RLC** shortcut compared to the **Actual** practical circuit response?
+
+<div class="grid grid-cols-2 gap-4 items-center mt-4">
+  <div class="text-base">
+
+**1. Low-Q Case (Ex 16.4, $Q \approx 1$)**
+- **Peak Sensitivity**: High.
+- **Result**: The shortcut predicts peak at $\omega_0=2$, but actual peak shifts to $\omega_m = 3.26$.
+- **Verdict**: <span class="text-red-600 font-bold">Unreliable.</span> Use exact derivation.
+
+**2. High-Q Case (Prac 16.5, $Q \approx 63$)**
+- **Peak Sensitivity**: Negligible.
+- **Result**: Response curves are virtually identical.
+- **Verdict**: <span class="text-green-600 font-bold">Excellent.</span> The ideal shortcut is safe and efficient!
+</div>
+
+<div class="flex flex-col items-center">
+  <img src="/transformation_comparison_plots.png" class="rounded bg-white w-full" />
+    <p class="text-[10px] mt-2 text-gray-500 text-center">Blue: Actual Model | Red (Dashed): Ideal Shortcut Model</p>
+</div>
+
+</div>
+
+---
+
+# When is the "Shortcut" Safe?
+
+The **Ideal RLC Shortcut** (transforming series $R,L$ to parallel $R_p, L_p$) is an engineer's best friend, but has rules:
+
+<div class="grid grid-cols-2 gap-8 mt-8">
+<div class="p-4 bg-green-50 border-l-4 border-green-500 rounded shadow-sm">
+
+### ✅ SAFE TO USE IF:
+- **High Quality Factor**: $Q \ge 10$ at resonance.
+- **Narrowband focus**: Interest is only in the region very close to $\omega_0$.
+- **Standard Filters**: Designing high-selectivity radio or tuning stages.
+
+</div>
+<div class="p-4 bg-yellow-50 border-l-4 border-yellow-500 rounded shadow-sm">
+
+### ⚠️ AVOID IF:
+- **Low-Q Circuits**: $Q < 5$. The "peak shift" error becomes dominant.
+- **Wideband Analysis**: If you need accuracy far away from the transformation frequency.
+- **Precision Timing**: Where exact peak frequency value is mission-critical.
+
+</div>
+</div>
+
+---
+
+<div class="mt-8 text-center font-bold text-blue-700">
+  In this textbook, assume High-Q approximations are valid UNLESS specified otherwise!
+</div>
+
+<div class="mt-4 p-2 bg-red-50 border-l-4 border-red-500 text-xs">
+  <span class="font-bold text-red-700">Warning:</span> 
+  While this technique is powerful for high-Q narrowband filters (resonance), do <u>not</u> use it for wideband models without re-calculating at multiple points.
+</div>
+
+<div class="flex flex-col items-center">
+    <img src="/transformation_sensitivity.png" class="h-60 rounded" />
+    <p class="text-[10px] mt-2 text-gray-500 text-center">Magnitude Error (%) vs Frequency for Example 16.5</p>
+</div>
+
+---
+
+# Practice 16.6 & 16.7
+
+**Practice 16.6**: Find the parallel equivalent of a series combination of $L = 8$ H and $R = 8$ k$\Omega$ at $f = 20$ kHz.
+<v-click>
+
+- $\omega = 2\pi(20k) \approx 125.7 \text{ krad/s}$
+- $X_s = \omega L \approx 1005 \text{ k}\Omega$
+- $Q = X_s/R_s \approx 125.6$
+- **Answer**: $L_p = \mathbf{8 \text{ H}}, R_p = Q^2 R_s \approx \mathbf{126 \text{ M}\Omega}$.
+
+</v-click>
+
+<br>
+
+**Practice 16.7**: Find the series equivalent for a parallel network of $R_p = 250$ k$\Omega$ and $L_p = 5$ H at $\omega = 10^5$ rad/s.
+<v-click>
+
+- $X_p = \omega L_p = 500 \text{ k}\Omega$
+- $Q = R_p/X_p = 250k / 500k = \mathbf{0.5}$ (Low Q!)
+- $R_s = R_p / (1+Q^2) = 250k / 1.25 = \mathbf{200 \text{ k}\Omega}$
+- $X_s = X_p / (1+1/Q^2) = 500k / 5 = \mathbf{100 \text{ k}\Omega} \implies L_s = \mathbf{1 \text{ H}}$
+
+</v-click>
+
+
+

@@ -1,0 +1,11 @@
+\documentclass[varwidth,border=10pt]{standalone}
+\usepackage{circuitikz}
+
+\begin{document}
+\begin{circuitikz}[american, scale=1.2, transform shape]
+    \draw (0,0) to[V, v=$V_{in}$, invert] (0,3)
+    to[R, l=$R$, i=$I$] (3,3)
+    to[L, l=$L$] (6,3)
+    to[C, l=$C$] (6,0) -- (0,0);
+\end{circuitikz}
+\end{document}

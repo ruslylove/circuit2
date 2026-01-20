@@ -1,0 +1,16 @@
+\documentclass[border=5pt]{standalone}
+\usepackage[siunitx]{circuitikz}
+
+\begin{document}
+\begin{circuitikz}
+    \draw (0,0) to[short, o-] (6,0);
+    \draw (0,3) to[short, o-] (1.5,3);
+    \draw (1.5,3) -- (6,3);
+    \draw (2,3) to[R, l=$R_2$] (2,0);
+    \draw (4,3) to[C, l=$C$] (4,0);
+    \draw (6,3) to[L, l=$L$] (6,1.5) to[R, l=$R_1$] (6,0);
+    
+    % Admittance arrow
+    \draw[->, >=stealth, thick] (0.2, 1.25) -- (0.8, 1.25) node[midway, above] {$Y$};
+\end{circuitikz}
+\end{document}
