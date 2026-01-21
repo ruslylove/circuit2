@@ -42,29 +42,39 @@ transition: fade-out
 # 16.5 Scaling
 
 - The scaling procedures discussed in this section enable us to analyze networks composed of practical-sized elements by scaling the element values to permit more convenient numerical calculations.
-- Let us select the parallel resonant circuit shown in Fig. 16.17a as our example.
+- Let us select the parallel resonant circuit shown in Figure below as our example.
+- $R = 2.5 \Omega$, $L = 0.5$ H, $C = 2$ F.
+- $\omega_0 = 1/\sqrt{LC} = 1$ rad/s. At resonance, $Z_{in} = R = 2.5 \Omega$.
 
+<div class="grid grid-cols-2 gap-4 items-center mt-4">
+  <div class="flex flex-col items-center">
+    <img src="/fig_16_17_parallel_rlc.svg" class="w-full bg-white p-2 rounded" />
+    <div class="text-xs text-center opacity-70 mt-1">(a) Unscaled Parallel RLC</div>
+  </div>
+  <div class="flex flex-col items-center">
+    <img src="/fig_16_17_response.png" class="h-55 rounded" />
+    <div class="text-xs text-center opacity-70 mt-1">(b) Impedance Response</div>
+  </div>
+</div>
+
+---
+layout: two-cols
 ---
 
 # 16.5 Scaling (continued)
 
 - Let us assume that our goal is to scale this network in such a way as to provide an impedance **maximum of 5000 $\Omega$** at a resonant frequency of **$5 \times 10^6$ rad/s**, or 796 kHz.
-- We may use the same response curve shown in Fig. 16.17b if every number on the **ordinate** scale is increased by a factor of 2000 and every number on the **abscissa** scale is increased by a factor of $5 \times 10^6$.
+- We may use the same response curve shown in Figure on the right. If every number on the **ordinate** scale is increased by a factor of 2000 and every number on the **abscissa** scale is increased by a factor of $5 \times 10^6$.
 - We will treat this as two problems:
   1.  Scaling in magnitude by a factor of **2000**
   2.  Scaling in frequency by a factor of **$5 \times 10^6$**
 
----
+:: right ::
 
-# Scaling Factors
-
-- **Magnitude Response**:
-  - $2.5 \Omega \to 5000 \Omega$
-  - Magnitude scaling factor $K_m = 2000$
-
-- **Resonant Frequency**:
-  - $1 \text{ rad/s} \to 5 \times 10^6 \text{ rad/s}$
-  - Frequency scaling factor $K_f = 5 \times 10^6$
+<div class="flex justify-center mt-4">
+  <img src="/fig_scaling_comparison.png" class="w-full rounded" />
+</div>
+<div class="text-xs text-center opacity-70 mt-1">Comparison of Original vs Scaled Response</div>
 
 ---
 
@@ -92,16 +102,27 @@ transition: fade-out
 
 **Problem**: Scale the network shown in Fig. 16.20(a) by $K_m = 20$ and $K_f = 50$, and then find $Z_{in}(s)$ for the scaled network.
 
+<div class="flex justify-center my-4">
+  <img src="/fig_16_20a_scaling_example.svg" class="w-100 bg-white p-2 rounded" />
+</div>
+<div class="text-xs text-center opacity-70">Fig 16.20(a): Network for Example 16.6</div>
+
+---
+
 **Solution**:
-1.  **Scaling Factors**: $K_m = 20$, $K_f = 50$.
-2.  **Original Values**: Check Fig 16.20a (implied: $R=1\Omega, L=1H, C=1F$ or similar normalized values).
-3.  **Scaled Values**:
-    - $R_{new} = K_m R$.
-    - $L_{new} = K_m L / K_f = (20/50) L = 0.4 L$.
-    - $C_{new} = C / (K_m K_f) = C / (20 \cdot 50) = C / 1000$.
-4.  **Result**:
-    - If original $Z_{in}(s)$ was computed, replace $s$ with $s/K_f$ and multiply amplitude by $K_m$.
-    - $Z_{in\_scaled}(s) = K_m Z_{in}(s/K_f)$.
+1.  **Original Values**:
+    - $L = 0.5$ H, $C = 0.05$ F.
+    - Controlled Source: $I = 0.2 V_1$ (Conductance $g = 0.2$ S).
+2.  **Scaled Values** ($K_m = 20, K_f = 50$):
+    - **Inductor**: $L' = \frac{K_m L}{K_f} = \frac{20 \times 0.5}{50} = 0.2$ H.
+    - **Capacitor**: $C' = \frac{C}{K_m K_f} = \frac{0.05}{20 \times 50} = 50 \mu$F.
+    - **VCCS**: $g' = \frac{g}{K_m} = \frac{0.2}{20} = 0.01$ S.
+    - The new source is $0.01 V_1$.
+3.  **Result**: Determine $Z_{in}(s)$ by applying a 1 A source.
+    - $V_1 = I_{in} \frac{1}{sC'} = \frac{1}{s(50 \times 10^{-6})} = \frac{20000}{s}$.
+    - KCL at node: $1 = 0.01 V_1 + I_L \implies I_L = 1 - 0.01(\frac{20000}{s}) = 1 - \frac{200}{s}$.
+    - $V_L = I_L (sL') = (1 - \frac{200}{s})(0.2s) = 0.2s - 40$.
+    - $Z_{in} = \frac{V_{in}}{1} = V_1 + V_L = \frac{20000}{s} + 0.2s - 40 = \frac{0.2s^2 - 40s + 20000}{s}$.
 
 ---
 

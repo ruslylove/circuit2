@@ -38,9 +38,6 @@ transition: fade-out
 - Bandwidth and High-Q circuits
 - Series Resonance
 - Other Resonant Forms
-- Scaling
-- Bode Diagrams
-- Filters
 
 ---
 
@@ -293,16 +290,22 @@ $$ \omega_d = \omega_0 \sqrt{1 - \left(\frac{1}{2Q_0}\right)^2} $$
 
 ## Effect of Varying $R$
 
-<div class="grid grid-cols-2 gap-4 items-center">
-  <div class="flex justify-center">
-    <img src="/plot_vary_r.png" class="h-80" />
+<div class="grid grid-cols-[1.2fr_1fr] gap-4 items-center">
+  <div class="flex flex-col gap-2">
+      <div class="flex justify-center">
+        <img src="/plot_vary_r.png" class="h-55" />
+      </div>
+      <div class="flex justify-center">
+        <img src="/s_plane_vary_r.png" class="h-55" />
+      </div>
   </div>
-  <div class="text-sm">
+  <div class="text-base">
 
   - **Parallel RLC Circuit**: $Q_0 = \omega_0 R C$.
-  - Increasing $R$ increases $Q_0$.
+  - Increasing $R$ increases $Q_0$ (decreasing damping $\alpha = \frac{1}{2RC}$).
   - **Peak Amplitude**: At resonance, $Z = R$, so $V_{max} = I \times R$.
-  - Therefore, increasing $R$ increases **both** the $Q$ (selectivity) and the peak voltage response.
+  - Increasing $R$ increases **both** the $Q$ (selectivity) and the peak voltage response.
+  - **S-Plane**: As $R$ increases, poles move closer to the $j\omega$ axis (smaller $\alpha$, higher $Q$), correlating with the sharper resonant peak.
   </div>
 </div>
 
@@ -310,16 +313,22 @@ $$ \omega_d = \omega_0 \sqrt{1 - \left(\frac{1}{2Q_0}\right)^2} $$
 
 ## Effect of Varying $L/C$ Ratio
 
-<div class="grid grid-cols-2 gap-4 items-center">
-  <div class="flex justify-center">
-    <img src="/plot_vary_lc.png" class="h-80" />
+<div class="grid grid-cols-[1.2fr_1fr] gap-4 items-center">
+  <div class="flex flex-col gap-2">
+      <div class="flex justify-center">
+        <img src="/plot_vary_lc.png" class="h-55" />
+      </div>
+      <div class="flex justify-center">
+        <img src="/s_plane_vary_lc.png" class="h-55" />
+      </div>
   </div>
-  <div class="text-sm">
+  <div class="text-base">
 
   - Fixed $\omega_0$ (constant $LC$ product) and Fixed $R$.
   - Varying the ratio $L/C$.
   - Since $Q_0 = R\sqrt{C/L}$, increasing $L$ (and decreasing $C$ to keep $\omega_0$ constant) results in a **smaller** $\sqrt{C/L}$ and thus lower $Q$.
   - **Peak Amplitude** remains constant ($V = IR$) because $R$ is fixed!
+  - **S-Plane**: Poles move along the circle of radius $\omega_0$. Lower $Q$ (High $L/C$) moves poles further from $j\omega$ axis (higher damping).
   - This allows tuning bandwidth without changing gain.
   </div>
 </div>
@@ -1105,10 +1114,11 @@ The symbol $Q$ is used in different contexts. Understanding the nuance is key to
 <div class="bg-blue-50 px-2 rounded border-l-4 border-blue-500 text-sm">
 
 **The Connection**: When we perform a series-parallel transformation at frequency $\omega$, the network is equivalent **only if** they have the same Quality Factor:
-<p class="text-center font-bold mt-2">
+<div class="text-center font-bold mt-2">
 
-$Q_s = Q_p = Q$</p>
+$Q_s = Q_p = Q$
 
+</div>
 </div>
 </div>
 
