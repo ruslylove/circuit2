@@ -31,7 +31,7 @@ Presentation slides for Circuit Analysis
 transition: fade-out
 ---
 
-# Outline
+## Outline
 
 - Complex Form of the Fourier Series
 - Definition of the Fourier Transform
@@ -43,14 +43,14 @@ transition: fade-out
 
 ---
 
-# 18.4 Complex Form of the Fourier Series
+## 18.4 Complex Form of the Fourier Series
 
 - It is possible to obtain the amplitude directly by using a form of Fourier series in which each term is a cosine function with a phase angle.
 - An even more convenient and concise form is obtained if the sines and cosines are expressed as **exponential functions** with complex multiplying constants.
 
 ---
 
-# Example 18.3
+## Example 18.3
 
 **Problem**: Determine $c_n$ for the square wave of Fig 18.10. ($T=2, \omega_0 = \pi$).
 - Even and Half-wave symmetry.
@@ -63,7 +63,7 @@ transition: fade-out
 
 ---
 
-# Practice 18.7
+## Practice 18.7
 
 Determine the general coefficient $c_n$ in the complex Fourier series for the waveform shown:
 (a) 18.4a
@@ -75,7 +75,7 @@ Determine the general coefficient $c_n$ in the complex Fourier series for the wa
 
 ---
 
-# Sampling Function
+## Sampling Function
 
 - The trigonometric factor that occurs frequently in modern communication theory is called the **sampling function**.
 - It is derived from the rectangular pulse train.
@@ -83,14 +83,14 @@ Determine the general coefficient $c_n$ in the complex Fourier series for the wa
 
 ---
 
-# 18.5 Definition of the Fourier Transform
+## 18.5 Definition of the Fourier Transform
 
 - We use the notation $\mathcal{F}\{ \}$ to symbolize "Fourier transform of".
 - We obtain the Fourier transform of singularity functions like the unit impulse $\delta(t - t_0)$.
 
 ---
 
-# 18.6/18.7 Properties & Pairs
+## 18.6/18.7 Properties & Pairs
 
 **Unit Impulse Function**:
 - We seek the Fourier transform of $\delta(t - t_0)$.
@@ -103,7 +103,7 @@ Determine the general coefficient $c_n$ in the complex Fourier series for the wa
 
 ---
 
-# Physical Significance of Fourier Transform
+## Physical Significance of Fourier Transform
 
 - Suppose $f(t)$ is voltage across or current through a $1 \Omega$ resistor.
 - $f^2(t)$ is the instantaneous power delivered.
@@ -112,7 +112,7 @@ Determine the general coefficient $c_n$ in the complex Fourier series for the wa
 
 ---
 
-# Example 18.5
+## Example 18.5
 
 **Problem**: Use the Fourier transform to obtain the continuous spectrum of the single rectangular pulse (Fig 18.13a).
 - Pulse $f(t) = V_0$ for $t_0 < t < t_0 + \tau$, and 0 otherwise.
@@ -122,7 +122,7 @@ Determine the general coefficient $c_n$ in the complex Fourier series for the wa
 - Result: $F(j\omega) = V_0 \tau \text{ sinc}(\frac{\omega \tau}{2}) e^{-j\omega(t_0+\tau/2)}$.
 - Magnitude is $|V_0 \tau \text{ sinc}(\frac{\omega \tau}{2})|$.
 
-# Example 18.8
+#### Example 18.8
 
 **Problem**: Find the voltage across the inductor of the circuit (Fig 18.22a) when input is $v_i(t) = 5e^{-3t}u(t)$. Network: $4\Omega$ resistor in series with $2H$ inductor.
 
@@ -137,21 +137,21 @@ Determine the general coefficient $c_n$ in the complex Fourier series for the wa
 
 ---
 
-# 18.8 Fourier Transform of General Periodic Time Function
+## 18.8 Fourier Transform of General Periodic Time Function
 
 - Consider a periodic time function $f(t)$ with period $T$.
 - We can determine its Fourier transform using the series expansion.
 
 ---
 
-# 18.9 System Function and Response
+## 18.9 System Function and Response
 
 - Assuming input and output are voltages, we apply the basic definition of the Fourier transform.
 - The output can be expressed by the **convolution integral**.
 
 ---
 
-# 18.10 Physical Significance of System Function
+## 18.10 Physical Significance of System Function
 
 - Given a general linear two-port network N without initial energy storage.
 - Assume sinusoidal forcing and response functions.
@@ -161,7 +161,7 @@ Determine the general coefficient $c_n$ in the complex Fourier series for the wa
 
 ---
 
-# Example 18.8
+## Example 18.8
 
 Calculate the input impedance for the one-port resistor network shown in Fig 17.3.
 

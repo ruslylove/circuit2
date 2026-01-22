@@ -1309,3 +1309,90 @@ How accurate is the **Simple RLC** shortcut compared to the **Actual** practical
 
 
 
+
+
+---
+
+## Summary: Key Equations
+
+<div class="grid grid-cols-2 gap-4 text-base mt-2">
+<div class="bg-blue-50 px-3 rounded border border-blue-200">
+
+**Fundamental Parameters**
+- **Resonant Frequency**: $\omega_0 = \frac{1}{\sqrt{LC}}$
+- **Bandwidth**: $B = \omega_2 - \omega_1 = \frac{\omega_0}{Q_0}$
+- **Damping Coefficient**: $\alpha = \frac{\omega_0}{2Q_0}$
+- **Damping Factor**: $\zeta = \frac{1}{2Q_0}$
+
+</div>
+<div class="bg-green-50 px-3 rounded border border-green-200 text-xs">
+
+**Exact Half-Power Frequencies**
+$$ \omega_{1,2} = \omega_0 \left[ \sqrt{1 + \left(\frac{1}{2Q_0}\right)^2} \mp \frac{1}{2Q_0} \right] $$
+
+**High-Q Approximation ($Q_0 \ge 5$)**
+$$ \omega_{1,2} \approx \omega_0 \mp \frac{B}{2} $$
+$$ \omega_0 \approx \frac{\omega_1 + \omega_2}{2} $$
+
+</div>
+
+
+<div class="bg-purple-50 px-3 rounded border border-purple-200 text-xs">
+
+**Quality Factor ($Q_0$)**
+- **Parallel**: $Q_0 = \omega_0 RC = R \sqrt{\frac{C}{L}}$
+- **Series**: $Q_0 = \frac{\omega_0 L}{R} = \frac{1}{R} \sqrt{\frac{L}{C}}$
+- **Peak Current (Parallel)**: $I_L = I_C \approx Q_0 I_s$
+- **Peak Voltage (Series)**: $V_L = V_C \approx Q_0 V_s$
+
+</div>
+<div class="bg-orange-50 px-3 rounded border border-orange-200">
+
+**Transformations ($Y_s = Y_p$)**
+- **Exact**: 
+  $R_p = R_s(1 + Q^2)$
+  $X_p = X_s(1 + 1/Q^2)$
+- **High-Q ($Q \ge 5$)**:
+  $R_p \approx Q^2 R_s$, $X_p \approx X_s$
+
+</div>
+</div>
+
+---
+
+## Summary: Key Concepts
+
+<div class="grid grid-cols-2 gap-6 text-sm mt-8">
+<div>
+
+### 1. Resonance Condition
+- Occurs when input impedance $Z(j\omega)$ or admittance $Y(j\omega)$ is **purely resistive**.
+- The imaginary part of the immittance is zero.
+- Unity power factor ($PF = 1$).
+
+### 2. Frequency Response Shape
+- **High Q**: Sharp peak, narrow bandwidth, high selectivity.
+- **Low Q**: Broad peak, wide bandwidth, low selectivity.
+- Peak height depends only on $R$ (impedance at $\omega_0$).
+
+</div>
+<div>
+
+### 3. Symmetry
+- **Geometric Symmetry**: Always exact. $\omega_0 = \sqrt{\omega_1 \omega_2}$.
+- **Arithmetic Symmetry**: Accurate only for high Q.  $\\ \omega_0 \approx (\omega_1 + \omega_2)/2$.
+
+### 4. Practical Components
+- Inductors have series resistance $R_L$.
+- Impacts resonance: $\omega_0 = \sqrt{\frac{1}{LC} - \frac{R_L^2}{L^2}}$.
+- Causes the response to shift and broaden compared to ideal model.
+
+</div>
+</div>
+
+<div class="mt-8 flex justify-center">
+  <div class="bg-yellow-50 px-4 py-2 rounded-full border border-yellow-200 font-bold text-yellow-800">
+
+  $\omega_0 = \frac{1}{\sqrt{LC}} \quad \text{vs} \quad Q_0 = \frac{\text{Energy Stored}}{\text{Energy Lost}}$
+  </div>
+</div>

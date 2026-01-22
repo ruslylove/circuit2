@@ -3,11 +3,11 @@ theme: seriph
 background: https://cover.sli.dev
 title: Chapter 16 Part 3
 info: |
-    ## Chapter 16 Part 3
-    Frequency Response: Bode Diagrams and Filters
+  ## Chapter 16 Part 3
+  Frequency Response: Bode Diagrams and Filters
 class: text-center
 drawings:
-    persist: false
+  persist: false
 transition: slide-left
 mdc: true
 ---
@@ -31,14 +31,14 @@ Presentation slides for Circuit Analysis
 transition: fade-out
 ---
 
-# Outline
+## Outline
 
 - Bode Diagrams (Complex Conjugate Pairs)
 - Filters
 
 ---
 
-# Complex Conjugate Pairs
+## Complex Conjugate Pairs
 
 - Consider the standard quadratic form: $H(s) = 1 + 2\zeta(s/\omega_0) + (s/\omega_0)^2$
 - The quantity $\zeta$ is the **damping factor**.
@@ -49,7 +49,7 @@ transition: fade-out
 
 ---
 
-# Magnitude Response (Complex Pairs)
+## Magnitude Response (Complex Pairs)
 
 - Asymptotes:
   - Low frequency ($\omega \ll \omega_0$): $0 \text{ dB}$
@@ -61,7 +61,7 @@ transition: fade-out
 
 ---
 
-# Phase Response (Complex Pairs)
+## Phase Response (Complex Pairs)
 
 - For $H(j\omega) = 1 + j2\zeta(\omega/\omega_0) - (\omega/\omega_0)^2$
 - Asymptotic approximation:
@@ -72,7 +72,7 @@ transition: fade-out
 
 ---
 
-# Example 16.10
+## Example 16.10
 
 Construct the Bode plot for the transfer function:
 
@@ -103,7 +103,7 @@ $$
 
 ---
 
-# Practice 16.15
+## Practice 16.15
 
 If $H(s) = 1000s^2 / (s^2 + 5s + 100)$, sketch the Bode amplitude plot and calculate a value for:
 (a) $\omega$ when $H_{dB} = 0$;
@@ -117,7 +117,7 @@ If $H(s) = 1000s^2 / (s^2 + 5s + 100)$, sketch the Bode amplitude plot and calcu
 
 ---
 
-# 16.7 Filters
+## 16.7 Filters
 
 - Filters are used in modern electronics to obtain DC voltages, eliminate noise, separate channels, etc.
 - A filter selects the frequencies that may pass through a network.
@@ -128,7 +128,7 @@ If $H(s) = 1000s^2 / (s^2 + 5s + 100)$, sketch the Bode amplitude plot and calcu
 
 ---
 
-# Passive Low-Pass and High-Pass Filters
+## Passive Low-Pass and High-Pass Filters
 
 - Can be constructed using a single capacitor and resistor (RC circuit).
 - **Low-Pass**: Output across Capacitor.
@@ -142,7 +142,7 @@ If $H(s) = 1000s^2 / (s^2 + 5s + 100)$, sketch the Bode amplitude plot and calcu
 
 ---
 
-# Example 16.14
+## Example 16.14
 
 Design a high-pass filter with a corner frequency of 3 kHz.
 
@@ -150,7 +150,7 @@ Design a high-pass filter with a corner frequency of 3 kHz.
 
 ---
 
-# Practice 16.16
+## Practice 16.16
 
 Design a high-pass filter with a cutoff frequency of 13.56 MHz, a common RF power supply frequency. Verify your design using PSpice.
 
@@ -158,7 +158,7 @@ Design a high-pass filter with a cutoff frequency of 13.56 MHz, a common RF powe
 
 ---
 
-# Bandpass Filters
+## Bandpass Filters
 
 - Combining low-pass and high-pass characteristics.
 - Often realized with RLC circuits.
@@ -167,7 +167,7 @@ Design a high-pass filter with a cutoff frequency of 13.56 MHz, a common RF powe
 
 ---
 
-# Example 16.12
+## Example 16.12
 
 Design a bandpass filter characterized by a bandwidth of 1 MHz and a high-frequency cutoff of 1.1 MHz.
 
@@ -175,7 +175,7 @@ Design a bandpass filter characterized by a bandwidth of 1 MHz and a high-freque
 
 ---
 
-# Practice 16.17
+## Practice 16.17
 
 Design a bandpass filter with a low-frequency cutoff of 100 rad/s and a high-frequency cutoff of 10 krad/s.
 
@@ -184,7 +184,7 @@ Design a bandpass filter with a low-frequency cutoff of 100 rad/s and a high-fre
 
 ---
 
-# Active Filters
+## Active Filters
 
 - Use active elements like Op Amps.
 - Overcomes shortcomings of passive filters (loading effects, inductor size/loss).
@@ -192,7 +192,7 @@ Design a bandpass filter with a low-frequency cutoff of 100 rad/s and a high-fre
 
 ---
 
-# Example 16.13
+## Example 16.13
 
 Design an active low-pass filter with a cutoff frequency of 10 kHz and a voltage gain of 40 dB.
 
@@ -200,7 +200,7 @@ Design an active low-pass filter with a cutoff frequency of 10 kHz and a voltage
 
 ---
 
-# Practice 16.18
+## Practice 16.18
 
 Design a low-pass filter circuit with a gain of 30 dB and a cutoff frequency of 1 kHz.
 

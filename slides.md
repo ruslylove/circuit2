@@ -30,7 +30,7 @@ Frequency Response and Fourier Analysis
 transition: fade-out
 ---
 
-# General Information
+## General Information
 
 - **Course Name**: Circuit Analysis Technique
 - **Course Number**: 010153105
@@ -42,7 +42,7 @@ transition: fade-out
 
 ---
 
-# Objectives
+## Objectives
 
 - Use techniques for solving linear circuits:
   - <span v-mark.underline.red=1>Fourier series and transform</span>
@@ -54,7 +54,7 @@ transition: fade-out
 
 ---
 
-# Objectives (Cont.)
+## Objectives (Cont.)
 
 - Explain terms like:
   - <span v-mark.underline.red=1>Complex frequency</span>, Convolution, <span v-mark.underline.red=1>Frequency response</span>
@@ -66,7 +66,7 @@ transition: fade-out
 
 ---
 
-# References
+## References
 
 **Textbook**
 - William H. Hayt, Jr., Jack E. Kemmerly, and Steven M. Durbin, *Engineering Circuit Analysis*, 8 & 9th Editions, McGraw-Hill.
@@ -78,7 +78,7 @@ transition: fade-out
 
 ---
 
-# Teaching Plan
+## Teaching Plan
 
 | Week | Chapters | Topics |
 | --- | --- | --- |
@@ -92,13 +92,13 @@ transition: fade-out
 
 ---
 
-# Grading Policy
+## Grading Policy
 
 <div class="grid grid-cols-2 gap-4">
 
 <div>
 
-## Marks
+### Marks
 - **Test 1**: 30%
 - **Test 2**: 30%
 - **Final Exam**: 30%
@@ -108,7 +108,7 @@ transition: fade-out
 
 <div>
 
-## Criteria
+### Criteria
 - **A**: 80-100
 - **B+**: 72-79
 - **B**: 65-71
@@ -140,7 +140,7 @@ src: ./chapter_18_p2.md
 
 ---
 
-# Future Chapters
+## Future Chapters
 
 > Placeholder for future slides.
 

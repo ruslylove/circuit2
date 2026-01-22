@@ -3,11 +3,11 @@ theme: seriph
 background: https://cover.sli.dev
 title: Chapter 18 Part 1
 info: |
-    ## Chapter 18 Part 1
-    Fourier Circuit Analysis: Trigonometric Series and Symmetry
+  ## Chapter 18 Part 1
+  Fourier Circuit Analysis: Trigonometric Series and Symmetry
 class: text-center
 drawings:
-    persist: false
+  persist: false
 transition: slide-left
 mdc: true
 ---
@@ -31,7 +31,7 @@ Presentation slides for Circuit Analysis
 transition: fade-out
 ---
 
-# Outline
+## Outline
 
 - Trigonometric Form of the Fourier Series
 - The Use of Symmetry
@@ -39,18 +39,18 @@ transition: fade-out
 
 ---
 
-# 18.1 Trigonometric Form of the Fourier Series
+## 18.1 Trigonometric Form of the Fourier Series
 
 - In this section, we refocus our attention on forcing functions that are sinusoidal in nature.
 - We discover how to write a general periodic function as a sum of such functions—leading us into a discussion of a new set of circuit analysis procedures.
 
 ---
 
-# Harmonic
+## Harmonic
 
 - Let us first assume a cosine function of radian frequency $\omega_0$.
 
-## Practice 18.1
+### Practice 18.1
 
 Let a third-harmonic voltage be added to the fundamental to yield $v = 2 \cos \omega_0 t + V_{in3} \sin 3 \omega_0 t$.
 
@@ -63,30 +63,30 @@ Let a third-harmonic voltage be added to the fundamental to yield $v = 2 \cos \o
 
 ---
 
-# Fourier Series
+## Fourier Series
 
 - Consider a periodic function $f(t)$.
 - It can be expressed as an infinite sum of sine and cosine functions.
 
-# Some Useful Trigonometric Integrals
+## Some Useful Trigonometric Integrals
 
 - Let both $n$ and $k$ represent any element of the set of integers 1, 2, 3, ...
 - Integration limits are typically from $0$ to $T$.
 
 ---
 
-# Evaluation of Fourier Coefficients
+## Evaluation of Fourier Coefficients
 
 - Every term in the summation is of the form of trigonometric integrals.
 - Coefficients $a_n$ and $b_n$ are determined by integrating $f(t)$ multiplied by $\cos(n\omega_0 t)$ and $\sin(n\omega_0 t)$ respectively.
 
 ---
 
-# Example 18.1 / 17.1
+## Example 18.1 / 17.1
 
 Calculate the Fourier series for the waveform shown in the referenced figure.
 
-# Example 18.1
+## Example 18.1
 
 **Problem**: Determine the Fourier series for the "half-sine" wave (rectified sine wave is a common example). Let's assume it's the waveform from standard texts: a periodic train of pulses.
 
@@ -103,7 +103,7 @@ Calculate the Fourier series for the waveform shown in the referenced figure.
 
 ---
 
-# Line and Phase Spectra
+## Line and Phase Spectra
 
 - We depicted the function $v(t)$ of Example 18.1 graphically and analytically.
 - Both representations are in the time domain.
@@ -111,28 +111,28 @@ Calculate the Fourier series for the waveform shown in the referenced figure.
 
 ---
 
-# 18.2 The Use of Symmetry
+## 18.2 The Use of Symmetry
 
-## Even and Odd Symmetry
+### Even and Odd Symmetry
 
 - $f(t)$ possesses the property of **even symmetry** if $f(t) = f(-t)$.
 - $f(t)$ possesses the property of **odd symmetry** if $f(t) = -f(-t)$.
 
 ---
 
-# Symmetry and Fourier Series Terms
+## Symmetry and Fourier Series Terms
 
-## Even Symmetry
+### Even Symmetry
 - The Fourier series of any even function is composed of only a constant and cosine functions.
 - All sine coefficients ($b_n$) are zero.
 
-## Odd Symmetry
+### Odd Symmetry
 - A function having odd symmetry can contain no constant term or cosine terms in its Fourier expansion.
 - All cosine coefficients ($a_n$) and the DC term ($a_0$) are zero.
 
 ---
 
-# Half-Wave Symmetry
+## Half-Wave Symmetry
 
 - $f(t)$ possesses half-wave symmetry if $f(t) = -f(t - T/2)$.
 - The Fourier series of a function with half-wave symmetry contains only odd harmonics.
@@ -140,7 +140,7 @@ Calculate the Fourier series for the waveform shown in the referenced figure.
 
 ---
 
-# 18.3 Complete Response to Periodic Forcing Function
+## 18.3 Complete Response to Periodic Forcing Function
 
 - Through the use of the Fourier series, we may now express an arbitrary periodic forcing function as the sum of an infinite number of sinusoidal forcing functions.
 - The forced response to each of these functions may be determined by conventional steady-state analysis.
@@ -148,7 +148,7 @@ Calculate the Fourier series for the waveform shown in the referenced figure.
 
 ---
 
-# Practice 18.6
+## Practice 18.6
 
 Use the methods of Chap. 8 to determine the value of the current sketched in Fig. 18.9 at $t$ equal to:
 

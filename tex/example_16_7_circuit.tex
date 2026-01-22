@@ -1,0 +1,13 @@
+\documentclass[tikz,border=10pt]{standalone}
+\usepackage[siunitx]{circuitikz}
+
+\begin{document}
+\begin{circuitikz}[american]
+    \draw (0,2) to[short, o-] (1,2)
+          to[R, l=$R\,{=}\,20\,\Omega$] (4,2)
+          to[L, l=$L\,{=}\,0.2\,$H] (4,0)
+          to[short, -o] (0,0);
+          
+    \draw[blue, thick, ->] (-0.5,1) -- (0.2,1) node[left, pos=0] {$H(s) = Z_{in}(s)$};
+\end{circuitikz}
+\end{document}
