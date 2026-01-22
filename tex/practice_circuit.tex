@@ -22,7 +22,7 @@
     % Assuming VCCS depends on Vx.
     % "parallels of VCCS=Vx/200,C10n,R5k"
     % Let's put VCCS first.
-    \draw (8,0) to[cV, i<=$g_m V_x$, invert] (8,3) circle(0pt); % Just a placeholder, actually use cI
+    %\draw (8,0) to[cV, i<=$g_m V_x$, invert] (8,3) circle(0pt); % Just a placeholder, actually use cI
     % Wait, user said VCCS. Controlled Current Source. cI.
     % "current out of VCCS" connected to Vin neg -> Current flows DOWN?
     % Let's draw it flowing DOWN from Top to Bottom rail.
@@ -35,8 +35,10 @@
     \draw (14,3) to[R, l=$5\,\text{k}\Omega$, v=$V_{out}$] (14,0);
     \draw (8,3) -- (14,3); % Top rail
     
-    % Ground symbol
-    \draw (6,0) node[ground]{};
+    % Ground symbol removed
+    
+    % Junction bubbles
+    \draw (6,0) node[circ]{} (8,0) node[circ]{} (11,0) node[circ]{} (11,3) node[circ]{};
     
 \end{circuitikz}
 \end{document}

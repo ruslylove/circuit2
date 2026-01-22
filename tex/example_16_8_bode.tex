@@ -1,9 +1,11 @@
 \documentclass[tikz, border=10pt]{standalone}
 \usepackage{pgfplots}
+\usepackage{pgfplots}
+\usetikzlibrary{backgrounds}
 \pgfplotsset{compat=1.18}
 
 \begin{document}
-\begin{tikzpicture}
+\begin{tikzpicture}[show background rectangle]
     \begin{semilogxaxis}[
         width=15cm, height=8cm,
         title={Bode Plot Example 16.8 (Voltage Gain)},

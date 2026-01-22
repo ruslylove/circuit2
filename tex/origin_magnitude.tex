@@ -1,0 +1,32 @@
+\documentclass[tikz, border=10pt]{standalone}
+\usepackage{pgfplots}
+\usepackage{amsmath}
+\usetikzlibrary{backgrounds}
+\pgfplotsset{compat=1.18}
+
+\begin{document}
+\begin{tikzpicture}[show background rectangle]
+    \begin{semilogxaxis}[
+        width=12cm, height=8cm,
+        title={Origin Pole/Zero Magnitude},
+        xlabel={Frequency $\omega$ (rad/s)},
+        ylabel={Magnitude (dB)},
+        grid=both,
+        xmin=0.1, xmax=10,
+        ymin=-20, ymax=20,
+        minor grid style={gray!25},
+        major grid style={gray!50},
+        legend pos=north west,
+    ]
+
+    % Zero at origin: 20log(w)
+    \addplot[blue, thick, domain=0.1:10] {20*log10(x)};
+    \addlegendentry{Zero ($s$)}
+
+    % Pole at origin: -20log(w)
+    \addplot[red, dashed, thick, domain=0.1:10] {-20*log10(x)};
+    \addlegendentry{Pole ($1/s$)}
+    
+    \end{semilogxaxis}
+\end{tikzpicture}
+\end{document}

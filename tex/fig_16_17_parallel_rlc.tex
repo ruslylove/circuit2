@@ -1,4 +1,4 @@
-\documentclass[dvisvgm]{standalone}
+\documentclass[border=10pt]{standalone}
 \usepackage{circuitikz}
 \begin{document}
 \begin{circuitikz}
@@ -10,12 +10,14 @@
     \draw (2,3) to[R, l=$2.5\Omega$, *-*] (2,0);
 
     \draw (4,3) to[L, l=$0.5$ H, *-*] (4,0);
-    \draw (6,3) to[C, l=$2$ F, *-*] (6,0) -- (0,0);
+    \draw (6,3) to[C, l=$2$ F, -] (6,0) -- (0,0);
     
     % Input impedance arrow
-    \draw[->, thick] (-0.5, 2.5) -- (0.5, 2.5) node[anchor=south] {$Z_{in}$};
+    \draw[->, thick] (-0.5, 1.5) -- (0.5, 1.5) node[anchor=south] {$Z_{in}$};
     
     % Ground
     \draw (3,0) node[ground]{};
+    \draw (3,0) node[circ]{};
+    
 \end{circuitikz}
 \end{document}

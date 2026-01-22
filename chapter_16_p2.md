@@ -52,7 +52,7 @@ transition: fade-out
     <div class="text-xs text-center opacity-70 mt-1">(a) Unscaled Parallel RLC</div>
   </div>
   <div class="flex flex-col items-center">
-    <img src="/fig_16_17_response.png" class="h-55 rounded" />
+    <img src="/fig_16_17_response.svg" class="h-55 rounded bg-white p-1" />
     <div class="text-xs text-center opacity-70 mt-1">(b) Impedance Response</div>
   </div>
 </div>
@@ -71,9 +71,9 @@ layout: two-cols
 
 :: right ::
 
-<div class="flex justify-center mt-4">
-  <img src="/fig_scaling_comparison.png" class="w-full rounded" />
-</div>
+
+  <img src="/fig_scaling_comparison.svg" class="w-full rounded bg-white p-4 mt-20" />
+
 <div class="text-xs text-center opacity-70 mt-1">Comparison of Original vs Scaled Response</div>
 
 ---
@@ -180,7 +180,7 @@ layout: two-cols
 :: right ::
 
 <div class="flex flex-col justify-center h-full items-center px-4">
-  <img src="/bode_intro_plot.png" class="w-120 rounded shadow-lg bg-white p-1" />
+  <img src="/bode_intro_plot.svg" class="h-100 rounded bg-white p-1" />
 </div>
 
 ---
@@ -290,7 +290,7 @@ $$H_{dB} \approx 20 \log_{10} \frac{\omega}{a}$$
 
 ## Determination of Asymptotes (cont.)
 
-  <img src="/zero_asymptote_plot.png" class="w-120 rounded bg-white p-1 mx-auto" />
+  <img src="/zero_asymptote_plot.svg" class="h-60 rounded bg-white p-1 mx-auto" />
 
 
 - At $\omega = a$, $H_{dB}$ error is max.
@@ -321,7 +321,7 @@ $$ H_{dB}(\omega = a) = 20 \log_{10} \sqrt{1 + (a/a)^2} = 20 \log_{10} \sqrt{2} 
 :: right ::
 
 <div class="flex flex-col justify-center h-full items-center px-4">
-  <img src="/smooth_bode_plot.png" class="w-120 rounded bg-white p-1" />
+  <img src="/smooth_bode_plot.svg" class="w-120 rounded bg-white p-1" />
   <div class="text-xs text-center opacity-70 mt-2">Smooth vs. Asymptotic Magnitude Plot</div>
 </div>
 
@@ -479,7 +479,7 @@ layout: two-cols
 
 :: right ::
 
-<img src="/prac_16_12_phase.svg" class="w-120 rounded bg-white p-1 mx-auto shadow-lg" />
+<img src="/prac_16_12_phase.svg" class="w-120 rounded bg-white p-1 mx-auto" />
 <div class="text-xs text-center opacity-70 mt-2">
 
 Bode Phase Response: $H(s) = 20 + 0.2s$
@@ -535,12 +535,36 @@ layout: two-cols
 ---
 
 **Solution**:
-- **Transfer Function** (derived): $H(s) = \frac{-2s}{(1 + s/10)(1 + s/20,000)}$.
+
+- **Stage 1 (Voltage Divider)**:
+  $$ V_x = V_{in} \frac{R_2}{R_1 + R_2 + \frac{1}{sC_1}} = V_{in} \frac{sC_1 R_2}{1 + sC_1(R_1 + R_2)} $$
+  With values: $V_x = V_{in} \frac{0.08s}{1 + s/10}$.
+- **Stage 2 (Output Stage)**:
+  $$ I_{src} = \frac{V_x}{200}, \quad Z_p = R_3 \parallel \frac{1}{sC_2} = \frac{R_3}{1 + sC_2 R_3} $$
+  $$ V_{out} = -I_{src} Z_p = -\frac{V_x}{200} \frac{R_3}{1 + s/20000} = -25 V_x \frac{1}{1 + s/20000} $$
+- **Total Transfer Function**:
+  $$ H(s) = \frac{V_{out}}{V_{in}} = (-25)\frac{0.08s}{(1+s/10)(1+s/20000)} = \frac{-2s}{(1 + s/10)(1 + s/20,000)} $$
+
+---
+layout: two-cols
+---
+
+**Solution (Bode Analysis)**:
+- **Transfer Function**: 
+
+$$H(s) = \frac{-2s}{(1 + s/10)(1 + s/20,000)}$$
+
 - **Factors**:
-  1.  **Constant**: $-2 \implies 20 \log |-2| = 6 \text{ dB}$.
-  2.  **Zero at Origin**: $s \implies +20$ dB/dec slope always, passing through 0dB at $\omega=1$.
-  3.  **Pole 1**: $\omega_1 = 10$ rad/s (Slope -20 dB/dec).
-  4.  **Pole 2**: $\omega_2 = 20,000$ rad/s (Slope -20 dB/dec).
+  1.  **Constant**: $6 \text{ dB}$.
+  2.  **Zero**: $s$ ($+20$ dB/dec).
+  3.  **Pole 1**: $10$ rad/s ($-20$ dB/dec).
+  4.  **Pole 2**: $20$ krad/s ($-20$ dB/dec).
+
+:: right ::
+
+<div class="flex justify-center items-center h-full">
+  <img src="/example_16_8_asymptotes.svg" class="w-full bg-white p-2 rounded" />
+</div>
 
 ---
 
@@ -558,33 +582,46 @@ layout: two-cols
 ## Practice 16.13
 
 Construct a Bode magnitude plot for $H(s)$ equal to:
-(a) $50/(s + 100)$
-(b) $(s + 10) / (s + 100)$
-(c) $(s + 10) / s$
+- (a) $50/(s + 100)$
+- (b) $(s + 10) / (s + 100)$
+- \(c) $(s + 10) / s$
 
 **Answers**:
-(a) $-6 \text{ dB}$, $\omega < 100$; $-20 \text{ dB/decade}$, $\omega > 100$.
-(b) $-20 \text{ dB}$, $\omega < 10$; $+20 \text{ dB/decade}$, $10 < \omega < 100$; $0 \text{ dB}$, $\omega > 100$.
-(c) $0 \text{ dB}$, $\omega > 10$; $-20 \text{ dB/decade}$, $\omega < 10$.
+- (a) $-6 \text{ dB}$, $\omega < 100$; $-20 \text{ dB/decade}$, $\omega > 100$.
+- (b) $-20 \text{ dB}$, $\omega < 10$; $+20 \text{ dB/decade}$, $10 < \omega < 100$; $0 \text{ dB}$, $\omega > 100$.
+- \(c) $0 \text{ dB}$, $\omega > 10$; $-20 \text{ dB/decade}$, $\omega < 10$.
 
 ---
 
 ## Example 16.9
 
-**Problem**: Draw the phase plot for the transfer function $H(s) = \frac{-2s}{(1 + s/10)(1 + s/20,000)}$.
+**Problem**: Draw the phase plot for the transfer function 
+
+$$H(s) = \frac{-2s}{(1 + s/10)(1 + s/20,000)}$$
+
+---
+layout: two-cols
+---
 
 **Solution**:
-- $H(j\omega) = \frac{-j2\omega}{(1 + j\omega/10)(1 + j\omega/20000)}$.
+
+$$ H(j\omega) = \frac{-j2\omega}{(1 + j\omega/10)(1 + j\omega/20000)} $$
+
 - **Phase Components**:
-  1.  **Numerator**: $-j \implies -90^\circ$. (Wait, $-2(j\omega)$? Numerator is $-2s$. $s=j\omega$, so $-2j\omega$. Angle $-90^\circ$. Correct.)
+  1.  **Numerator**: $-2s \implies -2(j\omega) = -j(2\omega) \implies -90^\circ$.
   2.  **Pole at 10**: Starts $0^\circ$, goes to $-90^\circ$. Center $-45^\circ$ at $\omega=10$.
   3.  **Pole at 20,000**: Starts $0^\circ$, goes to $-90^\circ$. Center $-45^\circ$ at $\omega=20k$.
 - **Total Phase**:
   - $\omega \ll 10$: $-90^\circ$.
   - $\omega = 10$: $-90 - 45 = -135^\circ$.
-  - $10 < \omega < 20k$: Flat region? No, pole effects accumulate.
-<img src="/example_16_9_bode.svg" class="w-120 rounded bg-white p-1 mx-auto" />
-<div class="text-xs text-center opacity-70">Fig 16.28: Bode Phase Response</div>
+  - $100 < \omega < 2000$: Constant at $-180^\circ$.
+
+:: right ::
+
+<div class="flex flex-col gap-2 h-full justify-center">
+  <img src="/example_16_9_asymptotes.svg" class="w-full rounded bg-white p-5 mx-auto" />
+  <div class="text-[10px] text-center opacity-70 mb-2">Phase Asymptotes</div>
+</div>
 
 ---
 
@@ -593,24 +630,36 @@ Construct a Bode magnitude plot for $H(s)$ equal to:
 Draw the Bode phase plot for $H(s)$ equal to:
 (a) $50/(s+100)$
 (b) $(s+10) / (s+100)$
-(c) $(s+10) / s$
+\(c) $(s+10) / s$
 
 **Answers**:
-(a) $0^\circ$, $\omega < 10$; $-45^\circ$/decade, $10 < \omega < 1000$; $-90^\circ$, $\omega > 1000$.
-(b) $0^\circ$, $\omega < 1$; $+45^\circ$/decade, $1 < \omega < 10$; $45^\circ$, $10 < \omega < 100$; $-45^\circ$/decade, $100 < \omega < 1000$; $0^\circ$, $\omega > 1000$.
-(c) $-90^\circ$, $\omega < 1$; $+45^\circ$/decade, $1 < \omega < 100$; $0^\circ$, $\omega > 100$.
+- (a) $0^\circ$, $\omega < 10$; $-45^\circ$/decade, $10 < \omega < 1000$; $-90^\circ$, $\omega > 1000$.
+- (b) $0^\circ$, $\omega < 1$; $+45^\circ$/decade, $1 < \omega < 10$; $45^\circ$, $10 < \omega < 100$; $-45^\circ$/decade, $100 < \omega < 1000$; $0^\circ$, $\omega > 1000$.
+- \(c) $-90^\circ$, $\omega < 1$; $+45^\circ$/decade, $1 < \omega < 100$; $0^\circ$, $\omega > 100$.
 
 ---
 
-## Practice: Circuit Composition
+### Practice 16.14 (a) Solution
+**$H(s) = 50/(s+100)$**
 
-**Problem**: Construct the circuit diagram for:
-1.  **Stage 1**: Series of $V_{in}$ (AC), $R_1 = 1\text{k}\Omega$, $C_1 = 20\mu\text{F}$, $R_2 = 4\text{k}\Omega$.
-2.  **Stage 2**: Parallel $C_2 = 10\text{nF}$, $R_3 = 5\text{k}\Omega$, and VCCS ($I = V_x/200$, where $V_x$ is voltage across $R_2$).
-3.  **Connection**: Connected at $V_{in}^-$ (ground) and VCCS output.
-
-<div class="flex justify-center my-6">
-  <img src="/practice_circuit.svg" class="w-180 bg-white p-2 rounded" />
+<div class="flex justify-center">
+  <img src="/practice_16_14_a.svg" class="h-100 bg-white p-2 rounded" />
 </div>
 
-<div class="text-xs text-center opacity-70">Practice Circuit Diagram</div>
+---
+
+### Practice 16.14 (b) Solution
+**$H(s) = (s+10)/(s+100)$**
+
+<div class="flex justify-center">
+  <img src="/practice_16_14_b.svg" class="h-100 bg-white p-2 rounded" />
+</div>
+
+---
+
+### Practice 16.14 \(c) Solution
+**$H(s) = (s+10)/s$**
+
+<div class="flex justify-center">
+  <img src="/practice_16_14_c.svg" class="h-100 bg-white p-2 rounded" />
+</div>

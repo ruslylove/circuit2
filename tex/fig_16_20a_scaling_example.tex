@@ -1,4 +1,4 @@
-\documentclass[dvisvgm]{standalone}
+\documentclass[border=10pt]{standalone}
 \usepackage{circuitikz}
 \begin{document}
 \begin{circuitikz}[american]
@@ -20,7 +20,7 @@
     \draw (3,3) to[cI, l=$0.2V_1$, *-*] (3,0);
 
     % Branch 2: Inductor
-    \draw (5,3) to[L=$0.5$ H, *-*] (5,0);
+    \draw (5,3) to[L=$0.5$ H, -] (5,0);
 
 \end{circuitikz}
 \end{document}
