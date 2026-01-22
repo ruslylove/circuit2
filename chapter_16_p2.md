@@ -396,7 +396,7 @@ layout: two-cols
     - $H(s) = 50(1 + \frac{s}{50})$.
 2.  **Components**:
     - **DC Gain**: $K = 50$
-    - <span class="text-orange-500">**Mental Math**</span>: $20 \log 50 = 20 \log (100/2) = 20 \log 100 - 20 \log 2 \approx 40 - 6 = 34 \text{ dB}$.
+    - <span class="text-orange-500">🧠 **Mental Math**</span>: $20 \log 50 = 20 \log (100/2) = 20 \log 100 - 20 \log 2 \approx 40 - 6 = 34 \text{ dB}$.
     - **Zero**: Break frequency at $\omega = 50 \text{ rad/s}$.
 3.  **Plot Construction**:
     - Start at **34 dB** for $\omega < 50$.
@@ -487,23 +487,52 @@ Bode Phase Response: $H(s) = 20 + 0.2s$
 </div>
 
 ---
+layout: two-cols
+---
 
 ## Additional Considerations
 
-- **Single Pole**:
+- **Simple Pole**:
+  $$ H(s) = \frac{1}{1 + s/a} $$
   - Since this is the reciprocal of a zero, the logarithmic operation leads to a Bode plot which is the negative of that obtained previously.
   - Amplitude: 0 dB up to $\omega = a$, then slope is **-20 dB/decade**.
   - Phase: $0^\circ$ for $\omega < 0.1a$, $-90^\circ$ for $\omega > 10a$, slope **$-45^\circ$/decade** in between.
 
+:: right ::
+
+
+  <img src="/pole_magnitude_asymptote.svg" class="h-60 bg-white p-1 rounded mx-auto" />
+  <img src="/pole_phase_asymptote.svg" class="h-60 bg-white p-1 rounded mx-auto mt-5" />
+
+
+---
+layout: two-cols
+---
+
 - **Pole/Zero at Origin**:
-  - If $H(s) = s$: Infinite straight line passing through 0 dB at $\omega = 1$ with slope **20 dB/decade**.
-  - If $H(s) = 1/s$: Straight line passing through 0 dB at $\omega = 1$ with slope **-20 dB/decade**.
+  - If $H(s) = s$: 
+    - Amplitude: Infinite straight line passing through 0 dB at $\omega = 1$ with slope **20 dB/decade**.
+    - Phase: Constant at **$+90^\circ$**.
+  - If $H(s) = 1/s$: 
+    - Amplitude: Straight line passing through 0 dB at $\omega = 1$ with slope **-20 dB/decade**.
+    - Phase: Constant at **$-90^\circ$**.
+
+:: right ::
+
+<div class="flex flex-col gap-4 mt-8">
+  <img src="/origin_magnitude.svg" class="h-55 bg-white p-1 rounded mx-auto" />
+  <img src="/origin_phase.svg" class="h-55 bg-white p-1 rounded mx-auto" />
+</div>
 
 ---
 
 ## Example 16.8
 
 **Problem**: Obtain the Bode plot for the gain of the circuit shown in Fig. 16.26 ($V_{in}$ to $V_{out}$).
+
+<img src="/practice_circuit.svg" class="mx-auto w-full">
+
+---
 
 **Solution**:
 - **Transfer Function** (derived): $H(s) = \frac{-2s}{(1 + s/10)(1 + s/20,000)}$.
@@ -512,6 +541,9 @@ Bode Phase Response: $H(s) = 20 + 0.2s$
   2.  **Zero at Origin**: $s \implies +20$ dB/dec slope always, passing through 0dB at $\omega=1$.
   3.  **Pole 1**: $\omega_1 = 10$ rad/s (Slope -20 dB/dec).
   4.  **Pole 2**: $\omega_2 = 20,000$ rad/s (Slope -20 dB/dec).
+
+---
+
 - **Combined Plot**:
   - Starts rising at 20 dB/dec.
   - At $\omega=10$, slope becomes $20 - 20 = 0$ dB/dec (Flat).
@@ -567,3 +599,18 @@ Draw the Bode phase plot for $H(s)$ equal to:
 (a) $0^\circ$, $\omega < 10$; $-45^\circ$/decade, $10 < \omega < 1000$; $-90^\circ$, $\omega > 1000$.
 (b) $0^\circ$, $\omega < 1$; $+45^\circ$/decade, $1 < \omega < 10$; $45^\circ$, $10 < \omega < 100$; $-45^\circ$/decade, $100 < \omega < 1000$; $0^\circ$, $\omega > 1000$.
 (c) $-90^\circ$, $\omega < 1$; $+45^\circ$/decade, $1 < \omega < 100$; $0^\circ$, $\omega > 100$.
+
+---
+
+## Practice: Circuit Composition
+
+**Problem**: Construct the circuit diagram for:
+1.  **Stage 1**: Series of $V_{in}$ (AC), $R_1 = 1\text{k}\Omega$, $C_1 = 20\mu\text{F}$, $R_2 = 4\text{k}\Omega$.
+2.  **Stage 2**: Parallel $C_2 = 10\text{nF}$, $R_3 = 5\text{k}\Omega$, and VCCS ($I = V_x/200$, where $V_x$ is voltage across $R_2$).
+3.  **Connection**: Connected at $V_{in}^-$ (ground) and VCCS output.
+
+<div class="flex justify-center my-6">
+  <img src="/practice_circuit.svg" class="w-180 bg-white p-2 rounded" />
+</div>
+
+<div class="text-xs text-center opacity-70">Practice Circuit Diagram</div>

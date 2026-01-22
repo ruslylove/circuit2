@@ -1,0 +1,42 @@
+\documentclass[tikz,border=10pt]{standalone}
+\usepackage[siunitx]{circuitikz}
+
+\begin{document}
+\begin{circuitikz}[american]
+    % Circuit 1: Series Vin, R, C, R
+    % Loop from (0,0) clockwise
+    \draw (0,0) to[sV, l=$V_{in}$] (0,3)
+          to[R, l=$1\,\text{k}\Omega$] (3,3)
+          to[C, l=$20\,\mu\text{F}$] (6,3)
+          to[R, l=$4\,\text{k}\Omega$, v=$V_x$] (6,0)
+          to[short] (0,0);
+    
+    % Circuit 2: Parallel VCCS, C, R
+    % Connected at Vin neg (Ground line)
+    % "connected at Vin neg and current out of VCCS" is slightly vague, but assuming common ground and separate VCCS stage.
+    % Let's shift it to the right.
+    \draw (8,0) to[short] (14,0); % Bottom rail
+    \draw (6,0) to[short] (8,0); % Connect grounds
+    
+    % VCCS
+    % Assuming VCCS depends on Vx.
+    % "parallels of VCCS=Vx/200,C10n,R5k"
+    % Let's put VCCS first.
+    \draw (8,0) to[cV, i<=$g_m V_x$, invert] (8,3) circle(0pt); % Just a placeholder, actually use cI
+    % Wait, user said VCCS. Controlled Current Source. cI.
+    % "current out of VCCS" connected to Vin neg -> Current flows DOWN?
+    % Let's draw it flowing DOWN from Top to Bottom rail.
+    \draw (8,3) to[cI, l=$\frac{V_x}{200}$] (8,0);
+    
+    % C10n
+    \draw (11,3) to[C, l=$10\,\text{nF}$] (11,0);
+    
+    % R5k
+    \draw (14,3) to[R, l=$5\,\text{k}\Omega$, v=$V_{out}$] (14,0);
+    \draw (8,3) -- (14,3); % Top rail
+    
+    % Ground symbol
+    \draw (6,0) node[ground]{};
+    
+\end{circuitikz}
+\end{document}
