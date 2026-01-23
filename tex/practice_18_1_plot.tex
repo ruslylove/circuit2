@@ -1,0 +1,39 @@
+\documentclass[tikz, border=10pt]{standalone}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+
+\begin{document}
+\begin{tikzpicture}
+    \begin{axis}[
+        width=10cm, height=6cm,
+        axis lines=middle,
+        xlabel={$t$}, ylabel={$v(t)$},
+        ymin=-2.5, ymax=2.5,
+        xmin=0, xmax=4*pi,
+        xtick={0, 1.57, 3.14, 4.71, 6.28, 7.85, 9.42, 10.99, 12.57},
+        xticklabels={0, $\pi/2$, $\pi$, $3\pi/2$, $2\pi$, $5\pi/2$, $3\pi$, $7\pi/2$, $4\pi$},
+        legend pos=outer north east,
+        grid=both,
+        samples=400,
+        domain=0:4*pi,
+        thick
+    ]
+        % v1 = 2cos(x)
+        \addplot[blue] {2*cos(deg(x))};
+        \addlegendentry{$v_1 = 2\cos(\omega_0 t)$}
+        
+        % v3 = 0.577sin(3x)
+        \addplot[red, dashed] {0.577*sin(deg(3*x))};
+        \addlegendentry{$v_{3} = 0.577\sin(3\omega_0 t)$}
+        
+        % sum
+        \addplot[black, ultra thick] {2*cos(deg(x)) + 0.577*sin(deg(3*x))};
+        \addlegendentry{$v(t)$}
+        
+        % Points of zero slope at 2pi/3 and 2pi/3 + 2pi
+        \addplot[only marks, mark=*, black] coordinates {(2.094, -1) (8.378, -1)};
+        \node[pin=90:{\small Slope=0}] at (axis cs:2.094, -1) {};
+        \node[pin=90:{\small Slope=0}] at (axis cs:8.378, -1) {};
+    \end{axis}
+\end{tikzpicture}
+\end{document}

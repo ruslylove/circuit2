@@ -336,7 +336,7 @@ Design a high-pass filter with a cutoff frequency of 13.56 MHz, a common RF powe
 </div>
 <div>
 
-<img src="/rlc_bandpass_filter.svg" class="h-70 mx-auto" alt="RLC bandpass filter" />
+<img src="/rlc_bandpass_filter.svg" class="w-full mx-auto" alt="RLC bandpass filter" />
 
 - **Frequency Limits**:
   - As $\omega \to 0$: $|A_v| \to \frac{0}{1} = \mathbf{0}$
@@ -509,6 +509,9 @@ Design a low-pass filter circuit with a gain of 30 dB and a cutoff frequency of 
 
 $R_1 = 100 \text{ k}\Omega$, $R_f = 3.062 \text{ M}\Omega$, $R_2 = 79.58 \Omega$, $C = 2 \mu\text{F}$.
 
+
+<img src="/practice_16_18_circuit.svg" class="h-60 mx-auto p-5" alt="Practice 16.18 Circuit" />
+
 ---
 layout: default
 ---
@@ -516,7 +519,7 @@ layout: default
 
 **Solution**:
 
-**Gain Calculation**:
+1. **Gain Calculation**:
 - $20 \log_{10} K = 30 \implies \log_{10} K = 1.5 \implies K = 10^{1.5} \approx 31.62$.
 - $K = 1 + \frac{R_f}{R_1} = 31.62 \implies \frac{R_f}{R_1} = 30.62$.
 - Choose **$R_1 = 100 \text{ k}\Omega$**.
@@ -527,3 +530,4 @@ layout: default
 - Choose **$C = 2 \mu\text{F}$**.
 - Calculate $R_2$:
   $R_2 = \frac{1}{2\pi f_c C} = \frac{1}{2\pi (1000) (2 \times 10^{-6})} \approx \mathbf{79.58 \Omega}$
+
