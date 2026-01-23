@@ -1,9 +1,9 @@
 ---
 theme: seriph
 background: https://cover.sli.dev
-title: Chapter 18 Part 2
+title: Chapter 18 Part II - Fourier Transforms
 info: |
-  ## Chapter 18 Part 2
+  ## Chapter 18 Part II
   Fourier Circuit Analysis: Complex Series and Transforms
 class: text-center
 drawings:

@@ -1,7 +1,7 @@
 ---
 theme: seriph
 background: https://cover.sli.dev
-title: Circuit Analysis Technique
+title: Welcome to 010153105 Circuit Analysis Technique
 info: |
   ## Circuit Analysis Technique
   Introduction and Chapter 16
@@ -25,6 +25,13 @@ Frequency Response and Fourier Analysis
     <carbon:logo-github />
   </a>
 </div>
+
+---
+hideInToc: true
+---
+
+# Contents
+<Toc maxDepth='1' columns='1'/>
 
 ---
 transition: fade-out
@@ -88,7 +95,7 @@ transition: fade-out
 | 6-9 | 13, 17 | Magnetically coupled, Transformers, Two-port networks |
 | **Test 2** | | **Chapters 13, 17** |
 | 10-15 | 16, 18 | Frequency response, Bode, Fourier, System function |
-| <span v-mark.circle.red=1>**Final Exam**</span> | | **Chapters 16, 18** |
+| <span v-mark.circle.red=1>**Final Exam**</span> | | <span v-mark.underline.red=1>**Chapters 16, 18**</span> |
 
 ---
 

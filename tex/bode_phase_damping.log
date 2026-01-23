@@ -1,9 +1,9 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.11.27)  23 JAN 2026 11:33
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.11.27)  23 JAN 2026 11:04
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
-**example_16_10_bode.tex
-(./example_16_10_bode.tex
+**bode_phase_damping.tex
+(./bode_phase_damping.tex
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
 (/usr/local/texlive/2025/texmf-dist/tex/latex/standalone/standalone.cls
@@ -500,8 +500,8 @@ File: l3backend-pdftex.def 2024-05-08 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count301
 \l__pdf_internal_box=\box65
 )
-(./example_16_10_bode.aux)
-\openout1 = `example_16_10_bode.aux'.
+(./bode_phase_damping.aux)
+\openout1 = `bode_phase_damping.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 5.
 LaTeX Font Info:    ... okay on input line 5.
@@ -543,42 +543,49 @@ e
 Package pgfplots notification 'compat/show suggested version=true': document ha
 s been generated with the most recent feature set (\pgfplotsset{compat=1.18}).
 
-Package pgfplots info on input line 22: Using 'lua backend=false' for axis: xmo
+Package pgfplots info on input line 23: Using 'lua backend=false' for axis: xmo
 de=log unsupported (yet).
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 65.
+(Font)              <7> on input line 85.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5> on input line 65.
+(Font)              <5> on input line 85.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <8> on input line 85.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <6> on input line 85.
 
 
 [1
 
 
 Non-PDF special ignored!
-<special> papersize=373.41095pt,256.68222pt
+<special> papersize=365.62857pt,258.18527pt
 {/usr/local/texlive/2025/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-(./example_16_10_bode.aux)
+(./bode_phase_damping.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 22798 strings out of 473190
- 611437 string characters out of 5715799
- 1191516 words of memory out of 5000000
- 45724 multiletter control sequences out of 15000+600000
- 559136 words of font info for 37 fonts, out of 8000000 for 9000
+ 22840 strings out of 473190
+ 612188 string characters out of 5715799
+ 1289894 words of memory out of 5000000
+ 45761 multiletter control sequences out of 15000+600000
+ 560660 words of font info for 42 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 117i,18n,121p,739b,2192s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 117i,18n,121p,739b,2159s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb
-></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><
-/usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></us
-r/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on example_16_10_bode.pdf (1 page, 50972 bytes).
+></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb><
+/usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></u
+sr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/
+local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/loc
+al/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/
+texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb>
+Output written on bode_phase_damping.pdf (1 page, 82289 bytes).
 PDF statistics:
- 31 PDF objects out of 1000 (max. 8388607)
- 19 compressed objects within 1 object stream
+ 46 PDF objects out of 1000 (max. 8388607)
+ 28 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  13 words of extra memory for PDF output out of 10000 (max. 10000000)
 

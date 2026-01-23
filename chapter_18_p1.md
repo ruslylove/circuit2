@@ -1,7 +1,7 @@
 ---
 theme: seriph
 background: https://cover.sli.dev
-title: Chapter 18 Part 1
+title: Chapter 18 Part I - Fourier Series
 info: |
   ## Chapter 18 Part 1
   Fourier Circuit Analysis: Trigonometric Series and Symmetry

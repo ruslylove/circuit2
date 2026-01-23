@@ -1,9 +1,9 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.11.27)  23 JAN 2026 11:33
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.11.27)  23 JAN 2026 10:34
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
-**example_16_10_bode.tex
-(./example_16_10_bode.tex
+**s_plane_damping.tex
+(./s_plane_damping.tex
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
 (/usr/local/texlive/2025/texmf-dist/tex/latex/standalone/standalone.cls
@@ -372,136 +372,116 @@ File: tikzlibrarytopaths.code.tex 2023-01-15 v3.1.10 (3.1.10)
 )))
 \sa@box=\box63
 )
-(/usr/local/texlive/2025/texmf-dist/tex/latex/pgfplots/pgfplots.sty
-(/usr/local/texlive/2025/texmf-dist/tex/generic/pgfplots/pgfplots.revision.tex)
-Package: pgfplots 2021/05/15 v1.18.1 Data Visualization (1.18.1)
-(/usr/local/texlive/2025/texmf-dist/tex/generic/pgfplots/pgfplots.code.tex
-(/usr/local/texlive/2025/texmf-dist/tex/generic/pgfplots/pgfplotscore.code.tex
-\t@pgfplots@toka=\toks31
-\t@pgfplots@tokb=\toks32
-\t@pgfplots@tokc=\toks33
-\pgfplots@tmpa=\dimen194
-\c@pgfplots@coordindex=\count294
-\c@pgfplots@scanlineindex=\count295
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/frontendlayer/tikz/librarie
+s/tikzlibraryshapes.code.tex
+File: tikzlibraryshapes.code.tex 2023-01-15 v3.1.10 (3.1.10)
 
-(/usr/local/texlive/2025/texmf-dist/tex/generic/pgfplots/sys/pgfplotssysgeneric
-.code.tex))
-(/usr/local/texlive/2025/texmf-dist/tex/generic/pgfplots/libs/pgfplotslibrary.c
-ode.tex)
-(/usr/local/texlive/2025/texmf-dist/tex/generic/pgfplots/oldpgfcompatib/pgfplot
-soldpgfsupp_loader.code.tex
-(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/libraries/pgflibraryfpu.cod
-e.tex)
-Package pgfplots: loading complementary utilities for your pgf version...
-\t@pgf@toka=\toks34
-\t@pgf@tokb=\toks35
-\t@pgf@tokc=\toks36
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/frontendlayer/tikz/librarie
+s/tikzlibraryshapes.geometric.code.tex
+File: tikzlibraryshapes.geometric.code.tex 2023-01-15 v3.1.10 (3.1.10)
 
-(/usr/local/texlive/2025/texmf-dist/tex/generic/pgfplots/oldpgfcompatib/pgfplot
-soldpgfsupp_pgfutil-common-lists.tex))
-(/usr/local/texlive/2025/texmf-dist/tex/generic/pgfplots/util/pgfplotsutil.code
-.tex
-(/usr/local/texlive/2025/texmf-dist/tex/generic/pgfplots/liststructure/pgfplots
-liststructure.code.tex)
-(/usr/local/texlive/2025/texmf-dist/tex/generic/pgfplots/liststructure/pgfplots
-liststructureext.code.tex)
-(/usr/local/texlive/2025/texmf-dist/tex/generic/pgfplots/liststructure/pgfplots
-array.code.tex
-\c@pgfplotsarray@tmp=\count296
-)
-(/usr/local/texlive/2025/texmf-dist/tex/generic/pgfplots/liststructure/pgfplots
-matrix.code.tex)
-(/usr/local/texlive/2025/texmf-dist/tex/generic/pgfplots/numtable/pgfplotstable
-shared.code.tex
-\c@pgfplotstable@counta=\count297
-\t@pgfplotstable@a=\toks37
-)
-(/usr/local/texlive/2025/texmf-dist/tex/generic/pgfplots/liststructure/pgfplots
-deque.code.tex)
-(/usr/local/texlive/2025/texmf-dist/tex/generic/pgfplots/util/pgfplotsbinary.co
-de.tex
-(/usr/local/texlive/2025/texmf-dist/tex/generic/pgfplots/util/pgfplotsbinary.da
-ta.code.tex))
-(/usr/local/texlive/2025/texmf-dist/tex/generic/pgfplots/util/pgfplotsutil.verb
-.code.tex)
-(/usr/local/texlive/2025/texmf-dist/tex/generic/pgfplots/libs/pgflibrarypgfplot
-s.surfshading.code.tex
-\c@pgfplotslibrarysurf@no=\count298
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/libraries/shapes/pgflibrary
+shapes.geometric.code.tex
+File: pgflibraryshapes.geometric.code.tex 2023-01-15 v3.1.10 (3.1.10)
+))
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/frontendlayer/tikz/librarie
+s/tikzlibraryshapes.misc.code.tex
+File: tikzlibraryshapes.misc.code.tex 2023-01-15 v3.1.10 (3.1.10)
 
-(/usr/local/texlive/2025/texmf-dist/tex/generic/pgfplots/sys/pgflibrarypgfplots
-.surfshading.pgfsys-pdftex.def)))
-(/usr/local/texlive/2025/texmf-dist/tex/generic/pgfplots/util/pgfplotscolormap.
-code.tex
-(/usr/local/texlive/2025/texmf-dist/tex/generic/pgfplots/util/pgfplotscolor.cod
-e.tex))
-(/usr/local/texlive/2025/texmf-dist/tex/generic/pgfplots/pgfplotsstackedplots.c
-ode.tex)
-(/usr/local/texlive/2025/texmf-dist/tex/generic/pgfplots/pgfplotsplothandlers.c
-ode.tex
-(/usr/local/texlive/2025/texmf-dist/tex/generic/pgfplots/pgfplotsmeshplothandle
-r.code.tex
-(/usr/local/texlive/2025/texmf-dist/tex/generic/pgfplots/pgfplotsmeshplotimage.
-code.tex)))
-(/usr/local/texlive/2025/texmf-dist/tex/generic/pgfplots/pgfplots.scaling.code.
-tex)
-(/usr/local/texlive/2025/texmf-dist/tex/generic/pgfplots/pgfplotscoordprocessin
-g.code.tex)
-(/usr/local/texlive/2025/texmf-dist/tex/generic/pgfplots/pgfplots.errorbars.cod
-e.tex)
-(/usr/local/texlive/2025/texmf-dist/tex/generic/pgfplots/pgfplots.markers.code.
-tex)
-(/usr/local/texlive/2025/texmf-dist/tex/generic/pgfplots/pgfplotsticks.code.tex
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/libraries/shapes/pgflibrary
+shapes.misc.code.tex
+File: pgflibraryshapes.misc.code.tex 2023-01-15 v3.1.10 (3.1.10)
+))
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/frontendlayer/tikz/librarie
+s/tikzlibraryshapes.symbols.code.tex
+File: tikzlibraryshapes.symbols.code.tex 2023-01-15 v3.1.10 (3.1.10)
+
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/libraries/shapes/pgflibrary
+shapes.symbols.code.tex
+File: pgflibraryshapes.symbols.code.tex 2023-01-15 v3.1.10 (3.1.10)
+))
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/frontendlayer/tikz/librarie
+s/tikzlibraryshapes.arrows.code.tex
+File: tikzlibraryshapes.arrows.code.tex 2023-01-15 v3.1.10 (3.1.10)
+
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/libraries/shapes/pgflibrary
+shapes.arrows.code.tex
+File: pgflibraryshapes.arrows.code.tex 2023-01-15 v3.1.10 (3.1.10)
+))
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/frontendlayer/tikz/librarie
+s/tikzlibraryshapes.callouts.code.tex
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/libraries/shapes/pgflibrary
+shapes.callouts.code.tex))
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/frontendlayer/tikz/librarie
+s/tikzlibraryshapes.multipart.code.tex
+File: tikzlibraryshapes.multipart.code.tex 2023-01-15 v3.1.10 (3.1.10)
+
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/libraries/shapes/pgflibrary
+shapes.multipart.code.tex
+File: pgflibraryshapes.multipart.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgfnodepartlowerbox=\box64
+\pgfnodeparttwobox=\box65
+\pgfnodepartthreebox=\box66
+\pgfnodepartfourbox=\box67
+\pgfnodeparttwentybox=\box68
+\pgfnodepartnineteenbox=\box69
+\pgfnodeparteighteenbox=\box70
+\pgfnodepartseventeenbox=\box71
+\pgfnodepartsixteenbox=\box72
+\pgfnodepartfifteenbox=\box73
+\pgfnodepartfourteenbox=\box74
+\pgfnodepartthirteenbox=\box75
+\pgfnodeparttwelvebox=\box76
+\pgfnodepartelevenbox=\box77
+\pgfnodeparttenbox=\box78
+\pgfnodepartninebox=\box79
+\pgfnodeparteightbox=\box80
+\pgfnodepartsevenbox=\box81
+\pgfnodepartsixbox=\box82
+\pgfnodepartfivebox=\box83
+)))
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/libraries/pgflibraryarrows.
+meta.code.tex
+File: pgflibraryarrows.meta.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgfarrowinset=\dimen194
+\pgfarrowlength=\dimen195
+\pgfarrowwidth=\dimen196
+\pgfarrowlinewidth=\dimen197
 )
-(/usr/local/texlive/2025/texmf-dist/tex/generic/pgfplots/pgfplots.paths.code.te
-x)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/frontendlayer/tikz/librarie
+s/tikzlibrarypositioning.code.tex
+File: tikzlibrarypositioning.code.tex 2023-01-15 v3.1.10 (3.1.10)
+)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/frontendlayer/tikz/librarie
+s/tikzlibrarycalc.code.tex
+File: tikzlibrarycalc.code.tex 2023-01-15 v3.1.10 (3.1.10)
+)
+(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/frontendlayer/tikz/librarie
+s/tikzlibrarydecorations.markings.code.tex
 (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/frontendlayer/tikz/librarie
 s/tikzlibrarydecorations.code.tex
 (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/modules/pgfmoduledecoration
 s.code.tex
-\pgfdecoratedcompleteddistance=\dimen195
-\pgfdecoratedremainingdistance=\dimen196
-\pgfdecoratedinputsegmentcompleteddistance=\dimen197
-\pgfdecoratedinputsegmentremainingdistance=\dimen198
-\pgf@decorate@distancetomove=\dimen199
-\pgf@decorate@repeatstate=\count299
-\pgfdecorationsegmentamplitude=\dimen256
-\pgfdecorationsegmentlength=\dimen257
+\pgfdecoratedcompleteddistance=\dimen198
+\pgfdecoratedremainingdistance=\dimen199
+\pgfdecoratedinputsegmentcompleteddistance=\dimen256
+\pgfdecoratedinputsegmentremainingdistance=\dimen257
+\pgf@decorate@distancetomove=\dimen258
+\pgf@decorate@repeatstate=\count294
+\pgfdecorationsegmentamplitude=\dimen259
+\pgfdecorationsegmentlength=\dimen260
 )
-\tikz@lib@dec@box=\box64
+\tikz@lib@dec@box=\box84
 )
-(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/frontendlayer/tikz/librarie
-s/tikzlibrarydecorations.pathmorphing.code.tex
 (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/libraries/decorations/pgfli
-brarydecorations.pathmorphing.code.tex))
-(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/frontendlayer/tikz/librarie
-s/tikzlibrarydecorations.pathreplacing.code.tex
-(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/libraries/decorations/pgfli
-brarydecorations.pathreplacing.code.tex))
-(/usr/local/texlive/2025/texmf-dist/tex/generic/pgfplots/libs/tikzlibrarypgfplo
-ts.contourlua.code.tex)
-\pgfplots@numplots=\count300
-\pgfplots@xmin@reg=\dimen258
-\pgfplots@xmax@reg=\dimen259
-\pgfplots@ymin@reg=\dimen260
-\pgfplots@ymax@reg=\dimen261
-\pgfplots@zmin@reg=\dimen262
-\pgfplots@zmax@reg=\dimen263
-)
-(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/frontendlayer/tikz/librarie
-s/tikzlibraryplotmarks.code.tex
-File: tikzlibraryplotmarks.code.tex 2023-01-15 v3.1.10 (3.1.10)
-
-(/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/libraries/pgflibraryplotmar
-ks.code.tex
-File: pgflibraryplotmarks.code.tex 2023-01-15 v3.1.10 (3.1.10)
-)))
+brarydecorations.markings.code.tex))
 (/usr/local/texlive/2025/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
 File: l3backend-pdftex.def 2024-05-08 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count301
-\l__pdf_internal_box=\box65
+\l__color_backend_stack_int=\count295
+\l__pdf_internal_box=\box85
 )
-(./example_16_10_bode.aux)
-\openout1 = `example_16_10_bode.aux'.
+(./s_plane_damping.aux)
+\openout1 = `s_plane_damping.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 5.
 LaTeX Font Info:    ... okay on input line 5.
@@ -520,17 +500,17 @@ LaTeX Font Info:    ... okay on input line 5.
 
 (/usr/local/texlive/2025/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count302
-\scratchdimen=\dimen264
-\scratchbox=\box66
-\nofMPsegments=\count303
-\nofMParguments=\count304
-\everyMPshowfont=\toks38
-\MPscratchCnt=\count305
-\MPscratchDim=\dimen265
-\MPnumerator=\count306
-\makeMPintoPDFobject=\count307
-\everyMPtoPDFconversion=\toks39
+\scratchcounter=\count296
+\scratchdimen=\dimen261
+\scratchbox=\box86
+\nofMPsegments=\count297
+\nofMParguments=\count298
+\everyMPshowfont=\toks31
+\MPscratchCnt=\count299
+\MPscratchDim=\dimen262
+\MPnumerator=\count300
+\makeMPintoPDFobject=\count301
+\everyMPtoPDFconversion=\toks32
 ) (/usr/local/texlive/2025/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
@@ -540,45 +520,53 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
-Package pgfplots notification 'compat/show suggested version=true': document ha
-s been generated with the most recent feature set (\pgfplotsset{compat=1.18}).
-
-Package pgfplots info on input line 22: Using 'lua backend=false' for axis: xmo
-de=log unsupported (yet).
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 65.
+(Font)              <7> on input line 14.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5> on input line 65.
+(Font)              <5> on input line 14.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <8> on input line 38.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <6> on input line 38.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <9> on input line 62.
 
 
 [1
 
 
 Non-PDF special ignored!
-<special> papersize=373.41095pt,256.68222pt
+<special> papersize=406.95607pt,338.31316pt
 {/usr/local/texlive/2025/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-(./example_16_10_bode.aux)
+(./s_plane_damping.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 22798 strings out of 473190
- 611437 string characters out of 5715799
- 1191516 words of memory out of 5000000
- 45724 multiletter control sequences out of 15000+600000
- 559136 words of font info for 37 fonts, out of 8000000 for 9000
+ 15223 strings out of 473190
+ 342470 string characters out of 5715799
+ 735224 words of memory out of 5000000
+ 38213 multiletter control sequences out of 15000+600000
+ 561880 words of font info for 46 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 117i,18n,121p,739b,2192s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb
-></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><
-/usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></us
-r/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on example_16_10_bode.pdf (1 page, 50972 bytes).
+ 117i,7n,121p,417b,703s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx9.pfb>
+</usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><
+/usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></u
+sr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></usr
+/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/l
+ocal/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/loca
+l/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/t
+exlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texl
+ive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive
+/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/
+2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb>
+Output written on s_plane_damping.pdf (1 page, 108666 bytes).
 PDF statistics:
- 31 PDF objects out of 1000 (max. 8388607)
- 19 compressed objects within 1 object stream
+ 66 PDF objects out of 1000 (max. 8388607)
+ 40 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  13 words of extra memory for PDF output out of 10000 (max. 10000000)
 

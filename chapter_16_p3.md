@@ -1,15 +1,16 @@
 ---
 theme: seriph
 background: https://cover.sli.dev
-title: Chapter 16 Part 3
+title: Chapter 16 Part III - Bode Diagrams (2nd Order) and Filters
 info: |
-  ## Chapter 16 Part 3
+  ## Chapter 16 Part III
   Frequency Response: Bode Diagrams and Filters
 class: text-center
 drawings:
   persist: false
 transition: slide-left
 mdc: true
+layout: cover
 ---
 
 # Chapter 16: Frequency Response
@@ -37,38 +38,77 @@ transition: fade-out
 - Filters
 
 ---
+layout: two-cols
+---
 
 ## Complex Conjugate Pairs
 
-- Consider the standard quadratic form: $H(s) = 1 + 2\zeta(s/\omega_0) + (s/\omega_0)^2$
+- Consider the standard quadratic form: 
+
+$$H(s) = 1 + 2\zeta(s/\omega_0) + (s/\omega_0)^2$$
 - The quantity $\zeta$ is the **damping factor**.
 - $\omega_0$ is the **corner frequency** of the asymptotic response.
 - If $\zeta = 1$, $H(s) = (1 + s/\omega_0)^2$ (Two identical real poles/zeros).
 - If $\zeta > 1$, $H(s)$ can be factored into two distinct real poles/zeros.
 - If $\zeta < 1$, the roots are complex conjugates.
 
+:: right ::
+<img src="/s_plane_damping.svg" class="w-full mx-auto" alt="s-plane damping" />
+
 ---
 
 ## Magnitude Response (Complex Pairs)
 
+- The magnitude response in dB is given by:
+
+$$
+H_{dB} = 20 \log_{10} \left| 1 + j2\zeta\left(\frac{\omega}{\omega_0}\right) - \left(\frac{\omega}{\omega_0}\right)^2 \right|
+$$
+
+<div class="grid grid-cols-2 gap-4">
+<div>
+
 - Asymptotes:
-  - Low frequency ($\omega \ll \omega_0$): $0 \text{ dB}$
-  - High frequency ($\omega \gg \omega_0$): Slope of **+40 dB/decade** (for zeros in numerator).
+  - Low frequency ($\omega \ll \omega_0$): $20 \log_{10}(1) = 0 \text{ dB}$
+  - High frequency ($\omega \gg \omega_0$): $20 \log_{10} |(j\omega/\omega_0)^2| = 40 \log_{10}(\omega/\omega_0)$. Slope of **+40 dB/decade**.
 - Correction near $\omega_0$:
+  - The correction at $\omega = \omega_0$ is given by: **$-20 \log(2\zeta)$ dB**.
   - If $\zeta = 1$: +6 dB correction.
   - If $\zeta = 0.5$: No correction (0 dB error).
+  - If $\zeta = 0.25$: -6 dB correction.
   - If $\zeta = 0.1$: -14 dB correction (peaking).
+</div>
+<div>
+    <img src="/bode_damping_correction.svg" class="h-80 mx-auto" alt="bode damping correction" />
+</div>
+</div>
 
+---
+layout: two-cols
 ---
 
 ## Phase Response (Complex Pairs)
 
 - For $H(j\omega) = 1 + j2\zeta(\omega/\omega_0) - (\omega/\omega_0)^2$
+- Phase angle $\phi$:
+
+$$
+\phi = \tan^{-1}\left( \frac{2\zeta(\omega/\omega_0)}{1 - (\omega/\omega_0)^2} \right)
+$$
 - Asymptotic approximation:
   - $0^\circ$ for $\omega < 0.1 \omega_0$
   - $180^\circ$ for $\omega > 10 \omega_0$
   - Straight line slope: **$90^\circ$/decade** between $0.1 \omega_0$ and $10 \omega_0$.
 - At corner frequency $\omega_0$: Phase is **$90^\circ$**.
+- Corrections at $0.5\omega_0$ and $2\omega_0$:
+  - $\zeta = 0.1$: $\pm 55^\circ$ error from asymptote.
+  - $\zeta = 0.5$: $\pm 29^\circ$ error.
+  - $\zeta = 1.0$: $\pm 10^\circ$ error.
+
+:: right ::
+
+
+<img src="/bode_phase_damping.svg" class="h-80 mx-auto" alt="Bode Phase Damping" />
 
 ---
 
@@ -80,22 +120,27 @@ $$
 H(s) = \frac{100,000s}{(s + 1)(10,000 + 20s + s^2)} = \frac{10s}{(1 + s)(1 + 0.002s + 0.0001s^2)}
 $$
 
+---
+
 **Solution**:
 1.  **Quadratic Factor**: $1 + \frac{20s}{10000} + \frac{s^2}{10000} = 1 + 2\zeta(\frac{s}{\omega_0}) + (\frac{s}{\omega_0})^2$.
 2.  **Parameters**:
     - $\omega_0^2 = 10000 \implies \omega_0 = 100$ rad/s.
     - $2\zeta/\omega_0 = 0.002 \implies \zeta = 0.1$.
-3.  **Asymptotes**:
+3.  **Standard Bode Form**:
+    $$
+    H(s) = \frac{10s}{(1+s)[1 + 2(0.1)(\frac{s}{100}) + (\frac{s}{100})^2]}
+    $$
+4.  **Asymptotes**:
     - **Constant**: 10 (20 dB).
     - **Zero at Origin**: +20 dB/dec slope.
-    - **Pole at $\omega=1$**: Slope changes by -20 dB/dec.
     - **Pole at $\omega=1$**: Slope changes by -20 dB/dec.
     - **Double Pole at $\omega=100$**: Slope changes by -40 dB/dec.
 ---
 
 4.  **Resonant Peak**:
     - Since $\zeta = 0.1$, correction at $\omega_0$ is needed.
-    - Peak correction $\approx -20 \log(2\zeta) = -20 \log(0.2) = +13.98 \text{ dB}$.
+    - Peak correction $\approx -20 \log(2\zeta) = -20 (\log(2) + \log(\zeta)) = -20\log(2)+ 20\log(0.1) = -6\text{ dB} + 20\text{ dB} = +14 \text{ dB}$.
     - Actual magnitude at $\omega=100$ is $\sim 14 \text{ dB}$ above the asymptote.
 
 ![Example 16.10 Bode Plot](/example_16_10_bode.svg)

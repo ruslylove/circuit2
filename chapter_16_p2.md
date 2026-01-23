@@ -1,7 +1,7 @@
 ---
 theme: seriph
 background: https://cover.sli.dev
-title: Chapter 16 Part 2
+title: Chapter 16 Part II - Scaling and Bode Diagrams (1st Order)
 info: |
   ## Chapter 16 Part 2
   Frequency Response: Scaling and Bode Diagrams
@@ -15,9 +15,7 @@ layout: cover
 
 # Chapter 16: Frequency Response
 
-## Part II
-
-Presentation slides for Circuit Analysis
+## Part II: Scaling and Bode Diagrams
 
 <div class="abs-br m-6 flex gap-2">
   <button @click="$slidev.nav.openInEditor()" title="Open in Editor" class="slidev-icon-btn">

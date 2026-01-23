@@ -1,9 +1,9 @@
 ---
 theme: seriph
 background: https://cover.sli.dev
-title: Chapter 16 Part 1
+title: Chapter 16 Part I - Resonance
 info: |
-  ## Chapter 16 Part 1
+  ## Chapter 16 Part I: Resonance
   Frequency Response
 class: text-center
 drawings:
@@ -15,9 +15,7 @@ layout: cover
 
 # Chapter 16: Frequency Response
 
-## Part I
-
-Presentation slides for Circuit Analysis
+## Part I: Resonance
 
 <div class="abs-br m-6 flex gap-2">
   <button @click="$slidev.nav.openInEditor()" title="Open in Editor" class="slidev-icon-btn">
