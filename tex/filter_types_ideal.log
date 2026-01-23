@@ -1,9 +1,9 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=latex 2025.11.28)  23 JAN 2026 13:19
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=latex 2025.11.28)  23 JAN 2026 13:29
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
-**example_16_10_bode.tex
-(./example_16_10_bode.tex
+**filter_types_ideal.tex
+(./filter_types_ideal.tex
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
 (/usr/local/texlive/2025/texmf-dist/tex/latex/standalone/standalone.cls
@@ -515,8 +515,8 @@ File: l3backend-dvips.def 2024-05-08 L3 backend support: dvips
 \g__pdf_backend_link_int=\count306
 \g__pdf_backend_link_sf_int=\count307
 )
-(./example_16_10_bode.aux)
-\openout1 = `example_16_10_bode.aux'.
+No file filter_types_ideal.aux.
+\openout1 = `filter_types_ideal.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 6.
 LaTeX Font Info:    ... okay on input line 6.
@@ -532,35 +532,30 @@ LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 6.
 LaTeX Font Info:    ... okay on input line 6.
 LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 6.
 LaTeX Font Info:    ... okay on input line 6.
-
 Package pgfplots notification 'compat/show suggested version=true': document ha
 s been generated with the most recent feature set (\pgfplotsset{compat=1.18}).
 
-Package pgfplots info on input line 32: Using 'lua backend=false' for axis: xmo
-de=log unsupported (yet).
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 57.
+(Font)              <7> on input line 36.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5> on input line 57.
-Package pgfplots info on input line 57: Using 'lua backend=false' for axis: xmo
-de=log unsupported (yet).
+(Font)              <5> on input line 36.
 
 
 [1
 
-] (./example_16_10_bode.aux)
+] (./filter_types_ideal.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 22653 strings out of 473191
- 614218 string characters out of 5715825
- 1261651 words of memory out of 5000000
- 45587 multiletter control sequences out of 15000+600000
- 559136 words of font info for 37 fonts, out of 8000000 for 9000
+ 22453 strings out of 473191
+ 609784 string characters out of 5715825
+ 1153397 words of memory out of 5000000
+ 45390 multiletter control sequences out of 15000+600000
+ 558837 words of font info for 36 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 117i,16n,121p,745b,2419s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 117i,8n,121p,745b,2197s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on example_16_10_bode.dvi (1 page, 64376 bytes).
+Output written on filter_types_ideal.dvi (1 page, 28368 bytes).
