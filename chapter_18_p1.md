@@ -157,7 +157,7 @@ $$b_n = \frac{2}{T} \int_{0}^{T} f(t) \sin(n\omega_0 t) \, dt$$
 
 ---
 
-## Derivation of $a_0$
+## Evaluation of Fourier Coefficient: $a_0$
 
 - To find $a_0$, integrate $f(t)$ over one period:
   $$\int_{0}^{T} f(t) \, dt = \int_{0}^{T} \left[ a_0 + \sum_{n=1}^{\infty} (a_n \cos n\omega_0 t + b_n \sin n\omega_0 t) \right] dt$$
@@ -168,7 +168,7 @@ $$b_n = \frac{2}{T} \int_{0}^{T} f(t) \sin(n\omega_0 t) \, dt$$
 
 ---
 
-## Derivation of $a_n$
+## Evaluation of Fourier Coefficient: $a_n$
 
 - Multiply $f(t)$ by $\cos k\omega_0 t$ and integrate over one period:
 <div class="text-sm">
@@ -187,7 +187,7 @@ $$b_n = \frac{2}{T} \int_{0}^{T} f(t) \sin(n\omega_0 t) \, dt$$
 
 ---
 
-## Derivation of $b_n$
+## Evaluation of Fourier Coefficient: $b_n$
 
 - Multiply $f(t)$ by $\sin k\omega_0 t$ and integrate over one period:
 <div class="text-sm">
@@ -205,7 +205,6 @@ $$b_n = \frac{2}{T} \int_{0}^{T} f(t) \sin(n\omega_0 t) \, dt$$
   $$\int_{0}^{T} f(t) \sin n\omega_0 t \, dt = b_n \left(\frac{T}{2}\right) \implies \mathbf{b_n = \frac{2}{T} \int_{0}^{T} f(t) \sin n\omega_0 t \, dt}$$
 
 ---
-
 
 ## Recall: Orthogonality
 
@@ -255,42 +254,172 @@ $$\int_{0}^{T} \sin^2(n\omega_0 t) \, dt = \frac{T}{2}$$
   </span>
 </div>
 
-
 ---
-
-## Evaluation of Fourier Coefficients
-
-- Every term in the summation is of the form of trigonometric integrals.
-- Coefficients $a_n$ and $b_n$ are determined by integrating $f(t)$ multiplied by $\cos(n\omega_0 t)$ and $\sin(n\omega_0 t)$ respectively.
-
----
-
-## Example 18.1 / 17.1
-
-Calculate the Fourier series for the waveform shown in the referenced figure.
 
 ## Example 18.1
 
 **Problem**: Determine the Fourier series for the "half-sine" wave (rectified sine wave is a common example). Let's assume it's the waveform from standard texts: a periodic train of pulses.
 
-**Derivation**:
-1.  **Identify Period**: $T$. Angular freq $\omega_0 = 2\pi/T$.
-2.  **Symmetry**: Is it even? Odd?
-    - If even ($f(t)=f(-t)$): $b_n = 0$.
-    - If odd ($f(t)=-f(-t)$): $a_n = 0$.
-3.  **Calculate $a_0$**: $\frac{1}{T} \int_0^T f(t) dt$ (Average value).
-4.  **Calculate $a_n$**: $\frac{2}{T} \int_0^T f(t) \cos(n\omega_0 t) dt$.
-5.  **Calculate $b_n$**: $\frac{2}{T} \int_0^T f(t) \sin(n\omega_0 t) dt$.
+<img src="/example_18_1_half_wave.svg" class="h-60 mx-auto p-4" alt="Example 18.1 Half Wave" />
 
-*(Refer to specific waveform graph for precise limits)*
+---
 
+**Solution**:
+
+
+
+1.  **Define Regions** for one period ($0 \le \omega_0 t \le 2\pi$):
+    -   $0 \to \pi/2$: $v(t) = V_m \cos(\omega_0 t)$
+    -   $\pi/2 \to 3\pi/2$: $v(t) = 0$
+    -   $3\pi/2 \to 2\pi$: $v(t) = V_m \cos(\omega_0 t)$
+2.  **Calculate $a_0$**:
+    $$a_0 = \frac{1}{2\pi} \left[ \int_0^{\pi/2} V_m \cos x \, dx + \int_{3\pi/2}^{2\pi} V_m \cos x \, dx \right] = \frac{V_m}{2\pi}[1 - (-1)] = \frac{V_m}{\pi}$$
+---
+
+3.  **Calculate $a_n$**:
+    -   Use the trigonometric identity: $\cos A \cos B = \frac{1}{2} [\cos(A+B) + \cos(A-B)]$.
+    -   Apply to the integrand ($A=x, B=nx$):
+        $$\cos x \cos nx = \frac{1}{2} [\cos((1+n)x) + \cos((1-n)x)]$$
+    -   **Integral 1** ($0 \to \pi/2$):
+        $$ \int_0^{\pi/2} \frac{V_m}{2} [\cos(1+n)x + \cos(1-n)x] \, dx $$
+        $$ = \frac{V_m}{2} \left[ \frac{\sin(1+n)x}{1+n} + \frac{\sin(1-n)x}{1-n} \right]_0^{\pi/2} $$
+        At $x=\pi/2$, $\sin((1\pm n)\pi/2) = \cos(n\pi/2)$.
+        $$ = \frac{V_m}{2} \cos\left(\frac{n\pi}{2}\right) \left[ \frac{1}{1+n} + \frac{1}{1-n} \right] = \frac{V_m \cos(n\pi/2)}{1-n^2} $$
+  
+---
+
+  -   **Integral 2** ($3\pi/2 \to 2\pi$):
+        Similar logic yields the same result for even $n$ (and 0 for odd $n$).
+  -   **Combine**:
+        $$ a_n = \frac{1}{\pi} \left[ \frac{V_m \cos(n\pi/2)}{1-n^2} + \frac{V_m \cos(n\pi/2)}{1-n^2} \right] = \frac{2 V_m}{\pi(1-n^2)} \cos\left(\frac{n\pi}{2}\right) $$
+4.  **Calculate $b_n$**:
+    $$b_n = \frac{1}{\pi} \left[ \int_0^{\pi/2} V_m \cos x \sin nx \, dx + \int_{3\pi/2}^{2\pi} V_m \cos x \sin nx \, dx \right]$$
+    -   Evaluating these integrals yields $b_n = 0$ for all $n$.
+
+**Result**: Same as above. $v(t) = \frac{V_m}{\pi} + \frac{V_m}{2} \cos(\omega_0 t) + \frac{2V_m}{3\pi} \cos(2\omega_0 t) - \frac{2V_m}{15\pi} \cos(4\omega_0 t) + \dots$
+
+---
+
+### Fourier Series Convergence
+<img src="/example_18_1_harmonics.svg" class="h-120 mx-auto p-2" alt="Harmonics Convergence" />
+
+---
+
+## Practice 18.2
+
+**Problem**:
+A periodic waveform $f(t)$ is described as follows:
+- $f(t) = -4$, $0 < t < 0.3$
+- $f(t) = 6$, $0.3 < t < 0.4$
+- $f(t) = 0$, $0.4 < t < 0.5$
+- $T = 0.5$
+
+**Evaluate**:
+\(a\) $a_0$
+\(b\) $a_3$
+\(c\) $b_1$
+
+**Answers**:
+- \(a\) **-1.2**
+- \(b\) **1.383**
+- \(c\) **-4.439**
+
+---
+
+**Solution 18.2**:
+
+<img src="/practice_18_2_waveform.svg" class="h-40 mx-auto p-2" alt="Practice 18.2 Waveform" />
+
+
+1.  **$a_0$**: $\frac{1}{0.5} [(-4)(0.3) + (6)(0.1)] = 2[-1.2 + 0.6] = \mathbf{-1.2}$
+
+2.  **$a_n$**: $\omega_0 = \frac{2\pi}{0.5} = 4\pi$.
+    $$ a_n = 4 \left[ \int_0^{0.3} -4 \cos(4n\pi t) dt + \int_{0.3}^{0.4} 6 \cos(4n\pi t) dt \right] $$
+    $$ = \frac{1}{n\pi} [6\sin(1.6n\pi) - 10\sin(1.2n\pi)] $$
+    For $n=3$: $a_3 = \frac{1}{3\pi} [6\sin(4.8\pi) - 10\sin(3.6\pi)] \approx \mathbf{1.383}$
+---
+
+3.  **$b_n$**:
+    $$ b_n = 4 \left[ \int_0^{0.3} -4 \sin(4n\pi t) dt + \int_{0.3}^{0.4} 6 \sin(4n\pi t) dt \right] $$
+    $$ = \frac{1}{n\pi} [10\cos(1.2n\pi) - 6\cos(1.6n\pi) - 4] $$
+    For $n=1$: $b_1 = \frac{1}{\pi} [10\cos(1.2\pi) - 6\cos(1.6\pi) - 4] \approx \mathbf{-4.439}$
+
+---
+layout: two-cols
+---
+
+## Practice 18.3
+
+**Problem**:
+Write the Fourier series for the three voltage waveforms shown in Fig. 18.4.
+
+:: right ::
+
+<img src="/practice_18_3_waveforms.svg" class="h-120 mx-auto p-2" alt="Practice 18.3 Waveforms" />
+
+---
+
+**Solution 18.3 (a)**:
+
+(a) **Square Wave** ($T=2, \omega_0=\pi$):
+- **$a_0$**: $\frac{1}{2} [\int_0^1 (1) dt + \int_1^2 (-1) dt] = \frac{1}{2} [1 - 1] = 0$.
+- **$a_n$**: $\frac{2}{2} [\int_0^1 \cos(n\pi t) dt - \int_1^2 \cos(n\pi t) dt] = \frac{1}{n\pi}[\sin(n\pi)]_0^1 - \frac{1}{n\pi}[\sin(n\pi)]_1^2 = 0$.
+- **$b_n$**: $\int_0^1 \sin(n\pi t) dt - \int_1^2 \sin(n\pi t) dt = \frac{1}{n\pi}[-\cos(n\pi t)]_0^1 - \frac{1}{n\pi}[-\cos(n\pi t)]_1^2 = \frac{2}{n\pi}(1 - \cos(n\pi))$.
+  - For even $n$, $b_n=0$. For odd $n$, $b_n = \frac{4}{n\pi}$.
+
+$$ v(t) = \sum_{n=1,3,5,\dots}^{\infty} \frac{4}{n\pi} \sin(n\pi t) $$
+
+---
+
+**Solution 18.3 (b)**:
+
+(b) **Even Square Wave** ($T=2, \omega_0=\pi$):
+- **$a_0$**: $\frac{1}{2} [\int_{-0.5}^{0.5} (1) dt + \int_{0.5}^{1.5} (-1) dt] = 0$.
+- **$a_n$**: $\int_{-0.5}^{0.5} \cos(n\pi t) dt - \int_{0.5}^{1.5} \cos(n\pi t) dt = \frac{2}{n\pi} \sin(0.5n\pi) - \frac{1}{n\pi}[\sin(1.5n\pi) - \sin(0.5n\pi)] = \frac{4}{n\pi} \sin(n\pi/2)$.
+- **$b_n$**: $\int_{-0.5}^{0.5} \sin(n\pi t) dt - \dots = 0$ (integrand is odd over symmetric limits).
+
+$$ v(t) = \sum_{n=1,3,5,\dots}^{\infty} \frac{4}{n\pi} \sin\left(\frac{n\pi}{2}\right) \cos(n\pi t) $$
+
+---
+
+**Solution 18.3 \(c\)**:
+
+\(c\) **Triangle Wave** ($T=2, \omega_0=\pi$):
+Define $v(t)$: $2t$ ($0<t<0.5$), $2-2t$ ($0.5<t<1.5$), $2t-4$ ($1.5<t<2$).
+- **$a_0$**: Average value is clearly 0 by inspection of area.
+- **$a_n$**: $\int_0^2 v(t) \cos(n\pi t) dt$. Integration by parts ($u=t, dv=\cos$) leads to cancellation for specific limits or zero.
+- **$b_n$**: $\int_0^{0.5} 2t \sin(n\pi t) dt + \int_{0.5}^{1.5} (2-2t) \sin(n\pi t) dt + \int_{1.5}^2 (2t-4) \sin(n\pi t) dt$.
+  - Using $\int t \sin(kt) dt = \frac{\sin(kt)}{k^2} - \frac{t \cos(kt)}{k}$, sum contributions.
+  - Result: $b_n = \frac{8}{n^2\pi^2} \sin(n\pi/2)$.
+
+$$ v(t) = \sum_{n=1,3,5,\dots}^{\infty} \frac{8}{n^2\pi^2} \sin\left(\frac{n\pi}{2}\right) \sin(n\pi t) $$
+
+
+
+---
+layout: two-cols-header
 ---
 
 ## Line and Phase Spectra
 
+:: left ::
+
 - We depicted the function $v(t)$ of Example 18.1 graphically and analytically.
 - Both representations are in the time domain.
 - The **line spectrum** (or amplitude spectrum) and **phase spectrum** show the amplitudes and phases of the harmonic components vs. frequency.
+
+  - $a_0 = \frac{V_m}{\pi} \approx 0.318 V_m$
+  - $a_1 = \frac{V_m}{2} = 0.5 V_m$
+  - $a_2 = \frac{2V_m}{3\pi} \approx 0.212 V_m$
+  - $a_4 = -\frac{2V_m}{15\pi} \approx -0.042 V_m$
+  - $a_6 = \frac{2V_m}{35\pi} \approx 0.018 V_m$
+  - $a_8 = -\frac{2V_m}{63\pi} \approx -0.010 V_m$
+  - $a_{10} = \frac{2V_m}{99\pi} \approx 0.006 V_m$
+
+:: right ::
+
+<img src="/example_18_1_spectrum.svg" class="h-100 mx-auto p-2" alt="Example 18.1 Spectrum" />
+
 
 ---
 
