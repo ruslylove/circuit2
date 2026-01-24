@@ -184,9 +184,32 @@ $$b_n = \frac{2}{T} \int_{0}^{T} f(t) \sin(n\omega_0 t) \, dt$$
 - Only the $n=k$ term survives:
   $$\int_{0}^{T} f(t) \cos n\omega_0 t \, dt = a_n \left(\frac{T}{2}\right) \implies \mathbf{a_n = \frac{2}{T} \int_{0}^{T} f(t) \cos n\omega_0 t \, dt}$$
 
+
 ---
 
+## Derivation of $b_n$
+
+- Multiply $f(t)$ by $\sin k\omega_0 t$ and integrate over one period:
+<div class="text-sm">
+
+  $$\int_{0}^{T} f(t) \sin k\omega_0 t \, dt = \int_{0}^{T} a_0 \sin k\omega_0 t \, dt + \sum_{n=1}^{\infty} a_n \int_{0}^{T} \cos n\omega_0 t \sin k\omega_0 t \, dt + \sum_{n=1}^{\infty} b_n \int_{0}^{T} \sin n\omega_0 t \sin k\omega_0 t \, dt$$
+
+</div>
+
+- **Using Orthogonality**:
+  1. $\int_{0}^{T} a_0 \sin k\omega_0 t \, dt = 0$
+  2. $\int_{0}^{T} \sin n\omega_0 t \sin k\omega_0 t \, dt = 0 \text{ (if } n \neq k)$
+  3. $\int_{0}^{T} \cos n\omega_0 t \sin k\omega_0 t \, dt = 0$
+
+- Only the $n=k$ term survives:
+  $$\int_{0}^{T} f(t) \sin n\omega_0 t \, dt = b_n \left(\frac{T}{2}\right) \implies \mathbf{b_n = \frac{2}{T} \int_{0}^{T} f(t) \sin n\omega_0 t \, dt}$$
+
+---
+
+
 ## Recall: Orthogonality
+
+Zero-Integral Terms:
 
 <div class="grid grid-cols-3 gap-2 mt-4 text-xs font-serif">
 <div class="text-center border border-gray-100 dark:border-gray-800 p-2 rounded">
@@ -210,29 +233,28 @@ $$\int_{0}^{T} \sin(n\omega_0 t) \cos(k\omega_0 t) \, dt = 0$$
 
 ---
 
-## Derivation of $b_n$
+## Orthogonality: Surviving Terms ($n=k$)
 
-- Multiply $f(t)$ by $\sin k\omega_0 t$ and integrate over one period:
-<div class="text-sm">
+<div class="grid grid-cols-2 gap-4 mt-2 text-xs font-serif">
+<div class="text-center border border-gray-100 dark:border-gray-800 p-2 rounded shadow-sm">
 
-  $$\int_{0}^{T} f(t) \sin k\omega_0 t \, dt = \int_{0}^{T} a_0 \sin k\omega_0 t \, dt + \sum_{n=1}^{\infty} a_n \int_{0}^{T} \cos n\omega_0 t \sin k\omega_0 t \, dt + \sum_{n=1}^{\infty} b_n \int_{0}^{T} \sin n\omega_0 t \sin k\omega_0 t \, dt$$
+$$\int_{0}^{T} \cos^2(n\omega_0 t) \, dt = \frac{T}{2}$$
+<img src="/ortho_cos_sq.svg" class="h-48 mx-auto" alt="Survival Term 1" />
+</div>
+<div class="text-center border border-gray-100 dark:border-gray-800 p-2 rounded shadow-sm">
 
+$$\int_{0}^{T} \sin^2(n\omega_0 t) \, dt = \frac{T}{2}$$
+<img src="/ortho_sin_sq.svg" class="h-48 mx-auto" alt="Survival Term 2" />
+</div>
 </div>
 
-- **Using Orthogonality**:
-  1. $\int_{0}^{T} a_0 \sin k\omega_0 t \, dt = 0$
-  2. $\int_{0}^{T} \sin n\omega_0 t \sin k\omega_0 t \, dt = 0 \text{ (if } n \neq k)$
-  3. $\int_{0}^{T} \cos n\omega_0 t \sin k\omega_0 t \, dt = 0$
+<div class="mt-6 text-sm bg-blue-50 dark:bg-blue-900/20 px-4 rounded border-l-4 border-blue-500 shadow-sm">
+  <p class="font-bold mb-1 text-blue-700 dark:text-blue-300">Why is this useful?</p>
+  
+  <span class="text-gray-700 dark:text-gray-300">Orthogonality acts as a <strong>mathematical sieve</strong>. When we integrate the product of $f(t)$ and a specific harmonic, the "Zero-Integral" property kills off every term <em>except</em> the one matching that frequency. These surviving terms then allow us to solve for $a_n$ and $b_n$ directly.
+  </span>
+</div>
 
-- Only the $n=k$ term survives:
-  $$\int_{0}^{T} f(t) \sin n\omega_0 t \, dt = b_n \left(\frac{T}{2}\right) \implies \mathbf{b_n = \frac{2}{T} \int_{0}^{T} f(t) \sin n\omega_0 t \, dt}$$
-
----
-
-## Some Useful Trigonometric Integrals
-
-- Let both $n$ and $k$ represent any element of the set of integers 1, 2, 3, ...
-- Integration limits are typically from $0$ to $T$.
 
 ---
 
