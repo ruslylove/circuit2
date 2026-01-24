@@ -652,10 +652,11 @@ $$v(t) = \sum_{n=1}^{\infty} \frac{10}{n\pi} \left[ \left(\sin\frac{3n\pi}{4} - 
 - The forced response to each of these functions may be determined by conventional steady-state analysis.
 - The complete response is then obtained as the sum of the forced and natural responses.
 
+
+
 ---
 
-
-## Example 18.2: Circuit and Forcing Function
+## Example 18.2
 
 For the circuit shown, determine the periodic response $i(t)$ corresponding to the forcing function $v_s(t)$ if $i(0) = 0$.
 
@@ -676,6 +677,27 @@ For the circuit shown, determine the periodic response $i(t)$ corresponding to t
 
 </div>
 
+---
+
+## Transformation: $j\omega$ to Time Domain (Revisited Chapter 10.4)
+
+The transition from the frequency ($j\omega$) domain back to the time ($t$) domain is a critical step in finalizing circuit analysis.
+
+### Case 1: Individual Harmonics (Phasors)
+A frequency-domain response phasor $\mathbf{I}_n = I_m \angle \theta_n$ at frequency $\omega_n = n\omega_0$ is transformed using:
+$$i_n(t) = \text{Re}\{ \mathbf{I}_n e^{j n \omega_0 t} \} = I_m \cos(n\omega_0 t + \theta_n)$$
+
+### Case 2: Complete Fourier Series
+The total time-domain response is the sum of the DC component and all individual harmonics:
+$$i(t) = I_{dc} + \sum_{n=1}^{\infty} i_n(t)$$
+
+---
+
+### Step-by-Step Procedure:
+1.  **Solve** the circuit in the phasor domain for each harmonic frequency $n\omega_0$.
+2.  **Multiply** each phasor by $e^{j n \omega_0 t}$.
+3.  **Extract** the real part to obtain the time-domain expression for that harmonic.
+4.  **Sum** all terms (including $a_0$) to construct the complete response.
 
 ---
 
