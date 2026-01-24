@@ -1,0 +1,11 @@
+\documentclass[tikz]{standalone}
+\usepackage[american]{circuitikz}
+\begin{document}
+\begin{circuitikz}[scale=1.2]
+  \draw (0,0) to[V, l=$v_s(t)$, invert] (0,2)
+        to[switch, l^={$t=0$}] (1.5,2)
+        to[L, l=$2\,$H] (3,2)
+        to[R, l=$4\,\Omega$, i=$i(t)$] (3,0)
+        -- (0,0);
+\end{circuitikz}
+\end{document}

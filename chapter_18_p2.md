@@ -10,6 +10,7 @@ drawings:
   persist: false
 transition: slide-left
 mdc: true
+layout: cover
 ---
 
 # Chapter 18: Fourier Circuit Analysis

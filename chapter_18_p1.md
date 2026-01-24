@@ -301,7 +301,7 @@ $$\int_{0}^{T} \sin^2(n\omega_0 t) \, dt = \frac{T}{2}$$
 ---
 
 ### Fourier Series Convergence
-<img src="/example_18_1_harmonics.svg" class="h-120 mx-auto p-2" alt="Harmonics Convergence" />
+<img src="/example_18_1_harmonics.svg" class="h-110 mx-auto p-2" alt="Harmonics Convergence" />
 
 ---
 
@@ -430,17 +430,65 @@ layout: two-cols-header
 - $f(t)$ possesses the property of **even symmetry** if $f(t) = f(-t)$.
 - $f(t)$ possesses the property of **odd symmetry** if $f(t) = -f(-t)$.
 
+<div class="grid grid-cols-2 gap-4 mt-10">
+  <div class="text-center">
+
+<p class="text-sm font-bold mb-2">
+
+(a) Cosine-like with small dip at $t=0$</p>
+
+<img src="/even_sym_cosine_dip.svg" class="h-60 mx-auto" alt="Even symmetry cosine dip" />
+  </div>
+  <div class="text-center">
+
+<p class="text-sm font-bold mb-2">
+
+(b) Odd sym. clipped sawtooth wave</p>
+
+<img src="/odd_sym_clipped_sawtooth.svg" class="h-60 mx-auto" alt="Odd symmetry clipped sawtooth" />
+  </div>
+
+</div>
+
+---
+
+## Products of Symmetric Functions
+
+The product of two symmetric functions follows rules similar to those for multiplying even and odd numbers:
+- **Even $\times$ Even = Even**
+- **Odd $\times$ Odd = Even**
+- **Even $\times$ Odd = Odd**
+
+### Integral Properties over Symmetric Intervals $[-a, a]$:
+
+- If $f(t)$ is **even**: $\int_{-a}^{a} f(t) \, dt = 2 \int_{0}^{a} f(t) \, dt$
+- If $f(t)$ is **odd**: $\int_{-a}^{a} f(t) \, dt = 0$
+
+<div class="text-center mt-6">
+  <img src="/integration_properties.svg" class="h-50 mx-auto" alt="Integration properties of symmetric functions" />
+</div>
+
+
 ---
 
 ## Symmetry and Fourier Series Terms
 
 ### Even Symmetry
-- The Fourier series of any even function is composed of only a constant and cosine functions.
-- All sine coefficients ($b_n$) are zero.
+- If $f(t)$ is **even**, $f(t) \cdot \cos(n\omega_0 t)$ is **even** and $f(t) \cdot \sin(n\omega_0 t)$ is **odd**.
+- **Proof for $b_n = 0$**:
+  $$b_n = \frac{2}{T} \int_{-T/2}^{T/2} \text{even} \cdot \text{odd} \, dt = \frac{2}{T} \int_{-T/2}^{T/2} \text{odd} \, dt = 0$$
+- **Simplified Formulas**:
+  $$\mathbf{a_0 = \frac{2}{T} \int_{0}^{T/2} f(t) \, dt}, \quad \mathbf{a_n = \frac{4}{T} \int_{0}^{T/2} f(t) \cos(n\omega_0 t) \, dt}$$
+
+---
 
 ### Odd Symmetry
-- A function having odd symmetry can contain no constant term or cosine terms in its Fourier expansion.
-- All cosine coefficients ($a_n$) and the DC term ($a_0$) are zero.
+- If $f(t)$ is **odd**, $f(t) \cdot \cos(n\omega_0 t)$ is **odd** and $f(t) \cdot \sin(n\omega_0 t)$ is **even**.
+- **Proof for $a_n = 0$**:
+  $$a_n = \frac{2}{T} \int_{-T/2}^{T/2} \text{odd} \cdot \text{even} \, dt = \frac{2}{T} \int_{-T/2}^{T/2} \text{odd} \, dt = 0$$
+- **DC Term**: $a_0 = 0$ (Average of an odd function over a period is zero).
+- **Simplified Formula**:
+  $$\mathbf{b_n = \frac{4}{T} \int_{0}^{T/2} f(t) \sin(n\omega_0 t) \, dt}$$
 
 ---
 
@@ -450,9 +498,155 @@ layout: two-cols-header
 - The Fourier series of a function with half-wave symmetry contains only odd harmonics.
 - Coefficients $a_n$ and $b_n$ are zero for even $n$.
 
+<div class="grid grid-cols-2 gap-4 mt-6">
+  <div class="text-center">
+    <p class="text-sm font-bold mb-2">(a) HWS Even symmetry</p>
+    <img src="/hws_even_cosine.svg" class="h-60 mx-auto" alt="HWS Even symmetry" />
+  </div>
+  <div class="text-center">
+    <p class="text-sm font-bold mb-2">(b) HWS Odd symmetry</p>
+    <img src="/hws_odd_clipped.svg" class="h-60 mx-auto" alt="HWS Odd symmetry" />
+  </div>
+</div>
+
+---
+
+## Proof: Half-Wave Symmetry
+
+For HWS functions, we can show that $a_n, b_n = 0$ for even $n$ by splitting the integral:
+$$a_n = \frac{2}{T} \left[ \int_{0}^{T/2} f(t) \cos(n\omega_0 t) \, dt + \int_{T/2}^{T} f(t) \cos(n\omega_0 t) \, dt \right]$$
+
+In the second integral, let $t = x + T/2$. Since $f(x + T/2) = -f(x)$ & $\omega_0 T/2 = \pi$:
+$$\int_{T/2}^{T} f(t) \cos(n\omega_0 t) \, dt = \int_{0}^{T/2} -f(x) \underbrace{\cos(n\omega_0 x + n\pi)}_{(-1)^n \cos(n\omega_0 x)} \, dx = -(-1)^n \int_{0}^{T/2} f(t) \cos(n\omega_0 t) \, dt$$
+
+---
+
+### Resulting Formulas for HWS:
+$$a_n = \frac{2}{T} [1 - (-1)^n] \int_{0}^{T/2} f(t) \cos(n\omega_0 t) \, dt, \quad b_n = \frac{2}{T} [1 - (-1)^n] \int_{0}^{T/2} f(t) \sin(n\omega_0 t) \, dt$$
+
+- If $n$ is **even**: $1 - (-1)^n = 0 \implies \mathbf{a_n = 0, \ b_n = 0, \ a_0 = 0}$
+- If $n$ is **odd**: $1 - (-1)^n = 2 \implies$
+  $$\mathbf{a_n = \frac{4}{T} \int_{0}^{T/2} f(t) \cos(n\omega_0 t) \, dt}, \quad \mathbf{b_n = \frac{4}{T} \int_{0}^{T/2} f(t) \sin(n\omega_0 t) \, dt}$$
+
+> [!NOTE]
+> Half-wave symmetry always implies the absence of all even harmonics (including the DC term).
+
+
+---
+
+## Combined Symmetry
+
+If a function possesses both **Even/Odd** symmetry **and** **Half-Wave Symmetry**, the integration range is further reduced to $T/4$:
+
+### Even + Half-Wave Symmetry
+- $f(t)$ is even ($b_n=0$) and HWS ($a_n, b_n=0$ for even $n$).
+- Result: Only odd-harmonic cosine terms $a_{1,3,5,...}$ exist.
+- Formula: 
+
+$$\mathbf{a_n = \frac{8}{T} \int_{0}^{T/4} f(t) \cos(n\omega_0 t) \, dt}$$
+
+---
+
+### Odd + Half-Wave Symmetry
+- $f(t)$ is odd ($a_n, a_0=0$) and HWS ($a_n, b_n=0$ for even $n$).
+- Result: Only odd-harmonic sine terms $b_{1,3,5,...}$ exist.
+- Formula: 
+
+$$\mathbf{b_n = \frac{8}{T} \int_{0}^{T/4} f(t) \sin(n\omega_0 t) \, dt}$$
+
+
+---
+
+## Summary of Symmetry-based Simplified Formulas
+
+| Symmetry Type | Characteristic | Simplified Formulas |
+| :--- | :--- | :--- |
+| **Even** | $f(t) = f(-t)$ | $b_n = 0$<br>$a_0, a_n = \frac{4}{T}\int_{0}^{T/2}...$ |
+| **Odd** | $f(t) = -f(-t)$ | $a_0, a_n = 0$<br>$b_n = \frac{4}{T}\int_{0}^{T/2}...$ |
+| **Half-Wave** | $f(t) = -f(t - T/2)$ | $a_{ev}, b_{ev} = 0$<br>$a_{odd}, b_{odd} = \frac{4}{T}\int_{0}^{T/2}...$ |
+| **Even + HWS** | Even & HWS | $b_n=0, a_{ev}=0, a_0=0$<br>$a_{odd} = \frac{8}{T}\int_{0}^{T/4}...$ |
+| **Odd + HWS** | Odd & HWS | $a_n=0, b_{ev}=0, a_0=0$<br>$b_{odd} = \frac{8}{T}\int_{0}^{T/4}...$ |
+
+
+---
+
+## Practice 18.4
+
+Sketch each of the functions described; state whether or not even symmetry, odd symmetry, and half-wave symmetry are present; and give the period:
+
+(a) $v = 0, -2 < t < 0$ and $2 < t < 4$; $v = 5, 0 < t < 2$; $v = -5, 4 < t < 6$; repeats.
+(b) $v = 10, 1 < t < 3$; $v = 0, 3 < t < 7$; $v = -10, 7 < t < 9$; repeats.
+\(c\) $v = 8t, -1 < t < 1$; $v = 0, 1 < t < 3$; repeats.
+
+---
+
+## Solution 18.4
+
+<div class="grid grid-cols-3 gap-2 mb-4">
+  <img src="/practice_18_4_a.svg" class="h-30 mx-auto" />
+  <img src="/practice_18_4_b.svg" class="h-30 mx-auto" />
+  <img src="/practice_18_4_c.svg" class="h-30 mx-auto" />
+</div>
+
+| Case | Even | Odd | HWS | Period ($T$) |
+| :---: | :---: | :---: | :---: | :---: |
+| **(a)** | No | No | Yes | 8 |
+| **(b)** | No | No | No | 8 |
+| **\(c\)** | No | Yes | No | 4 |
+
+**Key Observations:**
+- (a) $f(t) = -f(t-4)$, so HWS is present.
+- \(c\) $f(t) = -f(-t)$ for all $t$, so Odd symmetry is present.
+
+---
+
+## Practice 18.5
+
+Determine the Fourier series for the waveforms of Practice Problem 18.4a and b.
+
+---
+
+## Solution 18.5(a) Detail
+
+**Waveform (a):** $v=5$ (~$0 < t < 2$), $T=8$, $\omega_0 = \pi/4$, HWS confirmed.
+
+**1. Calculate $a_n$:**
+$$a_n = \frac{4}{T}\int_0^{T/2} f(t)\cos(n\omega_0 t)dt = \frac{4}{8}\int_0^2 5\cos\Big(\frac{n\pi t}{4}\Big)dt$$
+$$a_n = \frac{5}{2} \cdot \frac{4}{n\pi} \Big[ \sin\Big(\frac{n\pi t}{4}\Big) \Big]_0^2 = \frac{10}{n\pi} \sin\Big(\frac{n\pi}{2}\Big)$$
+
+**2. Calculate $b_n$:**
+$$b_n = \frac{4}{T}\int_0^{T/2} f(t)\sin(n\omega_0 t)dt = \frac{4}{8}\int_0^2 5\sin\Big(\frac{n\pi t}{4}\Big)dt$$
+$$b_n = \frac{5}{2} \cdot \frac{4}{n\pi} \Big[ -\cos\Big(\frac{n\pi t}{4}\Big) \Big]_0^2 = \frac{10}{n\pi} \Big[ 1 - \cos\Big(\frac{n\pi}{2}\Big) \Big]$$
+
+---
+
+**Resulting Fourier Series ($n$ odd):**
+Since $\cos(n\pi/2) = 0$ for all odd $n$:
+$$v(t) = \sum_{n=1,3,...}^{\infty} \frac{10}{n\pi} \left[ \sin\Big(\frac{n\pi}{2}\Big)\cos\Big(\frac{n\pi t}{4}\Big) + \sin\Big(\frac{n\pi t}{4}\Big) \right]$$
+
+---
+
+## Solution 18.5(b) Detail
+
+**Waveform (b):** $v=10$ ($1 < t < 3$), $v=-10$ ($7 < t < 9$), $T=8$, $\omega_0 = \pi/4$.
+
+**1. Calculate $a_n$:**
+$$a_n = \frac{2}{8} \int_1^9 f(t) \cos(n\omega_0 t)dt = \frac{1}{4} \Big[ \int_1^3 10 \cos\frac{n\pi t}{4} dt + \int_7^9 -10 \cos\frac{n\pi t}{4} dt \Big]$$
+$$a_n = \frac{10}{n\pi} \Big[ \sin\frac{3n\pi}{4} - \sin\frac{n\pi}{4} - \underbrace{\sin\frac{9n\pi}{4}}_{\sin(n\pi/4)} + \underbrace{\sin\frac{7n\pi}{4}}_{-\sin(n\pi/4)} \Big] = \frac{10}{n\pi} \Big[ \sin\frac{3n\pi}{4} - 3\sin\frac{n\pi}{4} \Big]$$
+
+**2. Calculate $b_n$:**
+$$b_n = \frac{10}{n\pi} \Big[ \Big(-\cos\frac{3n\pi}{4} + \cos\frac{n\pi}{4}\Big) - \Big(-\cos\frac{9n\pi}{4} + \cos\frac{7n\pi}{4}\Big) \Big]$$
+$$b_n = \frac{10}{n\pi} \Big[ \cos\frac{n\pi}{4} - \cos\frac{3n\pi}{4} + \underbrace{\cos\frac{n\pi}{4}}_{\cos(9n\pi/4)} - \underbrace{\cos\frac{n\pi}{4}}_{\cos(7n\pi/4)} \Big] = \frac{10}{n\pi} \Big[ \cos\frac{n\pi}{4} - \cos\frac{3n\pi}{4} \Big]$$
+
+---
+
+**Resulting Fourier Series:**
+$$v(t) = \sum_{n=1}^{\infty} \frac{10}{n\pi} \left[ \left(\sin\frac{3n\pi}{4} - 3\sin\frac{n\pi}{4}\right) \cos\frac{n\pi t}{4} + \left(\cos\frac{n\pi}{4} - \cos\frac{3n\pi}{4}\right) \sin\frac{n\pi t}{4} \right]$$
+
 ---
 
 ## 18.3 Complete Response to Periodic Forcing Function
+
 
 - Through the use of the Fourier series, we may now express an arbitrary periodic forcing function as the sum of an infinite number of sinusoidal forcing functions.
 - The forced response to each of these functions may be determined by conventional steady-state analysis.
@@ -460,15 +654,127 @@ layout: two-cols-header
 
 ---
 
+
+## Example 18.2: Circuit and Forcing Function
+
+For the circuit shown, determine the periodic response $i(t)$ corresponding to the forcing function $v_s(t)$ if $i(0) = 0$.
+
+<div class="grid grid-cols-2 gap-4">
+
+
+<div>
+<img src="/rl_circuit_switch.svg" class="w-full h-40" />
+
+<span class="text-xs mt-2">Series circuit with $L=2$H, $R=4\Omega$, and a switch closing at $t=0$.</span>
+</div>
+
+<div>
+<img src="/pulse_train_vs.svg" class="w-full h-40" />
+
+<span class="text-xs mt-2">Positive pulse train with magnitude 10 and period $T = \pi$.</span>
+</div>
+
+</div>
+
+
+---
+
+## Example 18.2: Step 1 - Forcing Function
+
+The forcing function $v_s(t)$ is a positive pulse train with magnitude $V_m=10$ and period $T=\pi$ ($\omega_0 = 2\pi/T = 2\,$rad/s).
+
+**1. Fourier Series of $v_s(t)$:**
+By inspection (square wave shifted by $+5$), the series is:
+$$v_s(t) = 5 + \sum_{n=1,3,...}^{\infty} \frac{20}{n\pi} \sin(2nt)$$
+
+**2. Harmonic Forcing Function ($n^{th}$ harmonic):**
+$$v_{s,n}(t) = \frac{20}{n\pi} \sin(2nt) = \frac{20}{n\pi} \cos(2nt - 90^\circ)$$
+**Phasor Domain:**
+$$\mathbf{V}_{s,n} = \frac{20}{n\pi} \angle -90^\circ = -j\frac{20}{n\pi}$$
+
+---
+
+## Example 18.2: Step 2 - Forced Response
+
+**1. System Impedance at $\omega = 2n$:**
+$$\mathbf{Z}_n = R + j\omega L = 4 + j(2n)(2) = 4 + j4n$$
+
+**2. Forced Response Current (Harmonic Phasor):**
+$$\mathbf{I}_{f,n} = \frac{\mathbf{V}_{s,n}}{\mathbf{Z}_n} = \frac{-j20/n\pi}{4 + j4n} = \frac{-j5}{n\pi(1+jn)}$$
+
+**3. Time-Domain Transformation:**
+$$\mathbf{I}_{f,n} = \frac{-j5(1-jn)}{n\pi(1+n^2)} = \frac{-5n - j5}{n\pi(1+n^2)}$$
+$$i_{f,n}(t) = \text{Re}\{ \mathbf{I}_{f,n} e^{j2nt} \} = \frac{1}{n\pi(1+n^2)} \text{Re}\{ (-5n - j5)(\cos 2nt + j\sin 2nt) \}$$
+$$i_{f,n}(t) = \frac{-5n\cos 2nt + 5\sin 2nt}{n\pi(1+n^2)} = \frac{5}{\pi(1+n^2)} \left[ \frac{\sin 2nt}{n} - \cos 2nt \right]$$
+
+---
+
+**4. DC Component ($n=0$):**
+$$V_{dc} = 5\,\text{V} \implies I_{dc} = \frac{5}{R} = \frac{5}{4} = 1.25\,\text{A}$$
+
+**5. Total Forced Response:**
+$$i_f(t) = 1.25 + \sum_{n=1,3,...}^{\infty} i_{f,n}(t)$$
+
+---
+
+## Example 18.2: Step 3 - Natural Response
+
+**1. Natural Response Form:**
+From the circuit's single pole at $s = -R/L = -4/2 = -2$:
+$$i_n(t) = Ae^{-2t}$$
+
+**2. Complete Response:**
+$$i(t) = i_f(t) + i_n(t) = 1.25 + i_{f,harm}(t) + Ae^{-2t}$$
+
+**3. Initial Condition at $t=0$:**
+Since $i(0) = 0$:
+$$0 = 1.25 + i_{f,harm}(0) + A$$
+Evaluating $i_{f,harm}(0)$ using $n$ terms (exact sum $\approx -1.146$):
+$$A \approx -0.104$$
+
+---
+
+## Example 18.2: Final Result
+
+The complete current response for $i(0) = 0$:
+
+$$i(t) = -0.104e^{-2t} + 1.25 + \frac{5}{\pi} \sum_{n=1,3,...}^{\infty} \left[ \frac{\sin(2nt)}{n(1+n^2)} - \frac{\cos(2nt)}{1+n^2} \right] \text{ A}$$
+
+**Key Components:**
+- **Transient term:** $-0.104e^{-2t}$ (dies out over time).
+- **DC term:** $1.25\,$A.
+- **Harmonic summation:** Steady-state periodic response.
+
+
+---
+
 ## Practice 18.6
 
 Use the methods of Chap. 8 to determine the value of the current sketched in Fig. 18.9 at $t$ equal to:
 
+<img src="/example_18_2_current.svg" class="mx-auto h-50" />
+
 (a) $\pi/2$
 (b) $\pi$
-(c) $3\pi/2$
+(c\) $3\pi/2$
 
 **Answers**:
 - (a) 2.392 A
 - (b) 0.1034 A
-- (c) 2.396 A
+- \(c\) 2.396 A
+
+---
+
+## Solution 18.6: Transient Analysis (Ch. 8)
+
+Circuit: $L=2$H, $R=4\Omega \implies \tau = L/R = 0.5$s. $v_s(t)$ switches every $\pi/2 \approx 1.57$s.
+
+**\(a\) Interval $0 \le t \le \pi/2$:** ($V_s = 10$V, $i(0) = 0$)
+$$i(t) = \frac{V_s}{R}(1 - e^{-t/\tau}) = 2.5(1 - e^{-2t}) \implies i(\pi/2) = 2.5(1 - e^{-\pi}) \approx \mathbf{2.392\,A}$$
+
+**\(b\) Interval $\pi/2 \le t \le \pi$:** ($V_s = 0$V, $i(\pi/2) = 2.392$A)
+$$i(t) = i(\pi/2)e^{-2(t-\pi/2)} \implies i(\pi) = 2.392e^{-\pi} \approx \mathbf{0.1034\,A}$$
+
+**\(c\) Interval $\pi \le t \le 3\pi/2$:** ($V_s = 10$V, $i(\pi) = 0.1034$A)
+$$i(t) = 2.5 + (0.1034 - 2.5)e^{-2(t-\pi)} \implies i(3\pi/2) = 2.5 - 2.3966e^{-\pi} \approx \mathbf{2.396\,A}$$
+
