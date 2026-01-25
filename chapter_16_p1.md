@@ -400,7 +400,7 @@ A parallel resonant circuit is composed of:
 Find:
 (a) $\omega_0$
 (b) $Q_0$
-\(c\) $\omega_d$
+(c) $\omega_d$
 (d) $\alpha$
 (e) $\zeta$
 
@@ -414,19 +414,17 @@ Find:
 - 781 Np/s
 - 0.0494
 </div>
+</div>
 
-<div v-click>
+---
 
-**Solution**:
+## Practice 16.1 Solution
+
 1. $\omega_0 = \frac{1}{\sqrt{LC}} = \frac{1}{\sqrt{50\text{mH} \cdot 80\text{nF}}} = 15.811 \text{ krad/s}$
 2. $Q_0 = \omega_0 R C = 15811 \cdot 8000 \cdot 80\text{n} = 10.12$
 3. $\alpha = \frac{\omega_0}{2Q_0} = \frac{15811}{20.24} = 781 \text{ Np/s}$
 4. $\omega_d = \sqrt{\omega_0^2 - \alpha^2} = 15.792 \text{ krad/s}$
 5. $\zeta = \frac{1}{2Q_0} = 0.0494$
-
-</div>
-
-</div>
 
 
 
@@ -447,17 +445,16 @@ Find $R$, $L$, and $C$ in a parallel resonant circuit for which:
 - $L = 126.4 \text{ mH}$
 - $C = 7.91 \mu\text{F}$
 </div>
+</div>
 
-<div v-click>
+---
 
-**Solution**:
+## Practice 16.2 Solution
+
 1. At resonance, $Y = 1/R \Rightarrow R = 1/Y = 1 \text{ k}\Omega$.
 2. $\alpha = \sqrt{\omega_0^2 - \omega_d^2} = \sqrt{1000^2 - 998^2} \approx 63.2 \text{ Np/s}$.
 3. $C = \frac{1}{2R\alpha} = \frac{1}{2(1000)(63.2)} = 7.91 \mu\text{F}$.
 4. $L = \frac{1}{\omega_0^2 C} = \frac{1}{10^6(7.91\mu)} = 126.4 \text{ mH}$.
-
-</div>
-</div>
 
 ---
 
@@ -656,7 +653,7 @@ A marginally high-Q parallel resonant circuit has $f_0 = 440 \text{ Hz}$ with $Q
 (a) $f_1$
 (b) $f_2$
 And approximate values for:
-\(c) $f_1$
+(c) $f_1$
 (d) $f_2$
 
 **Answers**:
@@ -667,7 +664,7 @@ And approximate values for:
 
 ---
 
-**Solution**:
+## Practice 16.3 Solution
 
 **Bandwidth**: $B = \frac{f_0}{Q_0} = \frac{440}{6} = 73.33 \text{ Hz}$.
 
@@ -678,7 +675,7 @@ Using exact formulas: $f_{1,2} = f_0 \left[ \sqrt{1 + \left(\frac{1}{2Q_0}\right
 - $f_1 = 440 [1.0035 - 0.0833] = 404.9 \text{ Hz}$.
 - $f_2 = 440 [1.0035 + 0.0833] = 478.2 \text{ Hz}$.
 
-**\(c) & (d) Approximate Values**:
+**(c) & (d) Approximate Values**:
 - $f_1 \approx f_0 - \frac{B}{2} = 440 - 36.67 = 403.3 \text{ Hz}$.
 - $f_2 \approx f_0 + \frac{B}{2} = 440 + 36.67 = 476.7 \text{ Hz}$.
 
@@ -819,18 +816,13 @@ $\omega_0 = 1/\sqrt{LC} = 50$ krad/s, $Q_0 = \omega_0 L / R = 10$ (**High-Q**), 
 
 ## Practice 16.4
 
-
 A series resonant circuit has a bandwidth of 100 Hz, $L = 20 \text{ mH}$, $C = 2 \mu\text{F}$. Determine:
 (a) $f_0$
 (b) $Q_0$
-\(c) $Z_{in}$ at resonance
+(c) $Z_{in}$ at resonance
 (d) $f_2$
 
-<v-click>
-
-**Answers**: (a) 796 Hz; (b) 7.96; \(c) $12.57 \Omega$; (d) 846 Hz.
-
-</v-click>
+**Answers**: (a) 796 Hz; (b) 7.96; (c) $12.57 \Omega$; (d) 846 Hz.
 
 ---
 
@@ -841,28 +833,20 @@ $B = 100 \text{ Hz}, \quad L = 20 \text{ mH}, \quad C = 2 \mu\text{F}$
 <div class="text-base">
 
 - **(a) Resonant Frequency**:
-  <v-click>
 
   $$ f_0 = \frac{1}{2\pi \sqrt{LC}} = \frac{1}{2\pi \sqrt{(20 \times 10^{-3})(2 \times 10^{-6})}} \approx \mathbf{795.78 \text{ Hz}} $$
-  </v-click>
 
 - **(b) Quality Factor**:
-  <v-click>
   
   $$ Q_0 = \frac{f_0}{B} = \frac{795.78}{100} \approx \mathbf{7.96} $$
-  </v-click>
 
-- **\(c) Input Impedance at Resonance ($Z_{in} = R$)**:
-  <v-click>
+- **(c) Input Impedance at Resonance ($Z_{in} = R$)**:
   
   $$ B = \frac{R}{2\pi L} \implies R = 2\pi B L = 2\pi(100)(20 \times 10^{-3}) = 4\pi \approx \mathbf{12.57 \Omega} $$
-  </v-click>
 
 - **(d) Upper Half-Power Frequency (Approx since $Q_0 \ge 5$)**:
-  <v-click>
   
   $$ f_2 \approx f_0 + \frac{B}{2} = 795.78 + 50 = \mathbf{845.78 \text{ Hz}} $$
-  </v-click>
 
 </div>
 
@@ -952,11 +936,7 @@ Referring to the circuit of Fig. 16.9a (Practical inductor in RLC Parallel circu
 
 Determine inductance necessary.
 
-<v-click>
-
 **Answer**: 10 mH.
-
-</v-click>
 
 ---
 
@@ -967,29 +947,20 @@ $f_0 = 1 \text{ MHz} \implies \omega_0 = 2\pi \times 10^6 \text{ rad/s}, \quad R
 <div class="text-base">
 
 Using the exact resonant frequency formula for a practical parallel circuit:
-<v-click>
 
 $$ \omega_0^2 = \frac{1}{LC} - \frac{R_1^2}{L^2} \implies L^2 \omega_0^2 C - L + R_1^2 C = 0 $$
-</v-click>
 
 Substitute values ($4\pi^2 C \approx 100 \times 10^{-12}$):
-<v-click>
 
 $$ L^2 (100) - L + (10^6)(2.533 \times 10^{-12}) = 0 $$
 $$ 100 L^2 - L + 2.533 \times 10^{-6} = 0 $$
-</v-click>
 
 Solve using quadratic formula $L = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}$:
-<v-click>
 
 $$ L = \frac{1 \pm \sqrt{1 - 1.0132 \times 10^{-3}}}{200} \approx \frac{1 \pm 0.9995}{200} $$
-</v-click>
-
-<v-click>
 
 - $L_1 = \frac{1.9995}{200} \approx \mathbf{10 \text{ mH}}$ (Matching textbook solution)
 - $L_2 = \frac{0.0005}{200} \approx 2.5 \mu\text{H}$
-</v-click>
 
 </div>
 
@@ -1178,7 +1149,7 @@ Find the parallel equivalent of the series combination of a **100 mH** inductor 
 - $R_p \approx Q^2 R_s = (20^2)(5) = \mathbf{2000 \Omega}$
 
 </div>
-<v-click>
+
 
 **3. Accuracy Check:**
 $Z_s = 5 + j100 = \mathbf{100.1 \angle 87.1^\circ \Omega}$
@@ -1188,7 +1159,7 @@ $Z_p = \mathbf{99.9 \angle 87.1^\circ \Omega}$
 
 <span class="text-green-600 font-bold">The accuracy is impressive $(< 0.2\% \text{ error})$.</span>
 
-</v-click>
+
 </div>
 
 ---
@@ -1280,30 +1251,38 @@ How accurate is the **Simple RLC** shortcut compared to the **Actual** practical
 
 ---
 
-## Practice 16.6 & 16.7
+## Practice 16.6
 
-**Practice 16.6**: Find the parallel equivalent of a series combination of $L = 8$ H and $R = 8$ k$\Omega$ at $f = 20$ kHz.
+Find the parallel equivalent of a series combination of $L = 8$ H and $R = 8$ k$\Omega$ at $f = 20$ kHz.
 
-<v-click>
+**Answer**: $L_p = \mathbf{8 \text{ H}}, R_p = \mathbf{126 \text{ M}\Omega}$.
+
+---
+
+## Practice 16.6 Solution
 
 - $\omega = 2\pi(20k) \approx 125.7 \text{ krad/s}$
 - $X_s = \omega L \approx 1005 \text{ k}\Omega$
 - $Q = X_s/R_s \approx 125.6$
-- **Answer**: $L_p = \mathbf{8 \text{ H}}, R_p = Q^2 R_s \approx \mathbf{126 \text{ M}\Omega}$.
+- $R_p = Q^2 R_s \approx (125.6^2)(8000) \approx \mathbf{126 \text{ M}\Omega}$.
+- $L_p \approx L_s = \mathbf{8 \text{ H}}$.
 
-</v-click>
+---
 
-<br>
+## Practice 16.7
 
-**Practice 16.7**: Find the series equivalent for a parallel network of $R_p = 250$ k$\Omega$ and $L_p = 5$ H at $\omega = 10^5$ rad/s.
-<v-click>
+Find the series equivalent for a parallel network of $R_p = 250$ k$\Omega$ and $L_p = 5$ H at $\omega = 10^5$ rad/s.
+
+**Answer**: $L_s = \mathbf{1 \text{ H}}, R_s = \mathbf{200 \text{ k}\Omega}$.
+
+---
+
+## Practice 16.7 Solution
 
 - $X_p = \omega L_p = 500 \text{ k}\Omega$
 - $Q = R_p/X_p = 250k / 500k = \mathbf{0.5}$ (Low Q!)
-- $R_s = R_p / (1+Q^2) = 250k / 1.25 = \mathbf{200 \text{ k}\Omega}$
-- $X_s = X_p / (1+1/Q^2) = 500k / 5 = \mathbf{100 \text{ k}\Omega} \implies L_s = \mathbf{1 \text{ H}}$
-
-</v-click>
+- $R_s = R_p / (1+Q^2) = 250k / (1 + 0.25) = \mathbf{200 \text{ k}\Omega}$
+- $X_s = X_p / (1+1/Q^2) = 500k / (1 + 4) = \mathbf{100 \text{ k}\Omega} \implies L_s = \mathbf{1 \text{ H}}$
 
 
 

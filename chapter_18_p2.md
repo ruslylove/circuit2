@@ -430,7 +430,7 @@ Evaluating this for $\omega = 0, 10\pi, \dots$ yields the answers.
 **Ans**:
 - (a) $j1.91 \times 10^{-3}$ V
 - (b) $j0.191$ V
-- (c) $j4.05$ V
+- \(c\) $j4.05$ V
 - (d) $-j4.05$ V
 - (e) $0$
 
@@ -706,16 +706,16 @@ $$\mathbf{u(t) \leftrightarrow \pi \delta(\omega) + \frac{1}{j\omega}}$$
 
 ## One-Sided Exponential Decay
 
-For $f(t) = e^{-at}u(t)$ where $a > 0$:
+For $f(t) = e^{-\alpha t}u(t)$ where $\alpha > 0$:
 
 **Step 1: Apply the definition**
-$$F(j\omega) = \int_{-\infty}^{\infty} e^{-at}u(t) e^{-j\omega t} dt = \int_{0}^{\infty} e^{-(a+j\omega)t} dt$$
+$$F(j\omega) = \int_{-\infty}^{\infty} e^{-\alpha t}u(t) e^{-j\omega t} dt = \int_{0}^{\infty} e^{-(\alpha+j\omega)t} dt$$
 
 **Step 2: Integrate**
-$$F(j\omega) = \left[ \frac{-e^{-(a+j\omega)t}}{a + j\omega} \right]_{0}^{\infty} = 0 - \left( \frac{-1}{a + j\omega} \right)$$
+$$F(j\omega) = \left[ \frac{-e^{-(\alpha+j\omega)t}}{\alpha + j\omega} \right]_{0}^{\infty} = 0 - \left( \frac{-1}{\alpha + j\omega} \right)$$
 
 **Step 3: Result**
-$$\mathbf{e^{-at}u(t) \leftrightarrow \frac{1}{a + j\omega}}$$
+$$\mathbf{e^{-\alpha t}u(t) \leftrightarrow \frac{1}{\alpha + j\omega}}$$
 
 ---
 
@@ -725,19 +725,19 @@ $$\mathbf{e^{-at}u(t) \leftrightarrow \frac{1}{a + j\omega}}$$
 
 ## Damped Cosine Signal
 
-For $f(t) = [e^{-at}\cos(\omega_d t)]u(t)$ where $a > 0$:
+For $f(t) = [e^{-\alpha t}\cos(\omega_d t)]u(t)$ where $\alpha > 0$:
 
 **Step 1: Use Euler's identity**
-$$f(t) = e^{-at} \left( \frac{e^{j\omega_d t} + e^{-j\omega_d t}}{2} \right) u(t) = \frac{1}{2}e^{-(a - j\omega_d)t} u(t) + \frac{1}{2}e^{-(a + j\omega_d)t} u(t)$$
+$$f(t) = e^{-\alpha t} \left( \frac{e^{j\omega_d t} + e^{-j\omega_d t}}{2} \right) u(t) = \frac{1}{2}e^{-(\alpha - j\omega_d)t} u(t) + \frac{1}{2}e^{-(\alpha + j\omega_d)t} u(t)$$
 
 **Step 2: Apply the exponential decay transform**
-Using $\mathcal{F}\{e^{-(a+j\omega_0)t}u(t)\} = \frac{1}{a+j(\omega+\omega_0)}$:
-$$F(j\omega) = \frac{1}{2} \left[ \frac{1}{a + j(\omega - \omega_d)} + \frac{1}{a + j(\omega + \omega_d)} \right]$$
+Using $\mathcal{F}\{e^{-(\alpha+j\omega_0)t}u(t)\} = \frac{1}{\alpha+j(\omega+\omega_0)}$:
+$$F(j\omega) = \frac{1}{2} \left[ \frac{1}{\alpha + j(\omega - \omega_d)} + \frac{1}{\alpha + j(\omega + \omega_d)} \right]$$
 
 **Step 3: Combine fractions**
-$$F(j\omega) = \frac{1}{2} \left[ \frac{a + j(\omega + \omega_d) + a + j(\omega - \omega_d)}{(a + j\omega)^2 + \omega_d^2} \right] = \frac{a + j\omega}{(a + j\omega)^2 + \omega_d^2}$$
+$$F(j\omega) = \frac{1}{2} \left[ \frac{\alpha + j(\omega + \omega_d) + \alpha + j(\omega - \omega_d)}{(\alpha + j\omega)^2 + \omega_d^2} \right] = \frac{\alpha + j\omega}{(\alpha + j\omega)^2 + \omega_d^2}$$
 
-$$\mathbf{[e^{-at}\cos(\omega_d t)]u(t) \leftrightarrow \frac{a + j\omega}{(a + j\omega)^2 + \omega_d^2}}$$
+$$\mathbf{[e^{-\alpha t}\cos(\omega_d t)]u(t) \leftrightarrow \frac{\alpha + j\omega}{(\alpha + j\omega)^2 + \omega_d^2}}$$
 
 ---
 
@@ -776,9 +776,9 @@ $$f(t) = 3e^{-t} \cos(4t) u(t)$$
 **Solution**:
 1.  **Identify parameters**: 
     Using the damped cosine transform pair: 
-    $$e^{-at} \cos(\omega_d t) u(t) \leftrightarrow \frac{a + j\omega}{(a + j\omega)^2 + \omega_d^2}$$
+    $$e^{-\alpha t} \cos(\omega_d t) u(t) \leftrightarrow \frac{\alpha + j\omega}{(\alpha + j\omega)^2 + \omega_d^2}$$
 2.  **Match values**: 
-    We identify $a = 1$ and $\omega_d = 4$.
+    We identify $\alpha = 1$ and $\omega_d = 4$.
 3.  **Apply linearity**:
     $$F(j\omega) = 3 \mathcal{F}\{e^{-t} \cos(4t) u(t)\}$$
     $$F(j\omega) = \mathbf{3 \frac{1 + j\omega}{(1 + j\omega)^2 + 16}}$$

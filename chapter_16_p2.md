@@ -80,9 +80,9 @@ layout: two-cols
 
 - Magnitude scaling is defined as the process by which the impedance of a two-terminal network is increased by a factor of $K_m$, the frequency remaining constant. The factor $K_m$ is real and positive.
 - To increase the input impedance of a network by a factor of $K_m$, it is sufficient to increase the impedance of each element in the network by this same factor.
-- A resistance $R$ must be replaced by a resistance $K_m R$.
-- An impedance $sL$ must be replaced by $s(K_m L)$. Thus, $L \to K_m L$.
-- An impedance $1/sC$ must be replaced by $1/s(C/K_m)$. Thus, $C \to C/K_m$.
+  $$ R \to K_m R $$
+  $$ L \to K_m L $$
+  $$ C \to C/K_m $$
 
 ---
 
@@ -90,9 +90,9 @@ layout: two-cols
 
 - We define frequency scaling as the process by which the frequency at which any impedance occurs is increased by a factor of $K_f$.
 - Frequency scaling is accomplished by scaling each passive element in frequency.
-- **Resistors**: No change ($R \to R$).
-- **Inductors**: Impedance $sL$ at frequency $\omega$ becomes $sL$ at frequency $K_f \omega$. To maintain impedance, $L \to L/K_f$.
-- **Capacitors**: Impedance $1/sC$ at frequency $\omega$ becomes $1/sC$ at frequency $K_f \omega$. To maintain impedance, $C \to C/K_f$.
+  $$ R \to R $$
+  $$ L \to L/K_f $$
+  $$ C \to C/K_f $$
 
 ---
 
@@ -150,7 +150,6 @@ layout: two-cols
 
 :: right ::
 
-<div v-click class="mt-4">
 
 **2. Scaled Values**:
 - **(a) $K_m = 800, K_f = 1$**:
@@ -163,7 +162,6 @@ layout: two-cols
   - $R' = K_m R = \mathbf{32 \text{ k}\Omega}$
   - $L' = \frac{K_m L}{K_f} = \frac{800 \times 0.25}{10^4} = \mathbf{20 \text{ mH}}$
 
-</div>
 
 ---
 layout: two-cols
@@ -253,7 +251,6 @@ layout: two-cols
 
 :: right ::
 
-<div v-click class="mt-12 px-4 border-l border-gray-200">
 
 **Part 2: Inverse Calculations**
 $|H| = 10^{H_{dB}/20}$
@@ -267,7 +264,6 @@ $|H| = 10^{H_{dB}/20}$
 - **(f)** $-0.318 \text{ dB}$
   $|H| = 10^{-0.318/20} = 10^{-0.0159} = \mathbf{0.964}$
 
-</div>
 
 ---
 
@@ -588,6 +584,33 @@ Construct a Bode magnitude plot for $H(s)$ equal to:
 - (a) $-6 \text{ dB}$, $\omega < 100$; $-20 \text{ dB/decade}$, $\omega > 100$.
 - (b) $-20 \text{ dB}$, $\omega < 10$; $+20 \text{ dB/decade}$, $10 < \omega < 100$; $0 \text{ dB}$, $\omega > 100$.
 - \(c) $0 \text{ dB}$, $\omega > 10$; $-20 \text{ dB/decade}$, $\omega < 10$.
+
+---
+
+### Practice 16.13 (a) Solution
+**$H(s) = 50/(s + 100)$**
+
+<div class="flex justify-center">
+  <img src="/practice_16_13_a.svg" class="h-100 bg-white p-2 rounded" />
+</div>
+
+---
+
+### Practice 16.13 (b) Solution
+**$H(s) = (s + 10) / (s + 100)$**
+
+<div class="flex justify-center">
+  <img src="/practice_16_13_b.svg" class="h-100 bg-white p-2 rounded" />
+</div>
+
+---
+
+### Practice 16.13 (c) Solution
+**$H(s) = (s + 10) / s$**
+
+<div class="flex justify-center">
+  <img src="/practice_16_13_c.svg" class="h-100 bg-white p-2 rounded" />
+</div>
 
 ---
 
