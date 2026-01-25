@@ -1,0 +1,13 @@
+\documentclass[tikz, border=3.14mm]{standalone}
+\usepackage{circuitikz}
+
+\begin{document}
+\begin{tikzpicture}[american]
+    \draw (0,2) to[V, l=$v_i(t)$] (0,0);
+    \draw (0,2) to[R, l=4~$\Omega$] (3,2)
+          to[L, l=2~H, v=$v_o(t)$] (3,0)
+          to[short] (0,0);
+    
+    \node[anchor=north] at (1.5,-0.5) {(a)};
+\end{tikzpicture}
+\end{document}

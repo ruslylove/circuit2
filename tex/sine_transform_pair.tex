@@ -1,0 +1,47 @@
+\documentclass[tikz, border=3.14mm]{standalone}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usepgfplotslibrary{groupplots}
+
+\begin{document}
+\begin{tikzpicture}
+    \begin{groupplot}[
+        group style={group size=2 by 1, horizontal sep=1.5cm},
+        axis lines = middle,
+        width = 7cm, height = 5cm,
+        ymin = -1.5, ymax = 1.5,
+        ytick = {-1, 1},
+        xtick = \empty,
+        grid=none,
+        xlabel = {$t$},
+        ylabel = {$f(t)$}
+    ]
+        % Time Domain Sine
+        \nextgroupplot[
+            title = {Time Domain $\sin(\omega_0 t)$},
+            xmin = -5, xmax = 5,
+            samples = 100
+        ]
+        \addplot[thick, red, domain=-5:5] {sin(deg(x))};
+
+        % Frequency Domain Sine (Imaginary Part)
+        \nextgroupplot[
+            title = {Freq Domain (Imag) $F(j\omega)$},
+            xlabel = {$\omega$},
+            ylabel = {$Im\{F(j\omega)\}$},
+            xmin = -3, xmax = 3,
+            ymin = -1.5, ymax = 1.5,
+            ytick = \empty,
+            xtick = \empty,
+            clip = false
+        ]
+        \draw[->, ultra thick, red] (axis cs:1,0) -- (axis cs:1,-1);
+        \draw[->, ultra thick, red] (axis cs:-1,0) -- (axis cs:-1,1);
+        \node[anchor=north] at (axis cs:1, 0) {$\omega_0$};
+        \node[anchor=south] at (axis cs:-1, 0) {$-\omega_0$};
+        \node[anchor=north] at (axis cs:1, -1) {$-j\pi$};
+        \node[anchor=south] at (axis cs:-1, 1) {$j\pi$};
+
+    \end{groupplot}
+\end{tikzpicture}
+\end{document}

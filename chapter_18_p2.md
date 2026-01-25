@@ -103,7 +103,7 @@ $$\mathbf{c_n = \frac{1}{T} \int_{0}^{T} f(t) e^{-jn\omega_0 t} \, dt}$$
 
 ---
 
-## Example 18.3: Step-by-Step Solution
+## Example 18.3: Solution
 
 **Step 1: Define the function**
 For $T=2$ ($\omega_0 = \pi$), the waveform $f(t)$ with even symmetry is:
@@ -115,9 +115,6 @@ $$c_n = \frac{1}{T} \int_{-T/2}^{T/2} f(t) e^{-jn\omega_0 t} \, dt = \frac{1}{2}
 
 ---
 
-## Example 18.3: Step-by-Step Solution (Cont.)
-
-
 **Step 3: Evaluate the Integral**
 $$c_n = \frac{1}{2} \left[ \int_{-0.5}^{0.5} (1) e^{-jn\pi t} \, dt + \int_{0.5}^{1.5} (-1) e^{-jn\pi t} \, dt \right]$$
 
@@ -126,8 +123,6 @@ $$c_n = \frac{1}{2} \left[ \frac{e^{-jn\pi t}}{-jn\pi} \right]_{-0.5}^{0.5} - \f
 $$c_n = \frac{1}{-j2n\pi} \left[ (e^{-jn\pi/2} - e^{jn\pi/2}) - (e^{-j3n\pi/2} - e^{-jn\pi/2}) \right]$$
 
 ---
-
-## Example 18.3: Step-by-Step Solution (Cont.)
 
 Using $e^{-jx} - e^{jx} = -j2 \sin x$:
 $$c_n = \frac{1}{-j2n\pi} \left[ -j2\sin(n\pi/2) - (-j2\sin(3n\pi/2)) \right]$$
@@ -585,45 +580,418 @@ $W(10 < \omega < \infty) = \mathbf{5 \text{ J}}$.
 
 ---
 
-## 18.6/18.7 Properties & Pairs
+## 18.7 Fourier Transform Pairs for some common functions
 
-**Unit Impulse Function**:
-- We seek the Fourier transform of $\delta(t - t_0)$.
+## The Unit Impulse Function
 
-**The Signum Function**:
-- A singularity function $sgn(t)$.
+We seek the Fourier transform of $\delta(t - t_0)$.
 
-**The Unit Step Function**:
-- $u(t)$.
+**Step 1: Apply the definition**
+$$F(j\omega) = \int_{-\infty}^{\infty} \delta(t - t_0) e^{-j\omega t} \, dt$$
+
+**Step 2: Use the Sifting Property**
+The sifting property states that $\int_{-\infty}^{\infty} f(t) \delta(t - t_0) dt = f(t_0)$.
+Here, $f(t) = e^{-j\omega t}$:
+$$\mathbf{\delta(t - t_0) \leftrightarrow e^{-j\omega t_0}}$$
+
+**Magnitude**: Using Euler's identity, $|e^{-j\omega t_0}| = |\cos(\omega t_0) - j\sin(\omega t_0)|$.
+$$|F(j\omega)| = \sqrt{\cos^2(\omega t_0) + \sin^2(\omega t_0)} = \mathbf{1}$$
+
+**Phase**: $\phi(\omega) = \mathbf{-\omega t_0}$ (linear phase shift).
 
 ---
 
-#### Example 18.8
+<img src="/impulse_function_spectrum.svg" class="h-60 mx-auto p-2" alt="Impulse Function and Spectrum" />
 
-**Problem**: Find the voltage across the inductor of the circuit (Fig 18.22a) when input is $v_i(t) = 5e^{-3t}u(t)$. Network: $4\Omega$ resistor in series with $2H$ inductor.
+- For a centered impulse $\delta(t)$, where $t_0 = 0$:
+  $$\mathbf{\delta(t) \leftrightarrow 1}$$
+- The spectrum has a **constant magnitude** of 1 and a **linear phase** of $-\omega t_0$.
+
+---
+
+## Constant (DC) Signal
+
+What is the inverse Fourier transform of a centered impulse in the frequency domain, $2\pi \delta(w)$?
+
+**Step 1: Apply the inverse transform definition**
+$$f(t) = \frac{1}{2\pi} \int_{-\infty}^{\infty} [2\pi \delta(\omega)] e^{j\omega t} \, d\omega = \int_{-\infty}^{\infty} \delta(\omega) e^{j\omega t} \, d\omega$$
+
+**Step 2: Use the Sifting Property** (in frequency)
+$$f(t) = e^{j(0)t} = \mathbf{1}$$
+
+
+---
+
+<img src="/constant_signal_spectrum.svg" class="h-60 mx-auto p-2" alt="Constant Signal and Spectrum" />
+
+**The Duality**:
+$$\mathbf{1 \leftrightarrow 2\pi \delta(\omega)}$$
+*(A constant DC signal in time becomes a single impulse at $\omega=0$ in the frequency domain).*
+
+---
+
+## Complex Exponential Signal
+
+What is the inverse Fourier transform of a shifted impulse in the frequency domain, $2\pi \delta(\omega - \omega_0)$?
+
+**Step 1: Apply the inverse transform definition**
+$$f(t) = \frac{1}{2\pi} \int_{-\infty}^{\infty} [2\pi \delta(\omega - \omega_0)] e^{j\omega t} \, d\omega = \int_{-\infty}^{\infty} \delta(\omega - \omega_0) e^{j\omega t} \, d\omega$$
+
+**Step 2: Use the Sifting Property**
+$$f(t) = e^{j\omega_0 t}$$
+
+**The Pair**:
+$$\mathbf{e^{j\omega_0 t} \leftrightarrow 2\pi \delta(\omega - \omega_0)}$$
+
+---
+
+## Cosine and Sine Signals
+
+Using Euler's identity and the linearity property:
+
+- **Cosine**: $\cos(\omega_0 t) = \frac{1}{2}e^{j\omega_0 t} + \frac{1}{2}e^{-j\omega_0 t}$
+  $$\mathbf{\cos(\omega_0 t) \leftrightarrow \pi [\delta(\omega - \omega_0) + \delta(\omega + \omega_0)]}$$
+
+<img src="/cosine_transform_pair.svg" class="h-60 mx-auto p-2" alt="Cosine Transform Pair" />
+
+---
+
+- **Sine**: $\sin(\omega_0 t) = \frac{1}{2j}e^{j\omega_0 t} - \frac{1}{2j}e^{-j\omega_0 t}$
+  $$\mathbf{\sin(\omega_0 t) \leftrightarrow j\pi [\delta(\omega + \omega_0) - \delta(\omega - \omega_0)]}$$
+
+<img src="/sine_transform_pair.svg" class="h-60 mx-auto p-2" alt="Sine Transform Pair" />
+
+---
+
+## The Signum Function
+
+The signum function $sgn(t)$ is undefined at $t=0$, but we can define it as a limit:
+$$sgn(t) = \lim_{a \to 0} [e^{-at} u(t) - e^{at} u(-t)]$$
+
+**Step 1: Transform the exponential terms**
+- $\mathcal{F}\{e^{-at} u(t)\} = \frac{1}{a + j\omega}$
+- $\mathcal{F}\{e^{at} u(-t)\} = \frac{1}{a - j\omega}$
+
+**Step 2: Take the difference and limit**
+$$F(j\omega) = \lim_{a \to 0} \left[ \frac{1}{a + j\omega} - \frac{1}{a - j\omega} \right] = \lim_{a \to 0} \frac{-j2\omega}{a^2 + \omega^2}$$
+$$\mathbf{sgn(t) \leftrightarrow \frac{2}{j\omega}}$$
+
+---
+
+<img src="/signum_transform.svg" class="h-60 mx-auto p-2" alt="Signum Function and Spectrum" />
+
+---
+
+## The Unit Step Function
+
+We can express the unit step function $u(t)$ in terms of the signum function:
+$$u(t) = \frac{1}{2} + \frac{1}{2} sgn(t)$$
+
+**Step 1: Apply Linearity**
+$$\mathcal{F}\{u(t)\} = \frac{1}{2}\mathcal{F}\{1\} + \frac{1}{2}\mathcal{F}\{sgn(t)\}$$
+
+**Step 2: Substitute Known Transforms**
+- $\mathcal{F}\{1\} = 2\pi \delta(\omega)$
+- $\mathcal{F}\{sgn(t)\} = \frac{2}{j\omega}$
+
+---
+
+**Step 3: Result**
+$$\mathcal{F}\{u(t)\} = \frac{1}{2}(2\pi \delta(\omega)) + \frac{1}{2}\left(\frac{2}{j\omega}\right)$$
+$$\mathbf{u(t) \leftrightarrow \pi \delta(\omega) + \frac{1}{j\omega}}$$
+
+<img src="/unit_step_transform.svg" class="h-80 mx-auto p-2" alt="Unit Step Function and Spectrum" />
+
+---
+
+## One-Sided Exponential Decay
+
+For $f(t) = e^{-at}u(t)$ where $a > 0$:
+
+**Step 1: Apply the definition**
+$$F(j\omega) = \int_{-\infty}^{\infty} e^{-at}u(t) e^{-j\omega t} dt = \int_{0}^{\infty} e^{-(a+j\omega)t} dt$$
+
+**Step 2: Integrate**
+$$F(j\omega) = \left[ \frac{-e^{-(a+j\omega)t}}{a + j\omega} \right]_{0}^{\infty} = 0 - \left( \frac{-1}{a + j\omega} \right)$$
+
+**Step 3: Result**
+$$\mathbf{e^{-at}u(t) \leftrightarrow \frac{1}{a + j\omega}}$$
+
+---
+
+<img src="/exponential_decay_transform.svg" class="h-60 mx-auto p-2" alt="Exponential Decay Transform" />
+
+---
+
+## Damped Cosine Signal
+
+For $f(t) = [e^{-at}\cos(\omega_d t)]u(t)$ where $a > 0$:
+
+**Step 1: Use Euler's identity**
+$$f(t) = e^{-at} \left( \frac{e^{j\omega_d t} + e^{-j\omega_d t}}{2} \right) u(t) = \frac{1}{2}e^{-(a - j\omega_d)t} u(t) + \frac{1}{2}e^{-(a + j\omega_d)t} u(t)$$
+
+**Step 2: Apply the exponential decay transform**
+Using $\mathcal{F}\{e^{-(a+j\omega_0)t}u(t)\} = \frac{1}{a+j(\omega+\omega_0)}$:
+$$F(j\omega) = \frac{1}{2} \left[ \frac{1}{a + j(\omega - \omega_d)} + \frac{1}{a + j(\omega + \omega_d)} \right]$$
+
+**Step 3: Combine fractions**
+$$F(j\omega) = \frac{1}{2} \left[ \frac{a + j(\omega + \omega_d) + a + j(\omega - \omega_d)}{(a + j\omega)^2 + \omega_d^2} \right] = \frac{a + j\omega}{(a + j\omega)^2 + \omega_d^2}$$
+
+$$\mathbf{[e^{-at}\cos(\omega_d t)]u(t) \leftrightarrow \frac{a + j\omega}{(a + j\omega)^2 + \omega_d^2}}$$
+
+---
+
+<img src="/damped_cosine_transform.svg" class="h-60 mx-auto p-2" alt="Damped Cosine Transform" />
+
+---
+
+## The Rectangular Pulse
+
+For a pulse of duration $T$ centered at the origin: $f(t) = u(t + T/2) - u(t - T/2)$
+
+**Step 1: Apply the definition**
+$$F(j\omega) = \int_{-T/2}^{T/2} 1 \cdot e^{-j\omega t} dt$$
+
+**Step 2: Integrate**
+$$F(j\omega) = \left[ \frac{e^{-j\omega t}}{-j\omega} \right]_{-T/2}^{T/2} = \frac{e^{-j\omega T/2} - e^{j\omega T/2}}{-j\omega} = \frac{e^{j\omega T/2} - e^{-j\omega T/2}}{j\omega}$$
+
+**Step 3: Express in terms of sinc (sampling) function**
+Using $Sa(x) = \frac{\sin x}{x}$ and $2j\sin \theta = e^{j\theta} - e^{-j\theta}$:
+$$F(j\omega) = \frac{2\sin(\omega T/2)}{\omega} = T \frac{\sin(\omega T/2)}{\omega T/2}$$
+$$\mathbf{u(t + T/2) - u(t - T/2) \leftrightarrow T Sa\left(\frac{\omega T}{2}\right)}$$
+
+---
+
+<img src="/rectangular_pulse_transform.svg" class="h-60 mx-auto p-2" alt="Rectangular Pulse Transform" />
+
+---
+
+## Example 18.7
+
+**Problem**: Use the Fourier transform pair table to find the Fourier transform of the time function:
+$$f(t) = 3e^{-t} \cos(4t) u(t)$$
+
+---
 
 **Solution**:
-1.  **System Function**: $H(j\omega) = Z_L / (Z_R + Z_L) = j2\omega / (4 + j2\omega)$.
-2.  **Input Transform**: $V_i(j\omega) = 5 / (3 + j\omega)$.
-3.  **Output Transform**: $V_o(j\omega) = H(j\omega) V_i(j\omega) = \frac{j2\omega}{4+j2\omega} \frac{5}{3+j\omega}$.
-4.  **Partial Fraction Expansion**:
-    - $V_o(j\omega) = \dots$
-    - Inverse Transform to get $v_o(t)$.
-    - Text result: $v_o(t) = 5(3e^{-3t} - 2e^{-2t})u(t)$.
+1.  **Identify parameters**: 
+    Using the damped cosine transform pair: 
+    $$e^{-at} \cos(\omega_d t) u(t) \leftrightarrow \frac{a + j\omega}{(a + j\omega)^2 + \omega_d^2}$$
+2.  **Match values**: 
+    We identify $a = 1$ and $\omega_d = 4$.
+3.  **Apply linearity**:
+    $$F(j\omega) = 3 \mathcal{F}\{e^{-t} \cos(4t) u(t)\}$$
+    $$F(j\omega) = \mathbf{3 \frac{1 + j\omega}{(1 + j\omega)^2 + 16}}$$
+---
+
+## Practice 18.12
+
+**Problem**: Evaluate the Fourier transform at $\omega = 12$ for the time function:
+(a&nbsp;) $4u(t) - 10\delta(t)$
+(b&nbsp;) $5e^{-8t} u(t)$
+(c&nbsp;) $4 \cos 8t u(t)$
+(d&nbsp;) $-4 \text{sgn}(t)$
+
+**Ans**: (a&nbsp;) $10.01\angle-178.1^\circ$; (b&nbsp;) $0.347\angle-56.3^\circ$; (c&nbsp;) $-j0.6$; (d&nbsp;) $j0.667$.
 
 ---
+
+## Practice 18.12: Solution
+
+(a&nbsp;) $F(j\omega) = 4\left(\pi\delta(\omega) + \frac{1}{j\omega}\right) - 10$. At $\omega = 12$:
+$F(j12) = -10 + \frac{4}{j12} = -10 - j0.333 = \mathbf{10.01\angle-178.1^\circ}$
+
+(b&nbsp;) $F(j\omega) = \frac{5}{8 + j\omega}$. At $\omega = 12$:
+$F(j12) = \frac{5}{8 + j12} = \frac{5}{14.42\angle56.3^\circ} = \mathbf{0.347\angle-56.3^\circ}$
+
+(c&nbsp;) $F(j\omega) = 4 \frac{j\omega}{(j\omega)^2 + 8^2}$. At $\omega = 12$:
+$F(j12) = \frac{j48}{-80} = \mathbf{-j0.6}$
+
+(d&nbsp;) $F(j\omega) = -4\left(\frac{2}{j\omega}\right) = \frac{j8}{\omega}$. At $\omega = 12$:
+$F(j12) = \frac{j8}{12} = \mathbf{j0.667}$
+
+---
+
+## Practice 18.13
+
+**Problem**: Find $f(t)$ at $t = 2$ if $F(j\omega)$ is equal to:
+(a&nbsp;) $5e^{-j3\omega} - j(4/\omega)$
+(b&nbsp;) $8[\delta(\omega - 3) + \delta(\omega + 3)]$
+(c&nbsp;) $(8/\omega) \sin 5\omega$
+
+**Ans**: (a&nbsp;) 2.00; (b&nbsp;) 2.45; (c&nbsp;) 4.00.
+
+---
+
+## Practice 18.13: Solution
+
+(a&nbsp;) $F(j\omega) = 5e^{-j3\omega} + \frac{4}{j\omega}$. Inverse transform:
+$f(t) = 5\delta(t-3) + 2\text{sgn}(t)$. At $t=2$: $f(2) = 0 + 2 = \mathbf{2.00}$
+
+(b&nbsp;) $F(j\omega) = \frac{8}{\pi} \cdot \pi[\delta(\omega - 3) + \delta(\omega + 3)]$. Inverse transform:
+$f(t) = \frac{8}{\pi} \cos(3t)$. At $t=2$: $f(2) = \frac{8}{\pi} \cos(6) = \mathbf{2.45}$
+
+(c&nbsp;) $F(j\omega) = 4 \frac{2\sin(5\omega)}{\omega}$. Using pulse pair $u(t+a)-u(t-a) \leftrightarrow \frac{2\sin a\omega}{\omega}$:
+$f(t) = 4[u(t+5) - u(t-5)]$. At $t=2$: $f(2) = 4(1 - 0) = \mathbf{4.00}$
+
+---
+
 
 ## 18.8 Fourier Transform of General Periodic Time Function
 
-- Consider a periodic time function $f(t)$ with period $T$.
-- We can determine its Fourier transform using the series expansion.
+Periodic functions, like nonperiodic ones, possess Fourier transforms. Consider a periodic function $f(t)$ with period $T$:
+$$f(t) = \sum_{n=-\infty}^{\infty} c_n e^{jn\omega_0 t}$$
+where $\omega_0 = 2\pi/T$.
+
+**Derivation**:
+By the linearity property, the transform of the sum is the sum of the transforms:
+$$\mathcal{F}\{f(t)\} = \sum_{n=-\infty}^{\infty} c_n \mathcal{F}\{e^{jn\omega_0 t}\}$$
+Since $\mathcal{F}\{e^{j\omega_0 t}\} = 2\pi \delta(\omega - \omega_0)$, we have:
+$$\mathbf{f(t) \leftrightarrow 2\pi \sum_{n=-\infty}^{\infty} c_n \delta(\omega - n\omega_0)}$$
+
+---
+
+**Discrete Spectrum**:
+The Fourier transform of a periodic function consists of a sequence of impulses at the harmonic frequencies $n\omega_0$. The strength of each impulse is $2\pi c_n$.
+
+<img src="/periodic_function_spectrum.svg" class="h-60 mx-auto p-4" alt="Discrete Impulse Spectrum" />
+
+---
+
+### Inverse Fourier Transform
+
+We can verify the consistency by calculating the inverse Fourier transform:
+$$f(t) = \mathcal{F}^{-1} \{ F(j\omega) \} = \frac{1}{2\pi} \int_{-\infty}^{\infty} e^{j\omega t} F(j\omega) d\omega$$
+
+**Substitution**:
+Substitute $F(j\omega) = 2\pi \sum_{n=-\infty}^{\infty} c_n \delta(\omega - n\omega_0)$:
+$$f(t) = \frac{1}{2\pi} \int_{-\infty}^{\infty} e^{j\omega t} \left[ 2\pi \sum_{n=-\infty}^{\infty} c_n \delta(\omega - n\omega_0) \right] d\omega$$
+
+**Interchange Sum and Integral**:
+$$f(t) = \sum_{n=-\infty}^{\infty} c_n \int_{-\infty}^{\infty} e^{j\omega t} \delta(\omega - n\omega_0) d\omega$$
+
+---
+
+**Sifting Property**:
+The integral $\int \phi(\omega) \delta(\omega - \dots) d\omega$ picks the value of $\phi$ at the impulse location:
+$$\mathbf{f(t) = \sum_{n=-\infty}^{\infty} c_n e^{jn\omega_0 t}}$$
+This is exactly the **complex Fourier series**, confirming the transform pair.
+---
+
+## Practice 18.14
+
+**Problem**: Find:
+(a&nbsp;) $\mathcal{F}\{5 \sin^2 3t\}$
+(b&nbsp;) $\mathcal{F}\{A \sin \omega_0 t\}$
+(c&nbsp;) $\mathcal{F}\{6 \cos(8t + 0.1\pi)\}$
+
+**Ans**: 
+(a&nbsp;) $2.5\pi[2\delta(\omega) - \delta(\omega + 6) - \delta(\omega - 6)]$
+(b&nbsp;) $j\pi A[\delta(\omega + \omega_0) - \delta(\omega - \omega_0)]$
+(c&nbsp;) $[18.85\angle 18^\circ] \delta(\omega - 8) + [18.85\angle -18^\circ] \delta(\omega + 8)$
+
+---
+
+## Practice 18.14: Solution
+
+(a&nbsp;) Use the double-angle identity $\sin^2 \theta = \frac{1 - \cos 2\theta}{2}$:
+$5 \sin^2 3t = 5 \left[ \frac{1 - \cos(2 \cdot 3t)}{2} \right] = 2.5(1 - \cos 6t)$.
+$\mathcal{F}\{2.5\} = 2.5(2\pi \delta(\omega)) = 5\pi\delta(\omega)$.
+$\mathcal{F}\{2.5 \cos 6t\} = 2.5\pi[\delta(\omega - 6) + \delta(\omega + 6)]$.
+$F(j\omega) = \mathbf{2.5\pi [2\delta(\omega) - \delta(\omega - 6) - \delta(\omega + 6)]}$
+
+(b&nbsp;) $A \sin \omega_0 t = \frac{A}{j2}(e^{j\omega_0 t} - e^{-j\omega_0 t})$.
+$F(j\omega) = \frac{A}{j2}[2\pi\delta(\omega - \omega_0) - 2\pi\delta(\omega + \omega_0)]$
+$F(j\omega) = -jA\pi[\delta(\omega - \omega_0) - \delta(\omega + \omega_0)] = \mathbf{jA\pi[\delta(\omega + \omega_0) - \delta(\omega - \omega_0)]}$
+
+(c&nbsp;) $6 \cos(8t + 18^\circ) = 3(e^{j(8t + 18^\circ)} + e^{-j(8t + 18^\circ)})$.
+$F(j\omega) = 3 e^{j18^\circ} (2\pi \delta(\omega - 8)) + 3 e^{-j18^\circ} (2\pi \delta(\omega + 8))$
+$F(j\omega) = \mathbf{[18.85\angle 18^\circ] \delta(\omega - 8) + [18.85\angle -18^\circ] \delta(\omega + 8)}$
 
 ---
 
 ## 18.9 System Function and Response
 
-- Assuming input and output are voltages, we apply the basic definition of the Fourier transform.
-- The output can be expressed by the **convolution integral**.
+- Assuming no initial energy storage, the output can be expressed by the **convolution integral**:
+  $$v_o(t) = v_i(t) * h(t) = \int_{-\infty}^{\infty} v_i(t-z)h(z) dz$$
+- Taking the Fourier transform of the output $V_o(j\omega)$:
+  $$V_o(j\omega) = \int_{-\infty}^{\infty} e^{-j\omega t} \left[ \int_{-\infty}^{\infty} v_i(t-z)h(z) dz \right] dt$$
+
+---
+
+## 18.9 Convolution Property: Proof
+
+**1. Interchange Order of Integration**:
+$$V_o(j\omega) = \int_{-\infty}^{\infty} h(z) \left[ \int_{-\infty}^{\infty} e^{-j\omega t} v_i(t-z) dt \right] dz$$
+
+**2. Change of Variable**:
+Let $x = t-z$, so $t = x+z$ and $dt = dx$:
+$$V_o(j\omega) = \int_{-\infty}^{\infty} h(z) \left[ \int_{-\infty}^{\infty} e^{-j\omega(x+z)} v_i(x) dx \right] dz$$
+$$V_o(j\omega) = \int_{-\infty}^{\infty} h(z) e^{-j\omega z} \left[ \int_{-\infty}^{\infty} e^{-j\omega x} v_i(x) dx \right] dz$$
+---
+
+**3. Identify Transforms**:
+The inner integral is $V_i(j\omega)$. Since it's independent of $z$, we move it out:
+$$V_o(j\omega) = V_i(j\omega) \int_{-\infty}^{\infty} h(z) e^{-j\omega z} dz$$
+The remaining integral is $H(j\omega)$.
+
+**Result**:
+$$\mathbf{V_o(j\omega) = V_i(j\omega)H(j\omega)}$$
+
+**System Function**:
+The impulse response $h(t)$ and the system function $H(j\omega)$ constitute a Fourier transform pair:
+$$\mathbf{h(t) \leftrightarrow H(j\omega)}$$
+
+---
+
+### Generalized Convolution Property
+
+The derivation for system response serves to prove the general statement that the Fourier transform of the convolution of **any** two time functions is the product of their Fourier transforms:
+
+$$\mathbf{\mathcal{F} \{ f(t) * g(t) \} = F(j\omega)G(j\omega)}$$
+
+where:
+- $f(t) \leftrightarrow F(j\omega)$
+- $g(t) \leftrightarrow G(j\omega)$
+
+*(Convolution in the time domain is equivalent to multiplication in the frequency domain)*
+---
+
+## Practice 18.15
+
+**Problem**: The impulse response of a certain linear network is $h(t) = 6e^{-20t} u(t)$. The input signal is $v_i(t) = 3e^{-6t} u(t)$ V. Find:
+(a&nbsp;) $H(j\omega)$
+(b&nbsp;) $V_i(j\omega)$
+(c&nbsp;) $V_o(j\omega)$
+(d&nbsp;) $v_o(0.1)$
+(e&nbsp;) $v_o(0.3)$
+(f&nbsp;) $v_{o,max}$
+
+**Ans**: (a&nbsp;) $6/(20 + j\omega)$; (b&nbsp;) $3/(6 + j\omega)$; (c&nbsp;) $18/[(20 + j\omega)(6 + j\omega)]$; (d&nbsp;) 0.532 V; (e&nbsp;) 0.209 V; (f&nbsp;) 0.5372.
+
+---
+
+## Practice 18.15: Solution
+
+(a&nbsp;) $H(j\omega) = \mathcal{F}\{6e^{-20t} u(t)\} = \mathbf{\frac{6}{20 + j\omega}}$
+(b&nbsp;) $V_i(j\omega) = \mathcal{F}\{3e^{-6t} u(t)\} = \mathbf{\frac{3}{6 + j\omega}}$
+(c&nbsp;) $V_o(j\omega) = H(j\omega)V_i(j\omega) = \frac{6 \cdot 3}{(20 + j\omega)(6 + j\omega)} = \mathbf{\frac{18}{(20 + j\omega)(6 + j\omega)}}$
+
+(d, e, f) **Partial Fraction Expansion** (let $s = j\omega$):
+$$V_o(s) = \frac{18}{(s+6)(s+20)} = \frac{A}{s+6} + \frac{B}{s+20}$$
+- **Solve for A** (Cover-up $s=-6$): $A = \left. \frac{18}{s+20} \right|_{s=-6} = \frac{18}{14} = \mathbf{9/7}$
+- **Solve for B** (Cover-up $s=-20$): $B = \left. \frac{18}{s+6} \right|_{s=-20} = \frac{18}{-14} = \mathbf{-9/7}$
+- Resulting in: $V_o(j\omega) = \frac{9/7}{6+j\omega} - \frac{9/7}{20+j\omega}$
+
+**Inverse Transform**:
+Using the pair $e^{-at}u(t) \leftrightarrow \frac{1}{a + j\omega}$:
+$$\mathbf{v_o(t) = \frac{9}{7}(e^{-6t} - e^{-20t})u(t)\text{ V}}$$
+
+---
+
+- At $t=0.1$: $v_o(0.1) = 1.286(e^{-0.6} - e^{-2.0}) = \mathbf{0.532\text{ V}}$
+- At $t=0.3$: $v_o(0.3) = 1.286(e^{-1.8} - e^{-6.0}) = \mathbf{0.209\text{ V}}$
+- For $v_{o,max}$, set $v_o'(t)=0$: $t_{max} = \frac{\ln(20/6)}{14} \approx 0.086\text{ s} \Rightarrow v_o(0.086) = \mathbf{0.5372}$
 
 ---
 
@@ -631,14 +999,111 @@ $W(10 < \omega < \infty) = \mathbf{5 \text{ J}}$.
 
 - Given a general linear two-port network N without initial energy storage.
 - Assume sinusoidal forcing and response functions.
-- Input voltage: $A \cos(\omega_x t + \theta)$.
-- Output voltage: $B \cos(\omega_x t + \phi)$.
+- Input voltage: $v_i(t) = A \cos(\omega_x t + \theta)$.
+- Output voltage: $v_o(t) = B \cos(\omega_x t + \phi)$.
 - In phasor form: $V_i = A e^{j\theta}$ and $V_o = B e^{j\phi}$.
+
+<img src="/two_port_network_system.svg" class="h-60 mx-auto p-4" alt="Two-Port Network Significance" />
+
+---
+
+To find the relationship between the system function $H(j\omega)$ and the sinusoidal transfer function $G(\omega_x)$, we first evaluate the transform of a phase-shifted cosine.
+
+**Shifted Cosine Transform**:
+Using the substitution $\omega_x t + \beta = \omega_x \tau$:
+$$\mathcal{F}\{\cos(\omega_x t + \beta)\} = \pi e^{j\omega \beta/\omega_x} [\delta(\omega - \omega_x) + \delta(\omega + \omega_x)]$$
+
+**Ratio Calculation**:
+$$H(j\omega) = \frac{\mathcal{F}\{B \cos(\omega_x t + \phi)\}}{\mathcal{F}\{A \cos(\omega_x t + \theta)\}} = \frac{\pi B e^{j\omega \phi/\omega_x} [\delta(\omega - \omega_x) + \delta(\omega + \omega_x)]}{\pi A e^{j\omega \theta/\omega_x} [\delta(\omega - \omega_x) + \delta(\omega + \omega_x)]}$$
+$$H(j\omega) = \frac{B}{A} e^{j\omega(\phi - \theta)/\omega_x}$$
+
+**Conclusion**:
+Evaluating at the specific frequency $\omega = \omega_x$:
+$$\mathbf{H(j\omega_x) = \frac{B}{A} e^{j(\phi - \theta)} = G(\omega_x)}$$
+The system function $H(j\omega)$ is identical to the sinusoidal transfer function.
 
 ---
 
 ## Example 18.8
 
-Calculate the input impedance for the one-port resistor network shown in Fig 17.3.
+**Problem**: Find the voltage $v_o(t)$ across the inductor of the circuit shown below when the input voltage is $v_i(t) = 5e^{-3t}u(t)$ V.
 
-*(Space for solution)*
+<img src="/example_18_8_circuit.svg" class="h-70 mx-auto p-4" alt="Example 18.8 RL Circuit" />
+
+---
+
+## Example 18.8: Solution
+
+**1. Determine System Function $H(j\omega)$**:
+Using voltage division in the frequency domain:
+$$H(j\omega) = \frac{V_o}{V_i} = \frac{j2\omega}{4 + j2\omega} = \frac{j\omega}{2 + j\omega}$$
+
+**2. Find Input Transform $V_i(j\omega)$**:
+$$v_i(t) = 5e^{-3t}u(t) \leftrightarrow V_i(j\omega) = \frac{5}{3 + j\omega}$$
+
+**3. Find Output Transform $V_o(j\omega)$**:
+$$V_o(j\omega) = H(j\omega)V_i(j\omega) = \left(\frac{j\omega}{2 + j\omega}\right)\left(\frac{5}{3 + j\omega}\right) = \frac{j5\omega}{(2 + j\omega)(3 + j\omega)}$$
+
+---
+
+**4. Partial Fraction Expansion** (let $s = j\omega$):
+$$V_o(s) = \frac{5s}{(s+2)(s+3)} = \frac{A}{s+3} + \frac{B}{s+2}$$
+- **Solve for A** (Cover-up $s=-3$): $A = \left. \frac{5s}{s+2} \right|_{s=-3} = \frac{-15}{-1} = \mathbf{15}$
+- **Solve for B** (Cover-up $s=-2$): $B = \left. \frac{5s}{s+3} \right|_{s=-2} = \frac{-10}{1} = \mathbf{-10}$
+- Resulting in: $V_o(j\omega) = \frac{15}{3 + j\omega} - \frac{10}{2 + j\omega}$
+
+**5. Inverse Transform**:
+Using the pair $e^{-at}u(t) \leftrightarrow \frac{1}{a + j\omega}$:
+$$\mathbf{v_o(t) = [15e^{-3t} - 10e^{-2t}]u(t)\text{ V}}$$
+
+---
+
+## Practice 18.16
+
+Use Fourier transform techniques on the circuit shown to find $i_1(t)$ at $t = 1.5$ ms if $i_s$ equals (a) $\delta(t)$ A; (b) $u(t)$ A; (c ) $\cos(500t)$ A.
+
+<img src="/practice_18_16_circuit.svg" class="h-60 mx-auto p-4" alt="Practice 18.16 Circuit" />
+
+**Answers**: (a) $-141.7$ A; (b) $0.683$ A; (c ) $0.308$ A.
+
+---
+
+## Practice 18.16: Solution (Part a)
+
+**1. Determine System Function $H(j\omega)$**:
+Using current division:
+$$H(j\omega) = \frac{I_1}{I_s} = \frac{4 + j0.02\omega}{6 + 4 + j0.02\omega} = \frac{200 + j\omega}{500 + j\omega} = 1 - \frac{300}{500 + j\omega}$$
+
+**2. Solve for $i_s(t) = \delta(t)$**:
+- $I_1(j\omega) = I_s(j\omega) H(j\omega) = 1 - \frac{300}{500 + j\omega}$
+- $i_1(t) = \delta(t) - 300 e^{-500t}u(t)$
+- At $t = 1.5$ ms: $i_1(0.0015) = 0 - 300 e^{-500(0.0015)} = -300 e^{-0.75} \approx \mathbf{-141.7\text{ A}}$
+
+---
+
+## Practice 18.16: Solution (Part b)
+
+**Solve for $i_s(t) = u(t)$**:
+- $I_s(j\omega) = \pi\delta(\omega) + \frac{1}{j\omega}$
+- $I_1(j\omega) = \frac{200 + j\omega}{500 + j\omega} \left[ \pi\delta(\omega) + \frac{1}{j\omega} \right]$
+- $I_1(j\omega) = \frac{200}{500} \pi \delta(\omega) + \frac{200 + j\omega}{j\omega(500 + j\omega)}$
+- Using partial fractions for the second term (let $s = j\omega$):
+  $$\frac{200 + s}{s(500 + s)} = \frac{A}{s} + \frac{B}{500 + s}$$
+  - **Solve for A** (Cover-up $s=0$): $A = \left. \frac{200 + s}{500 + s} \right|_{s=0} = \frac{200}{500} = \mathbf{0.4}$
+  - **Solve for B** (Cover-up $s=-500$): $B = \left. \frac{200 + s}{s} \right|_{s=-500} = \frac{-300}{-500} = \mathbf{0.6}$
+  - Resulting in: $\frac{0.4}{j\omega} + \frac{0.6}{500 + j\omega}$
+---
+
+- $I_1(j\omega) = 0.4 \left[ \pi\delta(\omega) + \frac{1}{j\omega} \right] + \frac{0.6}{500 + j\omega}$
+- Using the pairs $u(t) \leftrightarrow \pi\delta(\omega) + \frac{1}{j\omega}$ and $e^{-at}u(t) \leftrightarrow \frac{1}{a + j\omega}$:
+- $i_1(t) = 0.4 u(t) + 0.6 e^{-500t} u(t)$
+- At $t = 1.5$ ms: $i_1(0.0015) = 0.4 + 0.6 e^{-0.75} \approx \mathbf{0.683\text{ A}}$
+
+---
+
+## Practice 18.16: Solution (Part c)
+
+**Solve for $i_s(t) = \cos(500t)$**:
+- At $\omega = 500$: $H(j500) = \frac{200 + j500}{500 + j500} = \frac{2 + j5}{5 + j5} = 0.7 + j0.3$
+- $i_1(t) = \text{Re}\{ (0.7 + j0.3) e^{j500t} \} = 0.7 \cos(500t) - 0.3 \sin(500t)$
+- At $t = 1.5$ ms: $i_1(0.0015) = 0.7 \cos(0.75) - 0.3 \sin(0.75) \approx \mathbf{0.308\text{ A}}$

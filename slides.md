@@ -145,9 +145,4 @@ src: ./chapter_18_p1.md
 src: ./chapter_18_p2.md
 ---
 
----
-
-## Future Chapters
-
-> Placeholder for future slides.
 

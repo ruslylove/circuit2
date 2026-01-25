@@ -433,17 +433,15 @@ layout: two-cols-header
 <div class="grid grid-cols-2 gap-4 mt-10">
   <div class="text-center">
 
-<p class="text-sm font-bold mb-2">
-
-(a) Cosine-like with small dip at $t=0$</p>
+<p class="text-sm font-bold mb-2">(a) 
+Cosine-like with small dip at $t=0$</p>
 
 <img src="/even_sym_cosine_dip.svg" class="h-60 mx-auto" alt="Even symmetry cosine dip" />
   </div>
   <div class="text-center">
 
-<p class="text-sm font-bold mb-2">
-
-(b) Odd sym. clipped sawtooth wave</p>
+<p class="text-sm font-bold mb-2">(b) 
+Odd sym. clipped sawtooth wave</p>
 
 <img src="/odd_sym_clipped_sawtooth.svg" class="h-60 mx-auto" alt="Odd symmetry clipped sawtooth" />
   </div>
