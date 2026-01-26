@@ -11,11 +11,11 @@ transition: slide-left
 mdc: true
 ---
 
-# 010153105 Circuit Analysis Technique
+# 010153105 Circuit Analysis Technique 2/2025
 
-## Part III (Chapter 16 & 18)
+## Part III (Ch. 16 & 18): Frequency Response and Fourier Analysis
 
-Frequency Response and Fourier Analysis
+Assistant Prof. Dr. Ruslee Sutthaweekul
 
 <div class="abs-br m-6 flex gap-2">
   <button @click="$slidev.nav.openInEditor()" title="Open in Editor" class="slidev-icon-btn">

@@ -15,9 +15,7 @@ layout: cover
 
 # Chapter 16: Frequency Response
 
-## Part III
-
-Presentation slides for Circuit Analysis
+## Part III - Bode Diagrams and Filters
 
 <div class="abs-br m-6 flex gap-2">
   <button @click="$slidev.nav.openInEditor()" title="Open in Editor" class="slidev-icon-btn">

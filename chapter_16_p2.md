@@ -15,7 +15,7 @@ layout: cover
 
 # Chapter 16: Frequency Response
 
-## Part II: Scaling and Bode Diagrams
+## Part II - Scaling and Bode Diagrams
 
 <div class="abs-br m-6 flex gap-2">
   <button @click="$slidev.nav.openInEditor()" title="Open in Editor" class="slidev-icon-btn">
@@ -176,7 +176,7 @@ layout: two-cols
 :: right ::
 
 <div class="flex flex-col justify-center h-full items-center px-4">
-  <img src="/bode_intro_plot.svg" class="h-100 rounded bg-white p-1" />
+  <img src="/bode_intro_asymptotes.svg" class="w-full rounded bg-white p-1" />
 </div>
 
 ---
@@ -190,7 +190,7 @@ layout: two-cols
 - Inverse: $|H(j\omega)| = 10^{H_{dB}/20}$
 
 <div class="grid grid-cols-2 gap-4 mt-6">
-<div class="bg-blue-50 p-3 rounded border border-blue-200 text-sm">
+<div class="bg-gray-50 p-3 rounded border border-gray-200 text-sm">
 
 **Common dB Values**
 - **$0 \text{ dB}$**: $|H| = 1$ (Unity)
@@ -198,7 +198,7 @@ layout: two-cols
 - **$20 \text{ dB}$**: $|H| = 10$ (Tenfold)
 
 </div>
-<div class="bg-red-50 p-3 rounded border border-red-200 text-sm">
+<div class="bg-gray-50 p-3 rounded border border-gray-200 text-sm">
 
 **Quick Check**
 - $+20 \text{ dB} \to \times 10$
@@ -366,10 +366,10 @@ layout: two-cols
 
 :: right ::
 
-<img src="/example_16_7_asymptotes.svg" class="h-50 rounded bg-white p-1 mx-auto" />
+<img src="/example_16_7_asymptotes.svg" class="h-55 rounded bg-white p-1 mx-auto" />
 <div class="text-[10px] text-center opacity-70 mb-2">1. Individual Asymptotic Terms</div>
 
-<img src="/example_16_7_composite.svg" class="h-50 rounded bg-white p-1 mx-auto" />
+<img src="/example_16_7_composite.svg" class="h-55 rounded bg-white p-1 mx-auto" />
 <div class="text-[10px] text-center opacity-70">2. Composite Asymptotic (Summed)</div>
 ---
 

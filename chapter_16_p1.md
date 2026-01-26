@@ -15,7 +15,7 @@ layout: cover
 
 # Chapter 16: Frequency Response
 
-## Part I: Resonance
+## Part I - Resonance
 
 <div class="abs-br m-6 flex gap-2">
   <button @click="$slidev.nav.openInEditor()" title="Open in Editor" class="slidev-icon-btn">
@@ -1186,8 +1186,8 @@ The series-to-parallel transformation is **narrowband**. The equivalence is exac
 
 How do we get the **Ideal Model** values for the comparison?
 
-<div class="grid grid-cols-2 gap-4 mt-2">
-<div class="bg-blue-50 p-4 rounded border border-blue-200 text-xs">
+<div class="grid grid-cols-2 gap-4 mt-6">
+<div class="bg-gray-50 p-3 rounded border border-gray-200 text-sm">
 
 ### 1. Low-Q Case (Ex 16.4)
 $\omega_0 = 2, R_1 = 2, L = 1, R_2 = 3$
@@ -1202,7 +1202,7 @@ $\omega_0 = 2, R_1 = 2, L = 1, R_2 = 3$
 $1.714 \Omega \parallel 2 \text{ H} \parallel 0.125 \text{ F}$
 
 </div>
-<div class="bg-green-50 p-4 rounded border border-green-200 text-xs">
+<div class="bg-gray-50 p-3 rounded border border-gray-200 text-sm">
 
 ### 2. High-Q Case (Prac 16.5)
 $f_0 = 1\text{MHz}, R_1 = 1\text{k}, L = 10\text{m}, C = 2.533\text{p}$
@@ -1368,7 +1368,7 @@ $$ \omega_0 \approx \frac{\omega_1 + \omega_2}{2} $$
 </div>
 
 <div class="mt-8 flex justify-center">
-  <div class="bg-yellow-50 px-4 py-2 rounded-full border border-yellow-200 font-bold text-yellow-800">
+  <div class="bg-gray-50 px-4 py-2 rounded-full border border-gray-200 font-bold text-gray-800">
 
   $\omega_0 = \frac{1}{\sqrt{LC}} \quad \text{vs} \quad Q_0 = \frac{\text{Energy Stored}}{\text{Energy Lost}}$
   </div>

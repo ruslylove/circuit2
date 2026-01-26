@@ -602,6 +602,17 @@ Sketch each of the functions described; state whether or not even symmetry, odd 
 
 Determine the Fourier series for the waveforms of Practice Problem 18.4a and b.
 
+<div class="grid grid-cols-2 gap-4 mt-10">
+  <div class="text-center">
+    <p class="text-sm font-bold mb-2">(a)</p>
+    <img src="/practice_18_4_a.svg" class="h-40 mx-auto" />
+  </div>
+  <div class="text-center">
+    <p class="text-sm font-bold mb-2">(b)</p>
+    <img src="/practice_18_4_b.svg" class="h-40 mx-auto" />
+  </div>
+</div>
+
 ---
 
 ## Solution 18.5(a) Detail
@@ -733,15 +744,22 @@ $$i_{f,n}(t) = \frac{-5n\cos 2nt + 5\sin 2nt}{n\pi(1+n^2)} = \frac{5}{\pi(1+n^2)
 $$V_{dc} = 5\,\text{V} \implies I_{dc} = \frac{5}{R} = \frac{5}{4} = 1.25\,\text{A}$$
 
 **5. Total Forced Response:**
-$$i_f(t) = 1.25 + \sum_{n=1,3,...}^{\infty} i_{f,n}(t)$$
+$$i_f(t) = 1.25 + \frac{5}{\pi} \sum_{n=1,3,...}^{\infty} \frac{1}{1+n^2} \left[ \frac{\sin 2nt}{n} - \cos 2nt \right]$$
 
 ---
 
 ## Example 18.2: Step 3 - Natural Response
 
-**1. Natural Response Form:**
-From the circuit's single pole at $s = -R/L = -4/2 = -2$:
-$$i_n(t) = Ae^{-2t}$$
+**1. Natural Response Derivation:**
+- For the source-free circuit ($t > 0$ with $v_s$ replaced by a short), KVL gives:
+  $$L \frac{di_n}{dt} + Ri_n = 0 \implies 2 \frac{di_n}{dt} + 4i_n = 0$$
+- The characteristic equation is:
+  $$Ls + R = 0 \implies 2s + 4 = 0$$
+- Solving for the **single pole**: $s = -R/L = -4/2 = -2$.
+- The resulting natural response form is:
+  $$i_n(t) = Ae^{st} = Ae^{-2t}$$
+
+---
 
 **2. Complete Response:**
 $$i(t) = i_f(t) + i_n(t) = 1.25 + i_{f,harm}(t) + Ae^{-2t}$$
@@ -790,10 +808,26 @@ Use the methods of Chap. 8 to determine the value of the current sketched in Fig
 Circuit: $L=2$H, $R=4\Omega \implies \tau = L/R = 0.5$s. $v_s(t)$ switches every $\pi/2 \approx 1.57$s.
 
 **\(a\) Interval $0 \le t \le \pi/2$:** ($V_s = 10$V, $i(0) = 0$)
-$$i(t) = \frac{V_s}{R}(1 - e^{-t/\tau}) = 2.5(1 - e^{-2t}) \implies i(\pi/2) = 2.5(1 - e^{-\pi}) \approx \mathbf{2.392\,A}$$
+
+> **Recall: Chapter 8 - RL Step Response**  
+> For a series RL circuit with a step input $V_s$ and initial current $I_0$:
+> $$i(t) = i_f(t) + i_n(t) = \frac{V_s}{R} + (I_0 - \frac{V_s}{R})e^{-t/\tau}$$
+> Here, $I_0 = 0$ and $\tau = L/R = 0.5\,$s:
+> $$i(t) = 2.5 + (0 - 2.5)e^{-t/0.5} = 2.5(1 - e^{-2t})$$
+
+$$i(\pi/2) = 2.5(1 - e^{-\pi}) \approx \mathbf{2.392\,A}$$
+
+---
 
 **\(b\) Interval $\pi/2 \le t \le \pi$:** ($V_s = 0$V, $i(\pi/2) = 2.392$A)
-$$i(t) = i(\pi/2)e^{-2(t-\pi/2)} \implies i(\pi) = 2.392e^{-\pi} \approx \mathbf{0.1034\,A}$$
+
+> **Recall: Chapter 8 - Source-Free RL Circuit**  
+> For a circuit with no external source, the current decays from its initial value $I_0$:
+> $$i(t) = I_0 e^{-(t-t_0)/\tau}$$
+> Using $I_0 = 2.392\,$A at $t_0 = \pi/2$:
+> $$i(t) = 2.392 e^{-(t-\pi/2)/0.5} = 2.392 e^{-2(t-\pi/2)}$$
+
+$$i(\pi) = 2.392e^{-\pi} \approx \mathbf{0.1034\,A}$$
 
 **\(c\) Interval $\pi \le t \le 3\pi/2$:** ($V_s = 10$V, $i(\pi) = 0.1034$A)
 $$i(t) = 2.5 + (0.1034 - 2.5)e^{-2(t-\pi)} \implies i(3\pi/2) = 2.5 - 2.3966e^{-\pi} \approx \mathbf{2.396\,A}$$

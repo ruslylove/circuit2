@@ -15,9 +15,7 @@ layout: cover
 
 # Chapter 18: Fourier Circuit Analysis
 
-## Part II
-
-Presentation slides for Circuit Analysis
+## Part II - Fourier Transforms
 
 <div class="abs-br m-6 flex gap-2">
   <button @click="$slidev.nav.openInEditor()" title="Open in Editor" class="slidev-icon-btn">
