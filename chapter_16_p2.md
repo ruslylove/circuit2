@@ -605,7 +605,7 @@ Construct a Bode magnitude plot for $H(s)$ equal to:
 
 ---
 
-### Practice 16.13 (c) Solution
+### Practice 16.13 \(c\) Solution
 **$H(s) = (s + 10) / s$**
 
 <div class="flex justify-center">

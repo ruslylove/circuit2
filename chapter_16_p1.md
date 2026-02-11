@@ -400,7 +400,7 @@ A parallel resonant circuit is composed of:
 Find:
 (a) $\omega_0$
 (b) $Q_0$
-(c) $\omega_d$
+\(c\) $\omega_d$
 (d) $\alpha$
 (e) $\zeta$
 
@@ -653,7 +653,7 @@ A marginally high-Q parallel resonant circuit has $f_0 = 440 \text{ Hz}$ with $Q
 (a) $f_1$
 (b) $f_2$
 And approximate values for:
-(c) $f_1$
+\(c\) $f_1$
 (d) $f_2$
 
 **Answers**:
@@ -675,7 +675,7 @@ Using exact formulas: $f_{1,2} = f_0 \left[ \sqrt{1 + \left(\frac{1}{2Q_0}\right
 - $f_1 = 440 [1.0035 - 0.0833] = 404.9 \text{ Hz}$.
 - $f_2 = 440 [1.0035 + 0.0833] = 478.2 \text{ Hz}$.
 
-**(c) & (d) Approximate Values**:
+**\(c\) & (d) Approximate Values**:
 - $f_1 \approx f_0 - \frac{B}{2} = 440 - 36.67 = 403.3 \text{ Hz}$.
 - $f_2 \approx f_0 + \frac{B}{2} = 440 + 36.67 = 476.7 \text{ Hz}$.
 
@@ -819,10 +819,10 @@ $\omega_0 = 1/\sqrt{LC} = 50$ krad/s, $Q_0 = \omega_0 L / R = 10$ (**High-Q**), 
 A series resonant circuit has a bandwidth of 100 Hz, $L = 20 \text{ mH}$, $C = 2 \mu\text{F}$. Determine:
 (a) $f_0$
 (b) $Q_0$
-(c) $Z_{in}$ at resonance
+\(c\) $Z_{in}$ at resonance
 (d) $f_2$
 
-**Answers**: (a) 796 Hz; (b) 7.96; (c) $12.57 \Omega$; (d) 846 Hz.
+**Answers**: (a) 796 Hz; (b) 7.96; \(c\) $12.57 \Omega$; (d) 846 Hz.
 
 ---
 
@@ -840,7 +840,7 @@ $B = 100 \text{ Hz}, \quad L = 20 \text{ mH}, \quad C = 2 \mu\text{F}$
   
   $$ Q_0 = \frac{f_0}{B} = \frac{795.78}{100} \approx \mathbf{7.96} $$
 
-- **(c) Input Impedance at Resonance ($Z_{in} = R$)**:
+- **\(c\) Input Impedance at Resonance ($Z_{in} = R$)**:
   
   $$ B = \frac{R}{2\pi L} \implies R = 2\pi B L = 2\pi(100)(20 \times 10^{-3}) = 4\pi \approx \mathbf{12.57 \Omega} $$
 
