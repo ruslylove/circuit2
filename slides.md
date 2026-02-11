@@ -9,6 +9,7 @@ drawings:
   persist: false
 transition: slide-left
 mdc: true
+favicon: "favicon.png"
 ---
 
 # 010153105 Circuit Analysis Technique 2/2025
