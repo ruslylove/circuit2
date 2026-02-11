@@ -1,0 +1,25 @@
+/* Improve visibility of the navigation toolbar */
+.slidev-nav-controls,
+.nav-controls {
+  background-color: rgba(0, 0, 0, 0.1); /* Slight dark background */
+  border-radius: 4px;
+  padding: 2px;
+}
+
+.slidev-nav-controls:hover,
+.nav-controls:hover {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+/* Ensure icons are visible */
+.slidev-nav-controls .icon-btn,
+.nav-controls .icon-btn {
+  color: #333 !important; /* Dark gray for icons */
+}
+
+/* Target the specific bottom-left area if it uses specific classes usually found in Slidev */
+#slidev-nav {
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 4px;
+    box-shadow: 0 0 4px rgba(0,0,0,0.1);
+}
