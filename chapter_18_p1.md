@@ -514,7 +514,7 @@ The product of two symmetric functions follows rules similar to those for multip
 For HWS functions, we can show that $a_n, b_n = 0$ for even $n$ by splitting the integral:
 $$a_n = \frac{2}{T} \left[ \int_{0}^{T/2} f(t) \cos(n\omega_0 t) \, dt + \int_{T/2}^{T} f(t) \cos(n\omega_0 t) \, dt \right]$$
 
-In the second integral, let $t = x + T/2$. Since $f(x + T/2) = -f(x)$ & $\omega_0 T/2 = \pi$:
+In the second integral, let $t = x + T/2$. Since $f(x + T/2) = -f(x)$ and $\omega_0 T/2 = \pi$:
 $$\int_{T/2}^{T} f(t) \cos(n\omega_0 t) \, dt = \int_{0}^{T/2} -f(x) \underbrace{\cos(n\omega_0 x + n\pi)}_{(-1)^n \cos(n\omega_0 x)} \, dx = -(-1)^n \int_{0}^{T/2} f(t) \cos(n\omega_0 t) \, dt$$
 
 ---
@@ -562,8 +562,8 @@ $$\mathbf{b_n = \frac{8}{T} \int_{0}^{T/4} f(t) \sin(n\omega_0 t) \, dt}$$
 | **Even** | $f(t) = f(-t)$ | $b_n = 0$<br>$a_0, a_n = \frac{4}{T}\int_{0}^{T/2}...$ |
 | **Odd** | $f(t) = -f(-t)$ | $a_0, a_n = 0$<br>$b_n = \frac{4}{T}\int_{0}^{T/2}...$ |
 | **Half-Wave** | $f(t) = -f(t - T/2)$ | $a_{ev}, b_{ev} = 0$<br>$a_{odd}, b_{odd} = \frac{4}{T}\int_{0}^{T/2}...$ |
-| **Even + HWS** | Even & HWS | $b_n=0, a_{ev}=0, a_0=0$<br>$a_{odd} = \frac{8}{T}\int_{0}^{T/4}...$ |
-| **Odd + HWS** | Odd & HWS | $a_n=0, b_{ev}=0, a_0=0$<br>$b_{odd} = \frac{8}{T}\int_{0}^{T/4}...$ |
+| **Even + HWS** | Even and HWS | $b_n=0, a_{ev}=0, a_0=0$<br>$a_{odd} = \frac{8}{T}\int_{0}^{T/4}...$ |
+| **Odd + HWS** | Odd and HWS | $a_n=0, b_{ev}=0, a_0=0$<br>$b_{odd} = \frac{8}{T}\int_{0}^{T/4}...$ |
 
 
 ---
@@ -766,10 +766,19 @@ $$i(t) = i_f(t) + i_n(t) = 1.25 + i_{f,harm}(t) + Ae^{-2t}$$
 
 **3. Initial Condition at $t=0$:**
 Since $i(0) = 0$:
-$$0 = 1.25 + i_{f,harm}(0) + A$$
-Evaluating $i_{f,harm}(0)$ using $n$ terms (exact sum $\approx -1.146$):
-$$A \approx -0.104$$
+$$0 = I_{dc} + i_{f,harm}(0) + A = 1.25 + i_{f,harm}(0) + A$$
 
+**Detail: Evaluating $i_{f,harm}(0)$**
+At $t=0$, $i_{f,n}(0) = \frac{5}{\pi(1+n^2)} [0 - \cos(0)] = -\frac{5}{\pi(1+n^2)}$:
+$$i_{f,harm}(0) = -\frac{5}{\pi} \sum_{n=1,3,5,...}^{\infty} \frac{1}{1+n^2}$$
+Using the infinite series sum $\sum_{n=1,3,...}^{\infty} \frac{1}{1+n^2} \approx 0.7203$:
+$$i_{f,harm}(0) \approx -1.5915 \times 0.7203 \approx \mathbf{-1.146}$$
+
+**Solving for A:**
+$$0 = 1.25 - 1.146 + A \implies \mathbf{A \approx -0.104}$$
+
+---
+layout: two-cols-header
 ---
 
 ## Example 18.2: Final Result
@@ -778,11 +787,16 @@ The complete current response for $i(0) = 0$:
 
 $$i(t) = -0.104e^{-2t} + 1.25 + \frac{5}{\pi} \sum_{n=1,3,...}^{\infty} \left[ \frac{\sin(2nt)}{n(1+n^2)} - \frac{\cos(2nt)}{1+n^2} \right] \text{ A}$$
 
+:: left ::
+
 **Key Components:**
 - **Transient term:** $-0.104e^{-2t}$ (dies out over time).
 - **DC term:** $1.25\,$A.
 - **Harmonic summation:** Steady-state periodic response.
 
+:: right ::
+
+<img src="/example_18_2_fourier.svg" class="h-65 mx-auto p-4" alt="Example 18.2 Current Plot" />
 
 ---
 
